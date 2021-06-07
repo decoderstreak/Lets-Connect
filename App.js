@@ -26,13 +26,18 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
+import Check from './test/check';
+
 class App extends React.Component{
   render(){
     return(
-      <View>
-        <Text>Welcome to Let's Connect</Text>
-        <Text>Yahooooooooooooooooooooooooooooo</Text>
-      </View>
+      // <View>
+      //   {/*............... Runs at port 8086 ...................*/}
+      //   <Text>Welcome to Let's Connect</Text>
+      //   <Text>Yahooooooooooooooooooooooooooooo</Text>
+      //   <Text>Hii Uman</Text>
+      // </View>
+      <Check />
     )
   }
 }
