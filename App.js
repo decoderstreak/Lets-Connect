@@ -25,16 +25,17 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import Signup from './mine/Signup';
 
-class App extends React.Component{
-  render(){
+ export default function App(){
+  
     return(
       <View>
-        <Text>Welcome to Let's Connect</Text>
-        <Text>Yahooooooooooooooooooooooooooooo</Text>
+       
+        <Signup></Signup>
       </View>
     )
-  }
+  
 }
 
 const styles = StyleSheet.create({
@@ -56,4 +57,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+
