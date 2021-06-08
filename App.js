@@ -8,6 +8,7 @@
 
 import React from 'react';
 
+
 import {
   SafeAreaView,
   ScrollView,
@@ -28,6 +29,7 @@ import {
 
 // import Check from './test/check';
 import Login from './test/singin';
+import Firestore from './test/firestore';
 
 class App extends React.Component{
   render(){
@@ -39,7 +41,8 @@ class App extends React.Component{
       //   <Text>Hii Uman</Text>
       // </View>
       // <Check />
-      <Login />
+      // <Login />
+      <Firestore />
     )
   }
 }
