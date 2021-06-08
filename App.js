@@ -25,13 +25,28 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
-import Welcome from '../Lets-Connect/Welcome/Welcome'
+// import Welcome from '../Lets-Connect/Welcome/Welcome'
+// class App extends React.Component{
+//   render(){
+//     return(
+//       <View>
+//         <Welcome></Welcome>
+//       </View>
+
+// import Check from './test/check';
+// import Login from './test/singin';
+
 class App extends React.Component{
   render(){
     return(
-      <View>
-        <Welcome></Welcome>
-      </View>
+      // <View>
+      //   {/*............... Runs at port 8086 ...................*/}
+      //   <Text>Welcome to Let's Connect</Text>
+      //   <Text>Yahooooooooooooooooooooooooooooo</Text>
+      //   <Text>Hii Uman</Text>
+      // </View>
+      // <Check />
+      <Login />
     )
   }
 }
