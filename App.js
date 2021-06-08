@@ -26,7 +26,8 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-import Check from './test/check';
+// import Check from './test/check';
+import Login from './test/singin';
 
 class App extends React.Component{
   render(){
@@ -37,7 +38,8 @@ class App extends React.Component{
       //   <Text>Yahooooooooooooooooooooooooooooo</Text>
       //   <Text>Hii Uman</Text>
       // </View>
-      <Check />
+      // <Check />
+      <Login />
     )
   }
 }
