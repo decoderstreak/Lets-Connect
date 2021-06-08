@@ -62,7 +62,7 @@ class Login extends Component {
 
   render() {
     GoogleSignin.configure({
-      webClientId:  "1092003065128-6r53v3re6jioo56027ta496rmkacesq2.apps.googleusercontent.com",
+      webClientId:  "366845209365-76a7prfb9aqke96206bnftnua7isc2u1.apps.googleusercontent.com",
     });
     async function onGoogleButtonPress() {
       // Get the users ID token
