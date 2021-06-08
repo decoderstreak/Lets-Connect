@@ -25,6 +25,7 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+
 // import Welcome from '../Lets-Connect/Welcome/Welcome'
 // class App extends React.Component{
 //   render(){
@@ -33,8 +34,9 @@ import {
 //         <Welcome></Welcome>
 //       </View>
 
-// import Check from './test/check';
-// import Login from './test/singin';
+import Check from './test/check';
+import Login from './test/singin';
+
 
 class App extends React.Component{
   render(){
@@ -47,6 +49,7 @@ class App extends React.Component{
       // </View>
       // <Check />
       <Login />
+      // <Login />
     )
   }
 }
