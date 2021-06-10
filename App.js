@@ -32,8 +32,8 @@ import S from './hii/S'
   
     return(
       <View>
-        {/* <S/> */}
-        <Signup/>
+        <S/>
+        {/* <Signup/> */}
       </View>
     )
   
