@@ -26,25 +26,17 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
-
-// import Check from './test/check';
-import Login from './test/singin';
-import Firestore from './test/firestore';
-
-class App extends React.Component{
-  render(){
+import Signup from './mine/Signup';
+import S from './hii/S'
+ export default function App(){
+  
     return(
-      // <View>
-      //   {/*............... Runs at port 8086 ...................*/}
-      //   <Text>Welcome to Let's Connect</Text>
-      //   <Text>Yahooooooooooooooooooooooooooooo</Text>
-      //   <Text>Hii Uman</Text>
-      // </View>
-      // <Check />
-      // <Login />
-      <Firestore />
+      <View>
+        {/* <S/> */}
+        <Signup/>
+      </View>
     )
-  }
+  
 }
 
 const styles = StyleSheet.create({
@@ -66,4 +58,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+
