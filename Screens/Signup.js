@@ -105,30 +105,50 @@ class  Signup extends React.Component{
         this.setState(state);
       }
 
-      registerUser = () => {
-        if(this.state.email === '' && this.state.password === '') {
-          Alert.alert('Enter details to signup!')
-        } else {
-          this.setState({
-            isLoading: true,
-          })
-          auth()
-          .createUserWithEmailAndPassword(this.state.email, this.state.password)
-          .then((res) => {
-            res.user.updateProfile({
+       registerUser = () => {
+       
+      
+          console.log("Signup")
+          if(this.state.email === '' && this.state.password === '') {
+            Alert.alert('Enter details to signup!')
+          } 
+        
+          console.log("hello", this.state.email, this.state.password)
+          auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
+            .then((res) => {
+              res.user.updateProfile({
               displayName: this.state.displayName
             })
-            console.log('User registered successfully!')
-            this.setState({
-              isLoading: false,
-              displayName: '',
-              email: '', 
-              password: ''
+     
+              
+               
+      
+              console.log('User account created!');
+              alert("User account created!! Login to connect")
+              this.setState({
+                      isLoading: false,
+                      displayName: '',
+                      email: '', 
+                      password: ''
+                    })
+                    this.props.navigation.navigate('Login')
+             
             })
-            this.props.navigation.navigate('Welcome')
-          })
-          .catch(error => this.setState({ errorMessage: error.message }))      
-        }
+            .catch(error => {
+              if (error.code === 'auth/email-already-in-use') {
+                console.log('That email address is already in use!');
+                alert(error.code)
+              }
+      
+              if (error.code === 'auth/invalid-email') {
+                console.log('That email address is invalid!');
+                alert(error.code)
+              }
+              
+      
+              console.error(error);
+            });
+          
       }
 
      

@@ -36,7 +36,9 @@ export default class Login extends Component {
     this.state = { 
       email: '', 
       password: '',
-      isLoading: false
+      isLoading: false,
+      l: 0,
+      x:0,
     }
   }
 
@@ -47,9 +49,16 @@ export default class Login extends Component {
   }
 
   userLogin = () => {
-    if(this.state.email === '' && this.state.password === '') {
+    this.setState({ l: 1 })
+    console.log("hlo", this.state.email, this.state.password)
+
+    if(this.state.email === '' || this.state.password === '') {
       Alert.alert('Enter details to signin!')
-    } else {
+      setTimeout(() => {
+        this.setState({ l: 0 })
+      }, 1000)
+    }
+     else {
       this.setState({
         isLoading: true,
       })
@@ -64,9 +73,33 @@ export default class Login extends Component {
           email: '', 
           password: ''
         })
+        auth().onAuthStateChanged((user) => {
+            if (user) {
+          
+              this.state.x = 1;
+              this.setState({ x: this.state.x, l: 0 })
+              console.log("a user", auth().currentUser.email, "and logged in", this.state.x)
+
+            } else {
+              
+              console.log("logged out", this.state.x, "is x")
+
+            }
+          })
+
+        
         this.props.navigation.navigate('Welcome')
       })
-      .catch(error => this.setState({ errorMessage: error.message }))
+    
+    .catch(error => {
+        alert(error.code)
+        this.setState({ l: 0 })
+        if (error.code === 'auth/invalid-email') {
+          console.log('That email address is invalid!');
+          alert(error.code)
+        }
+      })
+      
     }
   }
 
