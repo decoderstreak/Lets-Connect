@@ -7,6 +7,7 @@
  */
 
 import React from 'react';
+import 'react-native-gesture-handler';
 
 import {
   SafeAreaView,
@@ -25,15 +26,18 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+//Working with port 8087 ----- it's pretty good actually and having fun with this
 import Signup from './mine/Signup';
 import S from './hii/S'
+import Stack from './navigation/stack';
  export default function App(){
   
     return(
-      <View>
-        {/* <S/> */}
-        <Signup/>
-      </View>
+      // <View>
+        // <S/>
+      //   {/* <Signup/> */}
+      // </View>
+      <Stack />
     )
   
 }

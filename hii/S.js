@@ -35,17 +35,24 @@ import Svg, {
 import auth from '@react-native-firebase/auth';
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
 import { LoginManager, AccessToken } from 'react-native-fbsdk';
-export default function S() {
+import Signup from '../mine/Signup';
+import Welcome from '../Screens/Welcome';
+export default function S({navigation}) {
   const [Name, setName] = useState('')
   const [Password, setPassword] = useState('')
   const [email, setemail] = useState('')
   // ------------------------------------------------SIGNIN WITH MAIL & PASSWORD----------------------------------------
   async function signinwithmailpassword(){
+    
    console.log(email,Password);
+ 
   auth()
   .createUserWithEmailAndPassword(email, Password)
   .then(() => {
+  
     console.log('User account created & signed in!');
+    
+   
   })
   .catch(error => {
     if (error.code === 'auth/email-already-in-use') {
@@ -64,14 +71,20 @@ export default function S() {
     webClientId:  "366845209365-76a7prfb9aqke96206bnftnua7isc2u1.apps.googleusercontent.com",
   });
   async function onGoogleButtonPress() {
+    // navigation.navigate('Welcome');
+    
+   
     // Get the users ID token
     const { idToken } = await GoogleSignin.signIn();
   
+  
     // Create a Google credential with the token
     const googleCredential = auth.GoogleAuthProvider.credential(idToken);
+   
   
     // Sign-in the user with the credential
     return auth().signInWithCredential(googleCredential);
+    
   }
 // }
 // -------------------------------------FACEBOOK SIGNIN CODE--------------------------------------------
@@ -114,7 +127,8 @@ export default function S() {
             {/* -------------------------------------------GOOGLE LOGIN------------------------------------- */}
             <TouchableOpacity 
             style={styles.button2}
-            onPress={() => onGoogleButtonPress().then(() => console.log('Signed in with Google!'))}
+            onPress={() => onGoogleButtonPress().then(() => console.log('Signed in with Google!')
+            )}
   >
                <View style={{flexDirection:"row",justifyContent:"space-around",paddingRight:40}}>
                <View style={{paddingStart:10}}>
@@ -134,7 +148,10 @@ export default function S() {
             <TextInput placeholder="email" style={styles.textinput} onChangeText={(value)=>setemail(value)}></TextInput>
             <TextInput placeholder="password" style={styles.textinput} onChangeText={(value)=>setPassword(value)}></TextInput>
             <View style={{marginTop:80}}>
-            <TouchableOpacity style={styles.button3} onPress={()=>signinwithmailpassword()}>
+            <TouchableOpacity style={styles.button3} onPress={()=>
+            signinwithmailpassword()
+          
+            }>
             <Text style={{fontFamily:'Roboto',fontSize:18,color:'white',fontWeight:'500'}}>Get Started</Text>
             </TouchableOpacity>
             </View>  
