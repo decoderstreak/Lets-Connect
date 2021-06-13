@@ -69,7 +69,7 @@ export default function Signup() {
             </TouchableOpacity>
             <Text style={{alignSelf:'center',marginBottom: 40,}}>or log in with email</Text>
             <TextInput placeholder="email" style={styles.textinput} onChangeText={(value)=>setemail(value)}></TextInput>
-            <TextInput placeholder="password" style={styles.textinput} onChangeText={(value)=>setPassword(value)}></TextInput>
+            <TextInput placeholder="password"  secureTextEntry={true} style={styles.textinput} onChangeText={(value)=>setPassword(value) }></TextInput>
             <TouchableOpacity 
             style={styles.button3}
             onPress={()=>signin()}>
@@ -95,7 +95,7 @@ const styles=StyleSheet.create({
     },
     button1:{
         height:50,
-        backgroundColor: "#7583CA",
+        backgroundColor: "#116FAF",
         borderRadius: 38,
         // flexDirection:'column',
          paddingVertical: 12,

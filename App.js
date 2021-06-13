@@ -90,15 +90,14 @@
  } from 'react-native/Libraries/NewAppScreen';
  import Signup from './mine/Signup';
  import S from './hii/S'
- import Storage from './StorageDataBase/Storage'
+ import Storage from './StorageDataBase/Storage';
+ import Stack from './navigation/stack'
+ import AuthScreens  from './Authentications/AuthScreens';
+ import Welcome from './AppScreens/Welcome';
   export default function App(){
    
      return(
-       <View>
-         <Storage/>
-         {/* <S/> */}
-         {/* <Signup/> */}
-       </View>
+       <AuthScreens/>
      )
    
  }

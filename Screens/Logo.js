@@ -11,16 +11,10 @@ export default class Logo extends Component {
   render() {
     return (
       <View>
-        <Text> Logo </Text>
-        <Text style={{alignContent:"center",fontSize:40,margin:40}}>LOGO PAGE</Text>
-        
         <TouchableOpacity 
             style={styles.button3}
             onPress={() => this.props.navigation.navigate('Login')}>
- <Text style={{fontSize:18,color:"white",fontWeight:"bold"}}>Get Started</Text>
-        
-
-           
+           <Text style={{fontSize:18,color:"white",fontWeight:"bold"}}>Let's Connect</Text>
         </TouchableOpacity>
 
       </View>

@@ -41,146 +41,117 @@ import { LoginManager, AccessToken } from 'react-native-fbsdk';
 import Back from '../assets/backarrow';
 
 
-//Facebook
-async function onFacebookButtonPress() {
-  // Attempt login with permissions
-  const result = await LoginManager.logInWithPermissions(['public_profile', 'email']);
-
-  if (result.isCancelled) {
-    throw 'User cancelled the login process';
+function Signup({navigation}) {
+  const [Name, setName] = useState('')
+  const [Password, setPassword] = useState('')
+  const [email, setemail] = useState('')
+  const [Loader, setLoader] = useState(false)
+  // ------------------------------------------------LOADER-----------------------------------------------------------------
+  function Activityloader()
+{
+  if(Loader)
+  {
+    return(
+      // setInterval(()=>{
+        <ActivityIndicator color = 'white'size = "large" />
+      // },1000)
+    )
   }
-
-  // Once signed in, get the users AccesToken
-  const data = await AccessToken.getCurrentAccessToken();
-
-  if (!data) {
-    throw 'Something went wrong obtaining access token';
-  }
-
-  // Create a Firebase credential with the AccessToken
-  const facebookCredential = auth.FacebookAuthProvider.credential(data.accessToken);
-
-  // Sign-in the user with the credential
-  return auth().signInWithCredential(facebookCredential);
 }
- GoogleSignin.configure({
-  webClientId:  "366845209365-76a7prfb9aqke96206bnftnua7isc2u1.apps.googleusercontent.com",
-});
-
-async function onGoogleButtonPress() {
-
+  // ------------------------------------------------SIGNIN WITH MAIL & PASSWORD----------------------------------------
+  async function signinwithmailpassword(){
   
- 
-  // Get the users ID token
-  const { idToken } = await GoogleSignin.signIn();
+  setLoader(true)  
+  console.log(email,Password);
+  auth()
+  .createUserWithEmailAndPassword(email, Password)
+  .then(() => {
+  
+    console.log('User account created & signed in!');
+    
+   
+  })
+  .catch(error => {
+    if (error.code === 'auth/email-already-in-use') {
+      console.log('That email address is already in use!');
+    }
 
+    if (error.code === 'auth/invalid-email') {
+      console.log('That email address is invalid!');
+    }
 
-  // Create a Google credential with the token
-  const googleCredential = auth.GoogleAuthProvider.credential(idToken);
- 
-
-  // Sign-in the user with the credential
-  return auth().signInWithCredential(googleCredential);
-}
-
-
-
-
-
-
-class  Signup extends React.Component{
-    constructor() {
-        super();
-        this.state = { 
-          displayName: '',
-          email: '', 
-          password: '',
-          isLoading: false
-        }
-      }
-
-      updateInputVal = (val, prop) => {
-        const state = this.state;
-        state[prop] = val;
-        this.setState(state);
-      }
-
-      registerUser = () => {
-        if(this.state.email === '' && this.state.password === '') {
-          Alert.alert('Enter details to signup!')
-        } else {
-          this.setState({
-            isLoading: true,
-          })
-          auth()
-          .createUserWithEmailAndPassword(this.state.email, this.state.password)
-          .then((res) => {
-            res.user.updateProfile({
-              displayName: this.state.displayName
-            })
-            console.log('User registered successfully!')
-            this.setState({
-              isLoading: false,
-              displayName: '',
-              email: '', 
-              password: ''
-            })
-            this.props.navigation.navigate('Welcome')
-          })
-          .catch(error => this.setState({ errorMessage: error.message }))      
-        }
-      }
-
-     
-
-
-
-
-    render(){
-        if(this.state.isLoading){
-            return(
-              <View style={styles.preloader}>
-                <ActivityIndicator size="large" color="#9E9E9E"/>
-              </View>
-            )
-          }    
-          return (
-            <View style={{margin:20}}>
+    console.error(error);
+  });
+ }
+  //------------------------------------------------GOOGLE SIGNIN CODE-------------------------------------------------- 
+  GoogleSignin.configure({
+    webClientId:  "366845209365-76a7prfb9aqke96206bnftnua7isc2u1.apps.googleusercontent.com",
+  });
+  async function onGoogleButtonPress() {
+    // navigation.navigate('Welcome');
+    
+    setLoader(true)
+    // Get the users ID token
+    const { idToken } = await GoogleSignin.signIn();
+  
+  
+    // Create a Google credential with the token
+    const googleCredential = auth.GoogleAuthProvider.credential(idToken);
+   
+  
+    // Sign-in the user with the credential
+    return auth().signInWithCredential(googleCredential);
+    
+  }
+// }
+// -------------------------------------FACEBOOK SIGNIN CODE--------------------------------------------
+  async function onFacebookButtonPress() {
+    // Attempt login with permissions
+    setLoader(true)
+    const result = await LoginManager.logInWithPermissions(['public_profile', 'email']);
+  
+    if (result.isCancelled) {
+      throw 'User cancelled the login process';
+    }
+  
+    // Once signed in, get the users AccesToken
+    const data = await AccessToken.getCurrentAccessToken();
+  
+    if (!data) {
+      throw 'Something went wrong obtaining access token';
+    }
+  
+    // Create a Firebase credential with the AccessToken
+    const facebookCredential = auth.FacebookAuthProvider.credential(data.accessToken);
+  
+    // Sign-in the user with the credential
+    return auth().signInWithCredential(facebookCredential);
+  }
+    return (
+        <View style={{margin:20}}>
           <ScrollView>
-            <View style={{flexDirection:"row",marginBottom:30}}>
-              <TouchableOpacity onPress={()=> this.props.navigation.navigate('Logo')}>
-           <Back /> 
-           </TouchableOpacity>
+           <TouchableOpacity onPress={()=>navigation.goBack()}>
+            <View>
+            <Back />
+            </View>
+            </TouchableOpacity>
           <Text style={styles.text}>Create your account</Text>
-          </View>
           {/*-----------------------------------------FACEBOOK LOGIN------------------------------------ */}
-          <View style={{}}>
             <TouchableOpacity 
             style={styles.button1}
-            onPress={() => {
-              onFacebookButtonPress().then(() => {
-               
-                console.log('Signed in with Facebook!')
-              })
-            }}
-           >
+            onPress={()=>onFacebookButtonPress().then(() => console.log('Signed in with Facebook!'))}>
                  <View style={{flexDirection:"row",justifyContent:"space-around",paddingRight:40}}>
                  <Svg width="13" height="25" viewBox="0 0 13 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                  <Path d="M10.6776 4.92937H12.8745V1.10305C12.4955 1.05091 11.192 0.933594 9.67389 0.933594C6.50635 0.933594 4.33649 2.92597 4.33649 6.58785V9.95794H0.841064V14.2355H4.33649V24.9985H8.62206V14.2365H11.9761L12.5085 9.95894H8.62105V7.01199C8.62206 5.77566 8.95495 4.92937 10.6776 4.92937Z" fill="white"/>
                  </Svg>
-                 <Text style={{fontSize:14,fontFamily:"Roboto",color:"white",fontWeight:'400'}} >CONTINUE WITH FACEBOOK</Text>
+                 <Text style={{fontSize:14,fontFamily:"Roboto",color:"white"}} >CONTINUE WITH FACEBOOK</Text>
                  </View>
             </TouchableOpacity>
-
-            </View>
             {/* -------------------------------------------GOOGLE LOGIN------------------------------------- */}
             <TouchableOpacity 
             style={styles.button2}
-            onPress={() => onGoogleButtonPress().then(() => {
-              
-              console.log('Signed in with Google!')
-            })}
-          
+            onPress={() => onGoogleButtonPress().then(() => console.log('Signed in with Google!')
+            )}
   >
                <View style={{flexDirection:"row",justifyContent:"space-around",paddingRight:40}}>
                <View style={{paddingStart:10}}>
@@ -194,47 +165,25 @@ class  Signup extends React.Component{
                <Text>CONTINUE WITH GOOGLE</Text>
               </View>
             </TouchableOpacity>
-
-
-
-
-
-
 {/* ----------------------------------------WITH MAIL AND PASSWORD----------------------------------------------- */}
-            <Text style={{alignSelf:'center',marginBottom:20,color:"rgba(161, 164, 178, 1)",fontFamily:"Roboto",fontWeight:'400'}}>OR LOG IN WITH EMAIL</Text>
-
-            <TextInput placeholder="NAME" style={styles.textinput} value={this.state.displayName}
-                onChangeText={(val) => this.updateInputVal(val, 'displayName')}>
-
-                </TextInput>
-            <TextInput placeholder="EMAIL ADDRESS" style={styles.textinput} 
-             value={this.state.email}
-            onChangeText={(val) => this.updateInputVal(val, 'email')}
-            // onChangeText={(value)=>setemail(value)}
-            ></TextInput>
-
-            <TextInput placeholder="PASSWORD" style={styles.textinput} 
-            onChangeText={(val) => this.updateInputVal(val, 'password')}
-            value={this.state.password}
-            secureTextEntry={true}
-            >
-            </TextInput>
-
+            <Text style={{alignSelf:'center',marginBottom: 40,}}>or log in with email</Text>
+            <TextInput placeholder="name" style={styles.textinput} onChangeText={(value)=>setName(value)}></TextInput>
+            <TextInput placeholder="email" style={styles.textinput} onChangeText={(value)=>setemail(value)}></TextInput>
+            <TextInput placeholder="password" style={styles.textinput} onChangeText={(value)=>setPassword(value)} secureTextEntry={true}></TextInput>
             <View style={{marginTop:80}}>
-
-            <TouchableOpacity style={styles.button3} onPress={() => this.registerUser()}>
-            <Text style={{fontFamily:'Roboto',fontSize:18,color:'white',fontWeight:'500',marginLeft:-10}}>Sign Up</Text>
+            <TouchableOpacity style={styles.button3} onPress={()=>
+            signinwithmailpassword()
+             }>
+              {Activityloader()}
+            <Text style={{fontFamily:'Roboto',fontSize:18,color:'white',fontWeight:'500'}}>
+              Sign Up</Text>
             </TouchableOpacity>
             </View>  
             </ScrollView>
         </View>
-          );
-        }
-      }
+    )
 
-export default Signup;
-
-
+          }
 const styles = StyleSheet.create({
     container: {
       flex: 1,
@@ -322,9 +271,8 @@ const styles = StyleSheet.create({
       marginBottom: 20,
       borderWidth:1,
       borderColor:"rgba(242, 243, 247, 1)"
-      
-
-
+    
    }
 
   });
+  export default Signup

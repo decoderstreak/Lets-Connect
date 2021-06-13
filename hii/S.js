@@ -36,7 +36,7 @@ import auth from '@react-native-firebase/auth';
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
 import { LoginManager, AccessToken } from 'react-native-fbsdk';
 import Signup from '../mine/Signup';
-import Welcome from '../Screens/Welcome';
+import Welcome from '../AppScreens/Welcome';
 export default function S({navigation}) {
   const [Name, setName] = useState('')
   const [Password, setPassword] = useState('')
