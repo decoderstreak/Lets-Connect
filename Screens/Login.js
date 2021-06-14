@@ -88,7 +88,7 @@ export default class Login extends Component {
           })
 
         
-        this.props.navigation.navigate('Welcome')
+        this.props.navigation.navigate('Connect')
       })
     
     .catch(error => {

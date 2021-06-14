@@ -9,6 +9,7 @@ import Logo from '../Screens/Logo';
 // import Signup from '../mine/Signup';
 import Signup from '../Screens/Signup';
 import Login from '../Screens/Login';
+import Connect from '../Screens/Connect';
 
 const stackScreen =createStackNavigator();
 
@@ -22,6 +23,7 @@ function Stack(){
           <stackScreen.Screen name="Welcome" component={Welcome} />
           <stackScreen.Screen name="Signup" component={Signup} />
           <stackScreen.Screen name="Login" component={Login} />
+          <stackScreen.Screen name="Connect" component={Connect} />
         </stackScreen.Navigator>
       </NavigationContainer>
     )

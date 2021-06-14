@@ -30,6 +30,7 @@ import {
 import Signup from './mine/Signup';
 import S from './hii/S'
 import Stack from './navigation/stack';
+import Connect from './Screens/Connect';
  export default function App(){
   
     return(
@@ -38,6 +39,7 @@ import Stack from './navigation/stack';
       //   {/* <Signup/> */}
       // </View>
       <Stack />
+      // <Connect />
     )
   
 }
