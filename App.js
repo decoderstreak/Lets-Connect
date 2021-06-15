@@ -25,12 +25,14 @@
  import Welcome from './AppScreens/Welcome';
  import Connect from './Screens/Connect';
  import Sadhana from './AppScreens/sadhana/Sadhana'
+ import Track from './Sounds/Trackplayer'
   export default function App(){
    
      return(
-      //  <AuthScreens/>
+       <AuthScreens/>
       // <Sadhana/>
-      <Connect/>
+      // <Connect/>
+      // <Track/>
      )
    
  }

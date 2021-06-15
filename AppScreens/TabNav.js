@@ -6,6 +6,7 @@ import Mentors from './Mentors';
 import RelaxIcon from '../Icons/RelaxIcon';
 import ConnectIcon from '../Icons/ConnectIcon';
 import MentorIcon from '../Icons/MentorIcon';
+import Sadhana from './sadhana/Sadhana';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import MentorFocusedIcon from '../Icons/MentorFocusedIcon';
 const Tab = createBottomTabNavigator();
@@ -16,26 +17,26 @@ export default function TabNav() {
             showLabel:false,
             style:{
                 position:'absolute',
-                height:80,
+                height:60,
                 elevation:0
             }
         }}
         >
         <Tab.Screen 
-        name="Relax" component={Relax}
+        name="Relax" component={Sadhana}
         options={{
             tabBarIcon:({focused})=>(
                 <View style={{flexDirection:'column'}}>
                 <View style={{
                     borderRadius:15,
-                    width:50,height:50,
+                    width:40,height:40,
                     backgroundColor:focused ? '#116FAF' :'white',
                     alignItems:'center',
                     justifyContent:'center',
                     elevation:focused ? 1 : 0}}>
                     <RelaxIcon props={focused ?'white':'black'}/> 
                 </View>
-                    <Text style={{color:focused ? '#116FAF' : 'black'}}>Relax</Text>
+                    <Text style={{color:focused ? '#116FAF' : 'black',fontSize:10}}>Relax</Text>
                 </View>
             )
         }}/>
@@ -46,14 +47,14 @@ export default function TabNav() {
                     <View style={{flexDirection:'column'}}>
                     <View style={{
                         borderRadius:15,
-                        width:50,height:50,
+                        width:40,height:40,
                         backgroundColor:focused ? '#116FAF' :'white',
                         alignItems:'center',
                         justifyContent:'center',
                         elevation:focused ? 1 : 0}}>      
                         <ConnectIcon props={focused ?'white':'black'}/> 
                     </View>
-                        <Text style={{color:focused ? '#116FAF' : 'black'}}>Connect</Text>
+                        <Text style={{color:focused ? '#116FAF' : 'black',fontSize:10}}>Connect</Text>
                     </View>
                 )
             }}/>
@@ -64,14 +65,14 @@ export default function TabNav() {
                     <View style={{flexDirection:'column'}}>
                     <View style={{
                         borderRadius:15,
-                        width:50,height:50,
+                        width:40,height:40,
                         backgroundColor:focused ? '#116FAF' :'white',
                         alignItems:'center',
                         justifyContent:'center',
                         elevation:focused ? 1 : 0}}>
                         <MentorIcon props={focused ?'white':'black'}/> 
                     </View>
-                        <Text style={{color:focused ? '#116FAF' : 'black'}}>Mentors</Text>
+                        <Text style={{color:focused ? '#116FAF' : 'black',fontSize:10}}>Mentors</Text>
                     </View>
                 )
             }}/>
