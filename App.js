@@ -31,6 +31,7 @@ import Signup from './mine/Signup';
 import S from './hii/S'
 import Stack from './navigation/stack';
 import Connect from './Screens/Connect';
+import Track from './Sounds/Trackplayer'
  export default function App(){
   
     return(
@@ -38,7 +39,8 @@ import Connect from './Screens/Connect';
         // <S/>
       //   {/* <Signup/> */}
       // </View>
-      <Stack />
+      // <Stack />
+      <Track />
       // <Connect />
     )
   
