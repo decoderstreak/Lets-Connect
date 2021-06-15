@@ -23,10 +23,14 @@
  import Stack from './navigation/stack'
  import AuthScreens  from './Authentications/AuthScreens';
  import Welcome from './AppScreens/Welcome';
+ import Connect from './Screens/Connect';
+ import Sadhana from './AppScreens/sadhana/Sadhana'
   export default function App(){
    
      return(
-       <AuthScreens/>
+      //  <AuthScreens/>
+      // <Sadhana/>
+      <Connect/>
      )
    
  }

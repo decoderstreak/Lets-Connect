@@ -5,9 +5,11 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Welcome from '../AppScreens/Welcome';
 import Logo from '../Screens/Logo';
 import S from '../hii/S';
+
 // import Signup from '../mine/Signup';
 import Signup from '../Screens/Signup';
 import Login from '../Screens/Login';
+import Connect from '../Screens/Connect';
 const stackScreen =createStackNavigator();
 function Stack(){
     return(
