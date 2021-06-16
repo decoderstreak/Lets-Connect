@@ -29,9 +29,12 @@ import {
 //Working with port 8087 ----- it's pretty good actually and having fun with this
 import Signup from './mine/Signup';
 import S from './hii/S'
-import Stack from './navigation/stack';
+// import Stack from './navigation/stack';
 import Connect from './Screens/Connect';
 import Track from './Sounds/Trackplayer'
+import Stack from './Relax/stack'
+import Logo from './Screens/Logo'
+import { NavigationContainer } from '@react-navigation/native';
  export default function App(){
   
     return(
@@ -40,8 +43,13 @@ import Track from './Sounds/Trackplayer'
       //   {/* <Signup/> */}
       // </View>
       // <Stack />
-      <Track />
+      // <Track />
       // <Connect />
+      // <NavigationContainer>
+      //   <Stack />
+      // </NavigationContainer>
+      <Logo />
+
     )
   
 }
