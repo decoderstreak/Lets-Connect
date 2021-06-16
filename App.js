@@ -28,6 +28,7 @@
  import Track from './Sounds/Trackplayer'
  import Profile from './hii/Profile';
  import GettingFiles from './StorageDataBase/GettingFiles';
+ import Logo from './Screens/Logo'
   export default function App(){
    
      return(
@@ -37,6 +38,7 @@
       // <Connect/>
       // <Track/>
       // <Profile/>
+      // <Logo/>
      )
    
  }
