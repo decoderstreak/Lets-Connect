@@ -41,6 +41,11 @@
     "react-native-svg": "^12.1.1",
     "react-native-track-player": "^1.2.7",
     "react-native-vector-icons": "^8.1.0",
+    "react-native-af-video-player": "^0.2.1",
+    "react-native-linear-gradient": "^2.5.6",
+    "react-native-media-controls": "^2.3.0",
+    "react-native-reanimated-slider": "^1.0.6",
+    "react-native-slideshow": "^1.0.1",
     "react-native-video": "^5.1.1"
   },
   "devDependencies": {
