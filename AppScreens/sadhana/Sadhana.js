@@ -50,7 +50,8 @@ const songDetails = {
     });
     return true;
   };
-  
+//   const url = await storage().ref('VEDIOS/bdaywishvedio.mpy').getDownloadURL();
+//   log
 function Sadhana() {
     const [isTrackPlayerInit, setIsTrackPlayerInit] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -69,10 +70,11 @@ function Sadhana() {
 
  useEffect(() => {
     storage()
-      .ref('/videos/Sudarshan Kriya Pranayama Count (English) Ujjai Breathing Bhastrika Om Chanting.mp3') //name in storage in firebase console
+      .ref('/audios/Sudarshan Kriya Pranayama Count (English) Ujjai Breathing Bhastrika Om Chanting.mp3') //name in storage in firebase console
       .getDownloadURL()
       .then((url) => {
         setImageUrl(url);
+        console.log('audio',url);
       })
       .catch((e) => console.log('Errors while downloading => ', e));
   }, []);

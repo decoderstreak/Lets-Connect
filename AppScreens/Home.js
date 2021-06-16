@@ -13,12 +13,12 @@ import Emailicon from '../assets/Emailicon';
 import Nameicon from '../assets/name';
 import image from '../assets/Avatar.png';
 import RBSheet from "react-native-raw-bottom-sheet";
-
 class Home extends Component {
     constructor() {
         super();
         this.state = { 
-          uid: ''
+          uid: '',
+          url:'https://firebasestorage.googleapis.com/v0/b/let-s-connect-84651.appspot.com/o/Zoom%20Meeting%202021-06-04%2021-03-37.mp4?alt=media&token=5ae8c54c-c036-45b7-9df1-fca74e2799c3'
         }
       }
       signOut = () => {
@@ -26,16 +26,36 @@ class Home extends Component {
           this.props.navigation.navigate('Login')
         })
         .catch(error => this.setState({ errorMessage: error.message }))
-      }  
+      }   
+      // componentDidMount=(()=>{
+      //    storage()
+      //    .ref('VEDIOS/bdaywishvedio.mp4')
+      //    .getDownloadURL().then((url)=>{
+      //      this.state.url=url
+      //    })
+      // })
     render() { 
          this.state = { 
         displayName: auth().currentUser.displayName,
         uid: auth().currentUser.uid,
         email:auth().currentUser.email,
-      }  
+      } 
+      // storage()
+      //    .ref('VEDIOS/bdaywishvedio.mp4')
+      //    .getDownloadURL().then((url)=>{
+      //      this.state.url=url,
+      //      console.log(this.state.url);
+      //    }) 
+      let urlv={uri:"https://firebasestorage.googleapis.com/v0/b/let-s-connect-84651.appspot.com/o/VEDIOS%2Fbdaywishvedio.mp4?alt=media&token=6df0a81e-4b65-489a-aa33-7b0d0569a856"
+        // storage()
+        //  .ref('VEDIOS/bdaywishvedio.mp4')
+        //  .getDownloadURL()
+        //  .then((url)=>{})
+      }
         return (
             <View>
             <View style={{margin:30,flexDirection:'row'}}>
+{/* ---------------------------------------------------Header---------------------------------------------------------- */}
                 <Text style={styles.heading}>Let's Connect</Text>
                 <TouchableOpacity style={{marginLeft:80}} onPress={()=>this.RBSheet.open()}>
                 <MentorIcon props={'black'}/>
@@ -43,6 +63,9 @@ class Home extends Component {
                 <TouchableOpacity style={{marginLeft:30}} onPress={()=>console.log('notification')}>
                 <NotificationIcon/>
                 </TouchableOpacity>
+            </View>
+            <View>
+              <Video source={urlv} style={{width:200,height:500}}/>
             </View>
             <ScrollView>
    {/* ----------------------------------------------------RB SHEET-------------------------------------------------------*/}
@@ -67,11 +90,21 @@ class Home extends Component {
                 }}
               >
                   <View>
+                <View style={{flexDirection:'row'}}>
                 <Text style={{fontSize:34,marginLeft:20}}>My profile</Text>
+                <View style={{marginTop:20,marginLeft:130}}>
+                <TouchableOpacity onPress={()=>this.props.navigation.navigate("Profile")}>
+                  <Text style={{fontSize:14,color:'#116FAF',fontWeight:'bold'}}>Edit</Text>
+                </TouchableOpacity>
+                </View>
+                {/* <TouchableOpacity onPress={()=>console.log('edit')} style={{marginTop:20,marginLeft:130}}>
+                  <Text style={{fontSize:14,color:'#116FAF'}}>Edit</Text>
+                </TouchableOpacity> */}
+                </View>
                 <View style={styles.container}>
                 <Image source={image} />
                 <Text style={{fontSize:20,marginTop:18,color:'#222222'}}> {this.state.displayName}</Text>
-                <TouchableOpacity >
+                <TouchableOpacity onPress={()=>console.log('hiiiiiiiiiiiiiiii')}>
                     <Text style={{marginLeft:150,marginTop:20,fontSize:15,color:'#116FAF'}}>Edit</Text>
                 </TouchableOpacity>
                 </View>
@@ -149,6 +182,13 @@ const styles = StyleSheet.create({
                 flexDirection:'row',
                 marginLeft:20,
                 marginTop:20
+              },
+              backgroundVideo: {
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                bottom: 0,
+                right: 0,
               },
   }
   )

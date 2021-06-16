@@ -26,13 +26,17 @@
  import Connect from './Screens/Connect';
  import Sadhana from './AppScreens/sadhana/Sadhana'
  import Track from './Sounds/Trackplayer'
+ import Profile from './hii/Profile';
+ import GettingFiles from './StorageDataBase/GettingFiles';
   export default function App(){
    
      return(
+      //  <GettingFiles/>
        <AuthScreens/>
       // <Sadhana/>
       // <Connect/>
       // <Track/>
+      // <Profile/>
      )
    
  }

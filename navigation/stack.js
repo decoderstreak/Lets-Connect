@@ -10,6 +10,7 @@ import S from '../hii/S';
 import Signup from '../Screens/Signup';
 import Login from '../Screens/Login';
 import Connect from '../Screens/Connect';
+import Profile from '../hii/Profile';
 const stackScreen =createStackNavigator();
 function Stack(){
     return(
@@ -18,6 +19,7 @@ function Stack(){
           <stackScreen.Screen name="Welcome" component={Welcome} />
           <stackScreen.Screen name="Signup" component={Signup} />
           <stackScreen.Screen name="Login" component={Login} />
+          <stackScreen.Screen name="Profile" component={Profile}/>
         </stackScreen.Navigator>
     )
 

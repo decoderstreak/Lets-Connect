@@ -1,5 +1,4 @@
-import React from 'react';
-
+import React,{useState} from 'react';
 import {
   SafeAreaView,
   ScrollView,
@@ -33,52 +32,70 @@ import Svg, {
     ClipPath,
     Pattern,
     Mask,
-    
-   
   } from 'react-native-svg';
-  import p from '../assets/p.png'
-
+import p from '../assets/Avatar.png'
+import { firebase } from '@react-native-firebase/auth';
+import auth from '@react-native-firebase/auth';
+import { set } from 'react-native-reanimated';
 export default function Profile() {
+  const [Name, setName] = useState('')
+  const [Email, setEmail] = useState('')
+  const [NewName, setNewName] = useState('')
+  const [NewEmail, setNewEmail] = useState('')
+  const [NewYear, setNewYear] = useState('')
+  firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+      setName(firebase.auth().currentUser.displayName)
+      setEmail(firebase.auth().currentUser.email)
+      // User logged in already or has just logged in.
+      console.log(firebase.auth().currentUser);
+    } else {
+      // User not logged in or has just logged out.
+    }
+  });
+ async function Update(){
+  update = {
+    displayName: NewName,
+    email:NewName
+  }
+    await firebase.auth().currentUser.updateProfile(update);
+    // await firebase.auth().currentUser.updateProfile(NewEmail);
+    // await firebase.auth().currentUser.updateProfile(NewYear);
+  }
     return (
-      <View >
-              
-                  <ScrollView>
+      <View>
+        <ScrollView style={{height:590}}>
             <View style={{margin:20}}>
-                  <View style={{paddingLeft:120}}>  
-                  <Image source={require('../assets/p.png')}  style={{
+                  <View style={{alignItems:'center',justifyContent:'center'}}>  
+                  <Image source={p}  style={{
                             height: 120,
                             width: 120,
-                            
                             backgroundColor: "#ddd",
-                            borderRadius: 50}}resizeMode="cover"/>  
-          
-  
+                            borderRadius: 50}}
+                            resizeMode="cover"/>  
   </View>
-  <View style={{alignItems:'center',marginTop:10}}>
+<View style={{alignItems:'center',marginTop:10,justifyContent:'center'}}>
 <Text style={{fontSize:14,color:'#116FAF'}}>Change Profile Picture </Text>
-  </View>
-  <View style={{paddingTop:60}}>
-  
-  <Text style={styles.text1}>Name</Text>
-  <TextInput placeholder="Enter your full name" style={styles.textinput}></TextInput>
+</View>
+<View style={{paddingTop:60}}>
+<Text style={styles.text1}>Name</Text>
+<TextInput placeholder={Name} style={styles.textinput} onChangeText={(value)=>setNewName(value)}></TextInput>
   <Text style={styles.text1}>Email Address</Text>
-  <TextInput placeholder="Enter your Email Address"  style={styles.textinput}></TextInput>
+  <TextInput placeholder={Email}  style={styles.textinput} onChangeText={(value)=>setNewEmail(value)}></TextInput>
   <Text style={styles.text1}>Academic Year</Text>
-  <TextInput placeholder="Academic Year"  style={styles.textinput}></TextInput>
- 
-
+  <TextInput placeholder="2020"  style={styles.textinput}  onChangeText={(value)=>setNewYear(value)}></TextInput>
   </View>
   </View>
   </ScrollView>
   <View style={styles.footer}>
-          <TouchableOpacity style={styles.button}><Text style={styles.buttonText}>Save Changes</Text></TouchableOpacity>
-         
-          </View>
-  
+        <TouchableOpacity style={styles.button} onPress={()=>{Update()
+// console.log('newname',NewName),
+// console.log('newemail',NewEmail),
+// console.log('newYear',NewYear)
+        }}><Text style={styles.buttonText}>Save Changes</Text></TouchableOpacity>
   </View>
-  
- 
-          );
+  </View>
+   );
       };
       const styles= StyleSheet.create({
         header:{
@@ -86,31 +103,20 @@ export default function Profile() {
           width:'100%',
           backgroundColor:'#F5F8FA',
           justifyContent:'center'
-          
-
         } ,
-       
         text:{
               fontFamily:"Roboto",
               fontSize:14,
-              marginVertical:15,
-             
+              marginVertical:15,  
           },
           text1:{
               fontFamily:"Roboto",
               fontSize:14,
               marginVertical:10,
               fontWeight:"bold",
-              paddingLeft:5
-              
-          
-             
+              paddingLeft:5  
           },
-  
-         
-          
           container: {
-          
               justifyContent: 'center',
               backgroundColor: '#F5FCFF',
             },
@@ -128,7 +134,6 @@ export default function Profile() {
             width:364,
             height:47,
             borderRadius:38, 
-          
           },
           buttonText:{
             color:'white',
@@ -136,30 +141,23 @@ export default function Profile() {
             fontSize:14,
             fontFamily:"Roboto",
             fontWeight: "bold",
-            paddingTop:5
-            
+            paddingTop:5 
           },
           footer: {
             backgroundColor:'#FFFFFF',
             height:56,
             alignItems:'center',
             justifyContent:'center',
-            marginTop:245,
+            // marginTop:20,
             shadowColor: "black",
             shadowOffset: { width: 0, height: 4 },
-           
             shadowOpacity: 0.2,
-              elevation: 3,
-            
+            elevation: 3,
           },
-         
           footerText: {
             color:'white',
             fontWeight:'bold',
             alignItems:'center',
             fontSize:18,
-            
-          },
-           
-           
+          }, 
           });
