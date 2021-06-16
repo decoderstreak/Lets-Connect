@@ -45,10 +45,10 @@ import { NavigationContainer } from '@react-navigation/native';
       // <Stack />
       // <Track />
       // <Connect />
-      // <NavigationContainer>
-      //   <Stack />
-      // </NavigationContainer>
-      <Logo />
+      <NavigationContainer>
+        <Stack />
+      </NavigationContainer>
+      // <Logo />
 
     )
   
