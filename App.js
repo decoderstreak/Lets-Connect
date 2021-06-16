@@ -15,8 +15,8 @@ export default class App extends Component {
        {/* <Cards></Cards> */}
         {/* <Pages></Pages> */}
         {/* <Card1></Card1> */}
-        {/* <Home></Home> */}
-        <Cards></Cards>
+        <Home></Home>
+        {/* <Cards></Cards> */}
         {/* <Card2></Card2> */}
       </View>
     )
