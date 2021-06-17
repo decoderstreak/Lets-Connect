@@ -55,20 +55,7 @@ export default class Cards extends Component {
                     <View style={{width:145,height:145,borderRadius:10,marginTop:15,marginLeft:21,backgroundColor:'black'}}>
                         <Image source={img6} style={{width:145,height:145}}></Image>
                     </View>
-                </View>
-                {/* <LinearGradient start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }} colors={['#116faf','#2d9ed6', '#90bcda',]} style={{ width: 370, height: 100, borderRadius: 20, marginLeft: 11, marginTop: 18 }}>
-                    <Text style={{color:'white',fontSize:24,marginLeft:75,marginTop:33}}>CSS</Text>
-                    <Image source={img2} style={{marginTop:-54,marginLeft:270,width:75,height:85}}></Image>
-                </LinearGradient> */}
-                {/* <LinearGradient start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }} colors={['#4701c1','#844adb',]} style={{ width: 370, height: 100, borderRadius: 20, marginLeft: 11, marginTop: 18 }}>
-                    <Text style={{color:'white',fontSize:24,marginLeft:50,marginTop:33}}>BOOTSTRAP</Text>
-                    <Image source={img3} style={{marginTop:-54,marginLeft:265,width:85,height:85}}></Image>
-                </LinearGradient> */}
-                {/* <LinearGradient start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }} colors={['#f79b34','#fbd603']} style={{ width: 370, height: 100, borderRadius: 20, marginLeft: 11, marginTop: 18 }}>
-                    <Text style={{color:'white',fontSize:24,marginLeft:78,marginTop:33}}>JS</Text>
-                    <Image source={img4} style={{marginTop:-56,marginLeft:270,width:85,height:95}}></Image>
-                </LinearGradient> */}
-                
+                </View>                
                 </View>
                 </ScrollView>
             </View>

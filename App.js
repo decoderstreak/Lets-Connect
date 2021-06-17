@@ -30,25 +30,13 @@
  import GettingFiles from './StorageDataBase/GettingFiles';
  import Logo from './Screens/Logo'
  import Card2 from '../Lets-Connect/Card2/Card2.js'
-//  import Cards from './Cards/Cards.js'
+ import Home from '../Lets-Connect/Home/Home.js';
  import Cards from '../Lets-Connect/Card2/Card2.js';
-//  import Pages from './linear/Pages.js'
   export default function App(){
-   
      return(
-       
-      <Cards/>
-      //  <GettingFiles/>
-      //  <AuthScreens/>
-      // <Sadhana/>
-      // <Connect/>
-      // <Track/>
-      // <Profile/>
-      // <Logo/>
-     )
-   
+       <AuthScreens/>
+     ) 
  }
- 
  const styles = StyleSheet.create({
    sectionContainer: {
      marginTop: 32,
