@@ -2,7 +2,8 @@ import React from 'react'
 import { View,Image,Text,TouchableOpacity } from 'react-native'
 import image from './logo.jpeg'
 
-export default function First() {
+export default class extends React.Component {
+    render(){
     return (
         <View>
             <View style={{marginTop:210,backgroundColor:"fff"}}>
@@ -21,4 +22,5 @@ export default function First() {
 
         </View>
     );
+    }
 }

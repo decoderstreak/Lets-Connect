@@ -39,12 +39,14 @@ import auth from '@react-native-firebase/auth';
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
 import { LoginManager, AccessToken } from 'react-native-fbsdk';
 import Back from '../assets/backarrow';
-
+import firestore from '@react-native-firebase/firestore';
 
 //Facebook
 async function onFacebookButtonPress() {
   // Attempt login with permissions
+  const Users = firestore().collection('Users');
   const result = await LoginManager.logInWithPermissions(['public_profile', 'email']);
+
 
   if (result.isCancelled) {
     throw 'User cancelled the login process';
@@ -118,6 +120,19 @@ class  Signup extends React.Component{
             .then((res) => {
               res.user.updateProfile({
               displayName: this.state.displayName
+            }) 
+            firestore().doc('Users/' + auth().currentUser.uid).set({
+              name: this.state.displayName,
+              email: this.state.email,
+              password: this.state.password,
+              Accademic: 2017,
+              // lname
+            }).then((data) => {
+              //success callback
+              console.log('data ', data)
+            }).catch((error) => {
+              //error callback
+              console.log('error ', error)
             })
      
               
