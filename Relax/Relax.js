@@ -7,6 +7,7 @@ import img2 from './images/Mountains.png';
 import img3 from './images/Rela1.png';
 import img4 from './images/Relax2.png';
 import next from './images/next.png';
+import Back from '../assets/backarrow';
 
 class Relax extends Component {
   constructor(props) {
@@ -36,7 +37,7 @@ class Relax extends Component {
                         id:4,
                         img:img4,
                         title:"Piano Sound",
-                        link: 'Player3'
+                        link: 'Track'
                     },
                     
                     
@@ -51,16 +52,26 @@ class Relax extends Component {
 
   render() {
     return (
-        <ScrollView>
+        <ScrollView style={{backgroundColor:"white"}}>
 
-      <View style={{flex:1, backgroundColor: "#fff",marginBottom:20}}>
+      <View style={{flex:1, backgroundColor: "white", marginBottom:30,paddingTop:10}}>
+
+
+              <View style={styles.header}>
+                   <View style={styles.hcontent}>
+                       <TouchableOpacity style={{marginTop:-8}}  onPress={() => console.log("hii") }>
+                       <Back />
+                       </TouchableOpacity>
+                    <Text style={{fontSize:28,fontWeight:"bold",paddingLeft:15}}>Relax</Text>
+                    </View>
+              </View>
        
        
      
 
-            <View>
+            <View style={{marginTop:25}}>
                 <ImageBackground source={relax} style={{ width: 339, height: 195, marginLeft: 9, marginTop: 1,}}>
-                    <Text style={{ fontSize: 25, marginLeft: 22, marginTop: 12 ,fontWeight:"bold"}}>Relax Sounds</Text>
+                    <Text style={{ fontSize: 25, marginLeft: 22, marginTop: 12 ,fontWeight:"bold"}}>Sadhana</Text>
                 </ImageBackground>
                 </View>
                 <Text style={{fontSize:22,fontWeight:"bold",marginLeft:22,marginTop:20}}>Access Playlists</Text>
@@ -70,14 +81,8 @@ class Relax extends Component {
           <View>
               {
                   this.state.sounds.map((l) =>{
-                      return(
-                        
-                              
-                          
-                          <View>
-                              
-                              <Card  containerStyle={{borderRadius:8,height:100, backgroundColor: "#fff",borderRadius:20,borderWidth:1}}>
-
+                      return( 
+                              <Card  containerStyle={{height:80,borderRadius:20,borderWidth:0,}}>
                                   <View style={{flexDirection:"row"}}>
                                   <View>
                                   <Image source={l.img} style={styles.img} />
@@ -87,7 +92,7 @@ class Relax extends Component {
                                       <Text style={styles.title} >{l.title}</Text>
                                      
                                   </View>
-                                  <View style={{position:'absolute',marginLeft:270,paddingTop:20}}>
+                                  <View style={{position:'absolute',marginLeft:270,paddingTop:13}}>
                                       <TouchableOpacity  onPress={() => {this.props.navigation.navigate(l.link)}}>
                                       <Image source={next} style={styles.next} />
                                       </TouchableOpacity>
@@ -100,7 +105,7 @@ class Relax extends Component {
                               </Card>
                               
 
-                             </View>
+                             
                             
                       )
                   })
@@ -123,7 +128,9 @@ const styles = StyleSheet.create( {
 
     img :{
         width:65,
-        height:65
+        height:65,
+        margin:-10,
+        
 
     },
     next:{
@@ -132,10 +139,25 @@ const styles = StyleSheet.create( {
 
     },
     title:{
-        margin:20,
+        // margin:20,
         fontSize:18,
-        marginTop:15,
+        marginTop:10,
+        marginLeft:25,
         fontWeight:"bold"
+
+    },
+    header:{
+        flexDirection:"row",
+        paddingTop: 20,
+        paddingLeft:10,
+        backgroundColor:"#FFFFFF",
+        height:60,
+
+    },
+    hcontent :{
+        flexDirection:"row",
+        paddingLeft:10,
+        marginTop:-10
 
     }
     

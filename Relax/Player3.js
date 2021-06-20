@@ -8,6 +8,7 @@ import {
   Dimensions,
   Animated,
   StyleSheet,
+  TouchableOpacity
 } from 'react-native';
 
 import TrackPlayer, {
@@ -18,10 +19,10 @@ import TrackPlayer, {
   STATE_PLAYING,
   Event,
 } from 'react-native-track-player';
-
-import songs from './Data3';
-import Controller from './Controller3';
-import SliderComp from './Slider3';
+import Back from '../assets/backarrow';
+import songs from './Data4';
+import Controller from './Controller4';
+import SliderComp from './slider4';
 import {PLAYBACK_TRACK_CHANGED} from 'react-native-track-player/lib/eventTypes';
 
 const {width, height} = Dimensions.get('window');
@@ -50,7 +51,7 @@ const TRACK_PLAYER_CONTROLS_OPTS = {
   ],
 };
 
-export default function Player3() {
+export default function Player3({navigation}) {
   const scrollX = useRef(new Animated.Value(0)).current;
 
   const slider = useRef(null);
@@ -186,6 +187,14 @@ export default function Player3() {
   return (
     <SafeAreaView style={styles.container}>
       <SafeAreaView style={{height: 320}}>
+      <View style={styles.header}>
+                   <View style={styles.hcontent}>
+                       <TouchableOpacity style={{marginTop:-8}}  onPress={() => navigation.goBack()}>
+                       <Back />
+                       </TouchableOpacity>
+                    <Text style={{fontSize:28,fontWeight:"bold",paddingLeft:15}}>Relax</Text>
+                    </View>
+              </View>
         <Animated.FlatList
           ref={slider}
           horizontal
@@ -233,4 +242,18 @@ const styles = StyleSheet.create({
     height: height,
     maxHeight: 600,
   },
+  header:{
+    flexDirection:"row",
+    paddingTop: 10,
+    paddingLeft:10,
+  
+    height:60,
+
+},
+hcontent :{
+    flexDirection:"row",
+    paddingLeft:10,
+    marginTop:-10
+
+}
 });

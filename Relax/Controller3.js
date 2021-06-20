@@ -1,11 +1,14 @@
-import React, {useEffect, useState, useRef} from 'react';
+import React, { useState, useRef,useEffect} from 'react';
 import {
   View,
   TouchableOpacity,
   StyleSheet,
   ActivityIndicator,
+  ImageRequireSource ,Image
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import play from '../Sounds/play1.png';
+import pause from '../Sounds/pause1.png';
 import TrackPlayer, {
   usePlaybackState,
   useTrackPlayerEvents,
@@ -32,9 +35,9 @@ export default function Controller({onNext, onPrv}) {
   const returnPlayBtn = () => {
     switch (isPlaying.current) {
       case 'playing':
-        return <Icon  name="pause" size={45} />;
+        return <Image source={pause} style={{height:60,width:60,color:"white"}} />;
       case 'paused':
-        return <Icon  name="play-arrow" size={45} />;
+        return <Image source={play} style={{height:60,width:60,color:"white"}} />;
       default:
         return <ActivityIndicator size={45} color="#fff" />;
     }
@@ -50,15 +53,10 @@ export default function Controller({onNext, onPrv}) {
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={onPrv}>
-        <Icon  name="skip-previous" size={45} />
-      </TouchableOpacity>
-      <TouchableOpacity onPress={onPlayPause}>
+      <TouchableOpacity onPress={onPlayPause} style={{width:70,height:70,borderRadius:35,marginTop:55,borderColor:'#BABCC6',borderWidth:6}}>
         {returnPlayBtn()}
       </TouchableOpacity>
-      <TouchableOpacity onPress={onNext}>
-        <Icon  name="skip-next" size={45} />
-      </TouchableOpacity>
+      
     </View>
   );
 }
@@ -68,5 +66,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
     width: 250,
+    // marginTop:-120
   },
 });

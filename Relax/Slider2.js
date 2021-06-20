@@ -58,7 +58,7 @@ export default function SliderComp() {
         <Text style={styles.timers}>
           {formatTime(isSeeking ? seek : position)}
         </Text>
-        <Text style={styles.timers}>{formatTime(duration)}</Text>
+        {/* <Text style={styles.timers}>{formatTime(duration)}</Text> */}
       </View>
     </View>
   );

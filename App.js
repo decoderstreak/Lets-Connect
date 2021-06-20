@@ -33,8 +33,9 @@ import S from './hii/S'
 import Connect from './Screens/Connect';
 import Track from './Sounds/Trackplayer'
 // 
-import Stack from './navigation/stack'
+// import Stack from './navigation/stack'
 import Logo from './Screens/Logo'
+import Stack from './Relax/stack'
 import { NavigationContainer } from '@react-navigation/native';
  export default function App(){
   
@@ -45,11 +46,11 @@ import { NavigationContainer } from '@react-navigation/native';
       // </View>
       // <Stack />
       // <Track />
-      <Stack />
+      // <Stack />
       // <Connect />
-      // <NavigationContainer>
-      //   <Stack />
-      // </NavigationContainer>
+      <NavigationContainer>
+        <Stack />
+      </NavigationContainer>
       // <Logo />
 
     )
