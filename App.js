@@ -36,6 +36,9 @@ import Track from './Sounds/Trackplayer'
 // import Stack from './navigation/stack'
 import Logo from './Screens/Logo'
 import Stack from './Relax/stack'
+import Mentors from './Mentors/Mentor';
+import Mentor from './Mentors/Eachmentor';
+// import Mentor from './Mentors/Eachm';
 import { NavigationContainer } from '@react-navigation/native';
  export default function App(){
   
@@ -48,9 +51,11 @@ import { NavigationContainer } from '@react-navigation/native';
       // <Track />
       // <Stack />
       // <Connect />
-      <NavigationContainer>
-        <Stack />
-      </NavigationContainer>
+      // <NavigationContainer>
+      //   <Stack />
+      // </NavigationContainer>
+      // <Mentors />
+      <Mentor />
       // <Logo />
 
     )
