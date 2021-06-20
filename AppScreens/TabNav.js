@@ -1,12 +1,13 @@
 import React from 'react'
 import { View, Text } from 'react-native'
-import Relax from './Relax';
+// import Relax from './Relax';
 import Home from './Home';
 import Mentors from './Mentors';
 import RelaxIcon from '../Icons/RelaxIcon';
 import ConnectIcon from '../Icons/ConnectIcon';
 import MentorIcon from '../Icons/MentorIcon';
 import Sadhana from './sadhana/Sadhana';
+import Relax from '../Relax/Relax'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import MentorFocusedIcon from '../Icons/MentorFocusedIcon';
 const Tab = createBottomTabNavigator();
@@ -23,7 +24,7 @@ export default function TabNav() {
         }}
         >
         <Tab.Screen 
-        name="Relax" component={Sadhana}
+        name="Relax" component={Relax}
         options={{
             tabBarIcon:({focused})=>(
                 <View style={{flexDirection:'column'}}>

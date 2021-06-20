@@ -2,7 +2,7 @@ import React from 'react'
 import { View,Image,Text,TouchableOpacity,ScrollView} from 'react-native'
 import image from './logo.jpeg'
 
-export default function First() {
+export default function First({navigation}) {
     return (
         <View style={{backgroundColor:'white'}}>
             <ScrollView>
@@ -12,7 +12,7 @@ export default function First() {
             <View style={{marginTop:100,justifyContent:'center',alignItems:'center'}}>
             <TouchableOpacity
              style={{width:320,height:56,borderRadius:40,backgroundColor:"#1578A1",marginTop:-19,justifyContent:'center'}}
-             onPress={() => this.props.navigation.navigate('Login')}
+             onPress={() => navigation.navigate('Login')}
              >
             <Text
              style={{marginLeft:100,fontSize:23,color:'white',fontWeight:'bold',fontFamily:'Roboto',justifyContent:'center',alignItems:'center'}}

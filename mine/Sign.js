@@ -80,7 +80,7 @@ export default function Sign() {
             <Text style={{fontSize:14}}>ALREADY HAVE AN ACCOUNT?</Text>
             <TouchableOpacity><Text style={{color:'blue'}}> Sign up</Text></TouchableOpacity> */}
             </View>
-        </View>
+      
     )
 }
 const styles=StyleSheet.create({

@@ -32,9 +32,11 @@
  import Card2 from '../Lets-Connect/Card2/Card2.js'
  import Home from '../Lets-Connect/Home/Home.js';
  import Cards from '../Lets-Connect/Card2/Card2.js';
+ import ScrollingTest from './Scrolling/ScrollingTest';
   export default function App(){
      return(
        <AuthScreens/>
+      // <ScrollingTest/>
      ) 
  }
  const styles = StyleSheet.create({

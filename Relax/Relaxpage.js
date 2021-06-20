@@ -7,7 +7,14 @@ import img3 from './images/Rela1.png';
 import img4 from './images/Relax2.png';
 // import img5 from '../Sounds/button.png';
 import { Svg, Path } from 'react-native-svg'
+
+
+
+
 export default class Relaxpage extends Component {
+
+
+
     render() {
         return (
             <View style={{ height: 825, width: 395, backgroundColor: "white" ,flex:1}}>

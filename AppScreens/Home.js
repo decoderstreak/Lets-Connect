@@ -18,6 +18,12 @@ import program from '../Home/Programing.png'
 import imgee from '../Home/circle.png';
 import imgee2 from '../Home/Arrow.png'
 import photo from '../Home/Sir.png';
+import Play from '../Sounds/play1.png';
+import Pause from '../Sounds/pause1.png';
+import VideoPlayer from 'react-native-video-controls';
+import ScrollingTest from '../Scrolling/ScrollingTest';
+// import SectionListInFocus from '@reactly/react-native-autoplay-scroll-video'
+
 const { width } = Dimensions.get("window");
 const height = width * 0.50;
 const images = [
@@ -26,19 +32,14 @@ const images = [
   'https://im.indiatimes.in/content/itimes/photo/2016/May/13/1463126042-mark-zuckerberg-top-quotes-ever.jpg'
 ]
 const videos=[
-  // 'https://www.youtube.com/watch?v=Sccm6Z2mfEM',
-  // 'https://r8---sn-ci5gup-8b5l.googlevideo.com/videoplayback?expire=1623932364&ei=bOnKYJueJdX44-EPm7-B2Ac&ip=103.159.33.69&id=o-AI9njSKASQA7ATxIB7qv2MGLxHL6SALWZ0PHFvbDh-Hb&itag=22&source=youtube&requiressl=yes&mh=i2&mm=31%2C29&mn=sn-ci5gup-8b5l%2Csn-ci5gup-h556&ms=au%2Crdu&mv=m&mvi=8&pl=24&initcwndbps=1481250&vprv=1&mime=video%2Fmp4&ns=G287A90kdh5zGO5KQh5XC28F&cnr=14&ratebypass=yes&dur=116.053&lmt=1621627569242995&mt=1623910386&fvip=8&fexp=24001373%2C24007246&beids=9466587&c=WEB&txp=6211224&n=H-0m23ue87OB6dKrf&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cvprv%2Cmime%2Cns%2Ccnr%2Cratebypass%2Cdur%2Clmt&sig=AOq0QJ8wRQIgKmMphi6Dym2xa_dlgl0kdghuqQDimWQq13yIVHH7pTcCIQCubUJ5tQCNu1e9dEG3Q4a2yxhs2LrB1rvsBbrKr5Njlg%3D%3D&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Cinitcwndbps&lsig=AG3C_xAwRQIhANOdcnXc82WUxhHz3vpgDaaAcichycOX4XHC3Wac-VkuAiA8zyYtKA5TG5Yw6Srs9GJb514-J5dnJwk3bjB8xBtjhA%3D%3D',
-  'https://r6---sn-ci5gup-8b5l.googlevideo.com/videoplayback?expire=1623933185&ei=oezKYOOvF-6L3LUP_sKR6Ac&ip=103.159.33.68&id=o-AOA-bDBysINJV6LbKUFnq1hnymPfywZ9qWp1QAw4y9sx&itag=22&source=youtube&requiressl=yes&mh=Z6&mm=31%2C29&mn=sn-ci5gup-8b5l%2Csn-ci5gup-h55d&ms=au%2Crdu&mv=m&mvi=6&pl=24&initcwndbps=687500&vprv=1&mime=video%2Fmp4&ns=FSqxDTqtx-ltMHVbNl1-n24F&cnr=14&ratebypass=yes&dur=67.453&lmt=1476561022666829&mt=1623910878&fvip=6&fexp=24001373%2C24007246&c=WEB&n=S2Gs0TI3A2cNQAYXC&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cvprv%2Cmime%2Cns%2Ccnr%2Cratebypass%2Cdur%2Clmt&sig=AOq0QJ8wRQIhAMCmy-mITZH5qbXPZ-vGBiR6ObCWsG4bClHO9P3qKEHNAiANBsMw1OMLF19u1X_5OH1N7uefN8bbvyXpf9uAklUOHg%3D%3D&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Cinitcwndbps&lsig=AG3C_xAwRQIgF5Xm8kUpxi-i5IzEmtPYF4waiyK_7Ox7JMK6e1IHjmoCIQCR5VyvVU4QInmGQaLgW1QelSII1Uf9tvgWHMcHjDNblw%3D%3D',
-  'https://r1---sn-ci5gup-8b5s.googlevideo.com/videoplayback?expire=1623933072&ei=MOzKYOqNL7CR3LUPlJO40AE&ip=103.159.33.78&id=o-AHTrtYCxkUFTzhp_WDK06ZIrHLExVsBtQDwUKriYxv4t&itag=22&source=youtube&requiressl=yes&mh=hc&mm=31%2C29&mn=sn-ci5gup-8b5s%2Csn-ci5gup-h55d&ms=au%2Crdu&mv=m&mvi=1&pl=24&initcwndbps=1106250&vprv=1&mime=video%2Fmp4&ns=wSztzPvLNpm5EAYCouBvhFgF&cnr=14&ratebypass=yes&dur=100.263&lmt=1508196298590388&mt=1623910878&fvip=7&fexp=24001373%2C24007246&c=WEB&n=yUO7rSPNK1OpJNEdE&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cvprv%2Cmime%2Cns%2Ccnr%2Cratebypass%2Cdur%2Clmt&sig=AOq0QJ8wRQIgVoRywSAhrxcu-22dU7cPtmNd2EkcnfVT5wcaqNGapxgCIQC8dsz5-RPQenfjSHOsGAjBjdpdZVP1iwm2Vau0vSAbjw%3D%3D&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Cinitcwndbps&lsig=AG3C_xAwRQIhAMRCvu-EYwsH2sc0AUGx4xRsAJravblWZPCrOMtAvaPbAiAvSEbe7yjgH6sxzpQ_BOhcS5hQsC74nvDhnOoQGpmcqg%3D%3D',
-  'https://r4---sn-ci5gup-8b5e.googlevideo.com/videoplayback?expire=1623933853&ei=Pe_KYODIOZDNz7sP-s-z6As&ip=103.159.33.79&id=o-AP0Dv9VJ3xxigT2oQk1IiMZxKzBJi7BAqanHyUIBpF5A&itag=22&source=youtube&requiressl=yes&mh=X_&mm=31%2C29&mn=sn-ci5gup-8b5e%2Csn-ci5gup-h556&ms=au%2Crdu&mv=m&mvi=4&pl=24&initcwndbps=1520000&vprv=1&mime=video%2Fmp4&ns=9FOHSTQ1PuOD8NBKm-FHc7QF&cnr=14&ratebypass=yes&dur=180.070&lmt=1603215652855094&mt=1623911845&fvip=4&fexp=24001373%2C24007246&c=WEB&txp=5432432&n=k01zM-CBkI9RNQmDZ&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cvprv%2Cmime%2Cns%2Ccnr%2Cratebypass%2Cdur%2Clmt&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Cinitcwndbps&lsig=AG3C_xAwRAIgac1_F8_EHYoIAT43Kd-FuJNnK4KGcaDAyzI92JS7zuQCIAltRFzdocieDNXdkQHu7mJKcjFEe8gyZQKkMebBbYUX&sig=AOq0QJ8wRQIhAM6ohbXHarMFPAoMN_d541knySObd6TOtU7BmWcBH2IiAiAoZeCNAAykvfqexP_J8RD2DFCZ0FnruhMFE55g4VZeUg%3D%3D',
-  // 'https://firebasestorage.googleapis.com/v0/b/let-s-connect-84651.appspot.com/o/images%2FVID-20210407-WA00201623237604421.mp4?alt=media&token=71026388-008a-43e7-9bbb-7385f8e9ba81',
-  // 'https://firebasestorage.googleapis.com/v0/b/let-s-connect-84651.appspot.com/o/images%2FVID-20210505-WA00041623235056778.mp4?alt=media&token=c4299b49-055e-4a0c-bf4b-4def9f10c02e',
-  // 'https://firebasestorage.googleapis.com/v0/b/let-s-connect-84651.appspot.com/o/images%2FVID-20210607-WA00091623233628451.mp4?alt=media&token=13711de9-2333-40e4-943a-443fa4376584'     
-]
+  'https://r3---sn-qxaeen7l.googlevideo.com/videoplayback?expire=1623960453&ei=JVfLYMC6J_v-4-EPt_C3-AU&ip=103.159.32.18&id=o-ALctXY9wen8COMC2j_XV6p2pdGVuUFEEcOxyStytBt1c&itag=22&source=youtube&requiressl=yes&mh=Z6&mm=31%2C26&mn=sn-qxaeen7l%2Csn-cvh7knle&ms=au%2Conr&mv=m&mvi=3&pl=24&vprv=1&mime=video%2Fmp4&ns=6PaeDi1sudciF4NC2CjXfFAF&cnr=14&ratebypass=yes&dur=67.453&lmt=1476561022666829&mt=1623938692&fvip=3&fexp=24001373%2C24007246&c=WEB&n=d6IfMJYh1op68c4je&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cvprv%2Cmime%2Cns%2Ccnr%2Cratebypass%2Cdur%2Clmt&sig=AOq0QJ8wRQIhALumjod_zk8P4rXh7DULj8kh5muDZiM8KR93_GCB6qLVAiBYHhoYEyKkusj5hdCeGFbtYna3-A6DUvxidhXRsZYXLA%3D%3D&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl&lsig=AG3C_xAwRgIhAPsdfwGCOMaUMcVETcf89nDz75gWTCDDcLMbqtV1KUoOAiEAm9B0J0Esl-MwmYvLdHKns2QzqQjXSrDDDZYF1aXKHeA%3D',
+  // 'https://r3---sn-qxaeen7l.googlevideo.com/videoplayback?expire=1623960453&ei=JVfLYMC6J_v-4-EPt_C3-AU&ip=103.159.32.18&id=o-ALctXY9wen8COMC2j_XV6p2pdGVuUFEEcOxyStytBt1c&itag=22&source=youtube&requiressl=yes&mh=Z6&mm=31%2C26&mn=sn-qxaeen7l%2Csn-cvh7knle&ms=au%2Conr&mv=m&mvi=3&pl=24&vprv=1&mime=video%2Fmp4&ns=6PaeDi1sudciF4NC2CjXfFAF&cnr=14&ratebypass=yes&dur=67.453&lmt=1476561022666829&mt=1623938692&fvip=3&fexp=24001373%2C24007246&c=WEB&n=d6IfMJYh1op68c4je&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cvprv%2Cmime%2Cns%2Ccnr%2Cratebypass%2Cdur%2Clmt&sig=AOq0QJ8wRQIhALumjod_zk8P4rXh7DULj8kh5muDZiM8KR93_GCB6qLVAiBYHhoYEyKkusj5hdCeGFbtYna3-A6DUvxidhXRsZYXLA%3D%3D&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl&lsig=AG3C_xAwRgIhAPsdfwGCOMaUMcVETcf89nDz75gWTCDDcLMbqtV1KUoOAiEAm9B0J0Esl-MwmYvLdHKns2QzqQjXSrDDDZYF1aXKHeA%3D',
+  // 'https://r3---sn-qxaeen7l.googlevideo.com/videoplayback?expire=1623960453&ei=JVfLYMC6J_v-4-EPt_C3-AU&ip=103.159.32.18&id=o-ALctXY9wen8COMC2j_XV6p2pdGVuUFEEcOxyStytBt1c&itag=22&source=youtube&requiressl=yes&mh=Z6&mm=31%2C26&mn=sn-qxaeen7l%2Csn-cvh7knle&ms=au%2Conr&mv=m&mvi=3&pl=24&vprv=1&mime=video%2Fmp4&ns=6PaeDi1sudciF4NC2CjXfFAF&cnr=14&ratebypass=yes&dur=67.453&lmt=1476561022666829&mt=1623938692&fvip=3&fexp=24001373%2C24007246&c=WEB&n=d6IfMJYh1op68c4je&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cvprv%2Cmime%2Cns%2Ccnr%2Cratebypass%2Cdur%2Clmt&sig=AOq0QJ8wRQIhALumjod_zk8P4rXh7DULj8kh5muDZiM8KR93_GCB6qLVAiBYHhoYEyKkusj5hdCeGFbtYna3-A6DUvxidhXRsZYXLA%3D%3D&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl&lsig=AG3C_xAwRgIhAPsdfwGCOMaUMcVETcf89nDz75gWTCDDcLMbqtV1KUoOAiEAm9B0J0Esl-MwmYvLdHKns2QzqQjXSrDDDZYF1aXKHeA%3D',
+  ]
 const vids=[
-  'https://r3---sn-ci5gup-8b5s.googlevideo.com/videoplayback?expire=1623934261&ei=1fDKYPDSHOL94-EP38ij4AM&ip=103.159.33.65&id=o-ANbiM_6oeIPFYIyJ0miaSM3P2T7ePiinaqqJ-LfO7yHA&itag=22&source=youtube&requiressl=yes&mh=de&mm=31%2C29&mn=sn-ci5gup-8b5s%2Csn-ci5gup-h55z&ms=au%2Crdu&mv=m&mvi=3&pl=24&initcwndbps=1563750&vprv=1&mime=video%2Fmp4&ns=g7lnn6qF01r0L7p7bAZVMYgF&cnr=14&ratebypass=yes&dur=307.246&lmt=1538620903897219&mt=1623912545&fvip=10&fexp=24001373%2C24007246&c=WEB&txp=5531432&n=ilVv2TUf0MTdGMqRK&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cvprv%2Cmime%2Cns%2Ccnr%2Cratebypass%2Cdur%2Clmt&sig=AOq0QJ8wRQIhAIItgTPvN8RHTGQ3UgJl9Ee7V2o_mrzf6HFkFZPluYm6AiBr22-2BrczLyrCyPDGixzwbUIiMfCHjZItH_jfbxQTxA%3D%3D&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Cinitcwndbps&lsig=AG3C_xAwRQIgR7zFBlU5wbDImMh1TfE5PgQxmtaLvz6jHZsYQ8o1iu0CIQDuMdkll0lWzvi82Tfu8YbWw3iO9JK3JNMjczl-UtZ3RA%3D%3D',
-  // 'https://r7---sn-ci5gup-8b5l.googlevideo.com/videoplayback?expire=1623934748&ei=vPLKYPPYNej74-EPy9G3yAQ&ip=103.159.33.73&id=o-AKG2itPJ9S_fpZjQMHH2NRRLeQ9fUCf-auotrvNUKesB&itag=18&source=youtube&requiressl=yes&mh=Es&mm=31%2C29&mn=sn-ci5gup-8b5l%2Csn-ci5gup-h55d&ms=au%2Crdu&mv=m&mvi=7&pl=24&initcwndbps=908750&vprv=1&mime=video%2Fmp4&ns=QCzMmdHJtPr9PRgDJfLaZzsF&gir=yes&clen=8858870&ratebypass=yes&dur=196.046&lmt=1576059395095207&mt=1623912768&fvip=7&fexp=24001373%2C24007246&c=WEB&txp=1311222&n=Oi-6i8s93emEDg7zI&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cvprv%2Cmime%2Cns%2Cgir%2Cclen%2Cratebypass%2Cdur%2Clmt&sig=AOq0QJ8wRAIgHqsaSfZy5AqUPSxDZ9ukmg6Y8f5vff9lEkAgSzsg3xECIGdZzjlM0NMZQoFQ8rrjF1499k9lKL5nlVz0EiHTa7Wn&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Cinitcwndbps&lsig=AG3C_xAwRAIgbD7hpz_218h_eVr79BuvMfpkBKoizLu5nXW0YH_0NbQCIHtvziAtToZVQ1Q8rYy2uHD1jUXWvjNW33UtF7-saFUZ',
-  'https://r7---sn-ci5gup-8b5e.googlevideo.com/videoplayback?expire=1623934932&ei=dPPKYISZOuWDg8UPs6OlqA8&ip=103.159.33.73&id=o-AGkX72rZmFppbkMWP-HHsQWOkAXvfCYYhM4XgH1M83id&itag=22&source=youtube&requiressl=yes&mh=XH&mm=31%2C29&mn=sn-ci5gup-8b5e%2Csn-ci5gup-h55d&ms=au%2Crdu&mv=m&mvi=7&pl=24&initcwndbps=1221250&vprv=1&mime=video%2Fmp4&ns=qEVfORP6GkVC_5hs7pS5HIsF&ratebypass=yes&dur=629.934&lmt=1607146858586311&mt=1623912768&fvip=7&fexp=24001373%2C24007246&c=WEB&txp=5432434&n=XopH5DfS1shHLGPzH&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cvprv%2Cmime%2Cns%2Cratebypass%2Cdur%2Clmt&sig=AOq0QJ8wRAIgUp3ye2oRFHqewnFFG6g5OEDtDns2TwDVapvD954ZGycCIChgq0zK3He1VEJIa6Nv1lJe8XQdedSyvL0fhaHVW0AV&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Cinitcwndbps&lsig=AG3C_xAwRQIhAKHjKDoGVRG4ApR5o8f3vITkW9jBOY7O8ALisUZdEyM9AiBcgJ9rLMZsFjwvEpFNRPWAUBPjda_dBtxRDt8t6ukTSQ%3D%3D'
+// 'https://r4---sn-qxaeen7e.googlevideo.com/videoplayback?expire=1623960698&ei=GljLYKTwFub7juMPoaKw8A0&ip=103.159.32.18&id=o-AGJ86xd9DKx8v9svOrULLM5OtNlhZvPwaCAXmqjCT-5l&itag=22&source=youtube&requiressl=yes&mh=XH&mm=31%2C26&mn=sn-qxaeen7e%2Csn-cvh7knek&ms=au%2Conr&mv=m&mvi=4&pl=24&vprv=1&mime=video%2Fmp4&ns=Q8tqDhV4VunG1SEjrYy7Bk0F&ratebypass=yes&dur=629.934&lmt=1607146858586311&mt=1623938935&fvip=4&fexp=24001373%2C24007246&c=WEB&txp=5432434&n=YHYLExZext5EgIvoB&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cvprv%2Cmime%2Cns%2Cratebypass%2Cdur%2Clmt&sig=AOq0QJ8wRQIgS2JjNGW6p27SnjG-ANoNCeTLo70nsY-I0HFkDgpP414CIQD0SCdSLXDpa73daoYz1qOXKp3vKuLA2GiATfDxp12HSA%3D%3D&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl&lsig=AG3C_xAwRAIgXsA0AqK-UZBHtWkIhB8qkph7i38RJMlkW9eKv5R0jNMCIDYVBTe9UtxvuIHmGmZifPwiQ62EXK1zAQJDKFw14yGj',  
+// 'https://r4---sn-qxaeen7e.googlevideo.com/videoplayback?expire=1623960698&ei=GljLYKTwFub7juMPoaKw8A0&ip=103.159.32.18&id=o-AGJ86xd9DKx8v9svOrULLM5OtNlhZvPwaCAXmqjCT-5l&itag=22&source=youtube&requiressl=yes&mh=XH&mm=31%2C26&mn=sn-qxaeen7e%2Csn-cvh7knek&ms=au%2Conr&mv=m&mvi=4&pl=24&vprv=1&mime=video%2Fmp4&ns=Q8tqDhV4VunG1SEjrYy7Bk0F&ratebypass=yes&dur=629.934&lmt=1607146858586311&mt=1623938935&fvip=4&fexp=24001373%2C24007246&c=WEB&txp=5432434&n=YHYLExZext5EgIvoB&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cvprv%2Cmime%2Cns%2Cratebypass%2Cdur%2Clmt&sig=AOq0QJ8wRQIgS2JjNGW6p27SnjG-ANoNCeTLo70nsY-I0HFkDgpP414CIQD0SCdSLXDpa73daoYz1qOXKp3vKuLA2GiATfDxp12HSA%3D%3D&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl&lsig=AG3C_xAwRAIgXsA0AqK-UZBHtWkIhB8qkph7i38RJMlkW9eKv5R0jNMCIDYVBTe9UtxvuIHmGmZifPwiQ62EXK1zAQJDKFw14yGj',  
+// 'https://r4---sn-qxaeen7e.googlevideo.com/videoplayback?expire=1623960698&ei=GljLYKTwFub7juMPoaKw8A0&ip=103.159.32.18&id=o-AGJ86xd9DKx8v9svOrULLM5OtNlhZvPwaCAXmqjCT-5l&itag=22&source=youtube&requiressl=yes&mh=XH&mm=31%2C26&mn=sn-qxaeen7e%2Csn-cvh7knek&ms=au%2Conr&mv=m&mvi=4&pl=24&vprv=1&mime=video%2Fmp4&ns=Q8tqDhV4VunG1SEjrYy7Bk0F&ratebypass=yes&dur=629.934&lmt=1607146858586311&mt=1623938935&fvip=4&fexp=24001373%2C24007246&c=WEB&txp=5432434&n=YHYLExZext5EgIvoB&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cvprv%2Cmime%2Cns%2Cratebypass%2Cdur%2Clmt&sig=AOq0QJ8wRQIgS2JjNGW6p27SnjG-ANoNCeTLo70nsY-I0HFkDgpP414CIQD0SCdSLXDpa73daoYz1qOXKp3vKuLA2GiATfDxp12HSA%3D%3D&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl&lsig=AG3C_xAwRAIgXsA0AqK-UZBHtWkIhB8qkph7i38RJMlkW9eKv5R0jNMCIDYVBTe9UtxvuIHmGmZifPwiQ62EXK1zAQJDKFw14yGj',  
 ]
 const img = [
   'https://i.ytimg.com/vi/6z59uHuwIJg/maxresdefault.jpg',
@@ -47,9 +48,14 @@ const img = [
   // 'https://youtu.be/aqlN3O4xP-s'
 ]
 class Home extends Component {
+  threshold=150;
     constructor() {
         super();
         this.state = { 
+          paused:true,
+          muted:true,
+          positions:{start:null,end:null},
+          // position:{start:null,end:null},
           uid: '',
           url:'https://firebasestorage.googleapis.com/v0/b/let-s-connect-84651.appspot.com/o/Zoom%20Meeting%202021-06-04%2021-03-37.mp4?alt=media&token=5ae8c54c-c036-45b7-9df1-fca74e2799c3'
         }
@@ -59,31 +65,54 @@ class Home extends Component {
           this.props.navigation.navigate('Login')
         })
         .catch(error => this.setState({ errorMessage: error.message }))
-      }   
-      // componentDidMount=(()=>{
-      //    storage()
-      //    .ref('VEDIOS/bdaywishvedio.mp4')
-      //    .getDownloadURL().then((url)=>{
-      //      this.state.url=url
-      //    })
-      // })
+      }  
+      // onVedioLayout=event=>{
+      //   const {width}=Dimensions.get('window')
+      //   // this.state.positions.start=event.nativeEvent.layout.x
+      // }
+    //   onVedioLayout=event=>{
+    //     const {width}=Dimensions.get('window')
+    //     this.state.positions.start= -(
+    //         event.nativeEvent.layout.x
+    //         -width
+    //         +this.threshold
+    //         )
+    //     this.state.position
+    //     {console.log(event.nativeEvent.layout.x,"this is layout");}
+    //     // {console.log(this.state.position.start,"this is start");}
+    //     // this.state.position.end=
+    //     // event.nativeEvent.layout.x
+    //     // +event.nativeEvent.layout.width
+    //     // -this.threshold
+    //     // {console.log(this.state.position.end,"this is end");}
+    // }
+    // onScroll=event=>{
+    //      const scrollPosition=event.nativeEvent.contentOffset.x;
+    //      const paused=this.state.paused
+    //     //  const {start,end}=this.state.position
+    //      {console.log('scroll positon is',scrollPosition);}
+    //     //  {console.log(this.state.position.start,"this is start");}
+    //     //  {console.log(this.state.position.end,"this is end");}
+    //      if(scrollPosition>720 && scrollPosition<760 )
+    //      {
+    //         this.setState({
+    //             paused:false
+    //         })
+    //      }
+    //      else{
+    //          this.setState({
+    //              paused:true
+    //          })
+    //      }
+    // } 
     render() { 
          this.state = { 
         displayName: auth().currentUser.displayName,
         uid: auth().currentUser.uid,
         email:auth().currentUser.email,
       } 
-      // storage()
-      //    .ref('VEDIOS/bdaywishvedio.mp4')
-      //    .getDownloadURL().then((url)=>{
-      //      this.state.url=url,
-      //      console.log(this.state.url);
-      //    }) 
       let urlv={uri:"https://firebasestorage.googleapis.com/v0/b/let-s-connect-84651.appspot.com/o/VEDIOS%2Fbdaywishvedio.mp4?alt=media&token=6df0a81e-4b65-489a-aa33-7b0d0569a856"
-        // storage()
-        //  .ref('VEDIOS/bdaywishvedio.mp4')
-        //  .getDownloadURL()
-        //  .then((url)=>{})
+
       }
         return (
             <View>
@@ -127,34 +156,51 @@ class Home extends Component {
           </View>
           </View>
            </View>
-           <View style={{ marginTop: 20, width: 59, borderRadius: 5 }}>
-            <ScrollView
-            // style={{width:400}}
+{/* -----------------------------------------------------vedios section---------------------------------------------------- */}
+           <View>
+            <ScrollingTest/>
+           </View>
+           {/* <View style={{ marginTop: 20, width: 59, borderRadius: 5 }}> */}
+             {/* <SafeAreaView style={{flex:1}}>
+
+            <ScrollView horizontal={true} scrollEventThrottle={16} onScroll={this.onScroll} >
+                <View style={{marginLeft:750,marginRight:750}}>
+            <VideoPlayer */}
+            {/* <ScrollView
+            style={{width:800,marginLeft:750,marginRight:750}}
+            scrollEventThrottle={16}
+            onScroll={this.onScroll}
               pagingEnabled
-              horizontal
-              onScroll={this.change}
-              showsHorizontalScrollIndicator={false}
+              horizontal={true}
+              // onScroll={this.onScroll}
+              showsHorizontalScrollIndicator={true}
               style={{ width, height }}>
               {
                 videos.map((image, index) => (
-                  <Video
+                  <View style={{marginLeft:750,marginRight:750}}>
+                  <VideoPlayer
                     key={index}
-                    // paused={false}
-                    source={{ uri: image }}
-                    style={{ width:340, height, resizeMode: 'contain', borderRadius: 10 ,marginLeft:10}}></Video>
+                    playInBackground={false}
+                    onLayout={this.onVedioLayout}
+                    paused={this.state.paused}
+                    // paused= {true}
+                    // paused= {this.state.active ? console.log('false'):console.log('true')}
+                    source={{ uri: 'https://r7---sn-ci5gup-8b5e.googlevideo.com/videoplayback?expire=1624012235&ei=ayHMYKbQBYeAjuMPz8SxmAs&ip=103.159.33.77&id=o-AOCCmOpdJMgMvCcb6a732DV5OE21lRxcEmw0rUrppHrA&itag=22&source=youtube&requiressl=yes&mh=XH&mm=31%2C29&mn=sn-ci5gup-8b5e%2Csn-ci5gup-h55d&ms=au%2Crdu&mv=m&mvi=7&pl=24&initcwndbps=1156250&vprv=1&mime=video%2Fmp4&ns=IfeS9nwqOTE5tDa7CHCB7ycF&ratebypass=yes&dur=629.934&lmt=1607146858586311&mt=1623989808&fvip=7&fexp=24001373%2C24007246&c=WEB&txp=5432434&n=9TZKny5-1IDFfpLFT&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cvprv%2Cmime%2Cns%2Cratebypass%2Cdur%2Clmt&sig=AOq0QJ8wRAIgQeeR5ZuUdSiaQoY7qgmbxT8t8DNhoYtIkgf1LmJ4-1sCIFyn85k3CP7vu-sxt-nzOrW_nLStfO3jzJsDVzOZ7Z_g&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Cinitcwndbps&lsig=AG3C_xAwRAIgH7Uj1-mt5ePEw4VQnieKvfIzx64SwDJPg-Q8XGscCi0CIDiY6_ndpTGV0d-5ad-TMMCts3ULUWez6mBGQeCmNUrH'}}
+                    style={{ width:340, height, resizeMode: 'contain', borderRadius: 10 ,marginLeft:10}}></VideoPlayer>
+                    </View>
                 ))
               }
-            </ScrollView>
-          </View>
-          <View style={{ flexDirection: 'row', bottom: 0, alignSelf: 'center', margin: 6 }}>
+            </ScrollView> */}
+          {/* </View> */}
+          {/* <View style={{ flexDirection: 'row', bottom: 0, alignSelf: 'center', margin: 6 }}>
               {
                 img.map((i, k) => (
                   <Text key={k} style={k == this.state.active ? styles.padingActiveText : styles.padingText}>⬤</Text>
                 ))
               }
-            </View>
-            <View><Text style={{ margin:10, fontSize: 18 ,marginTop:-10}}>Connect with inner core</Text>
-            <View style={{ marginTop: 10, width, height, borderRadius: 5}}>
+            </View> */}
+            {/* <View><Text style={{ margin:10, fontSize: 18 ,marginTop:-10}}>Connect with inner core</Text> */}
+            {/* <View style={{ marginTop: 10, width, height, borderRadius: 5}}>
               <ScrollView
                 pagingEnabled
                 horizontal
@@ -163,30 +209,31 @@ class Home extends Component {
                 style={{ width, height }}>
                 {
                   vids.map((image, index) => (
-                    <Video
+                    <View style={{flexDirection:'row'}}>
+                    <VideoPlayer
                     // paused={true}
                       key={index}
-                      source={{ uri: image }}
-                      style={{ width:340, height, resizeMode: 'contain', borderRadius: 10 ,marginLeft:10}}></Video>
+                      // tapAnywhereToPause={true}
+                      source={{ uri: 'https://r7---sn-ci5gup-8b5e.googlevideo.com/videoplayback?expire=1624012235&ei=ayHMYKbQBYeAjuMPz8SxmAs&ip=103.159.33.77&id=o-AOCCmOpdJMgMvCcb6a732DV5OE21lRxcEmw0rUrppHrA&itag=22&source=youtube&requiressl=yes&mh=XH&mm=31%2C29&mn=sn-ci5gup-8b5e%2Csn-ci5gup-h55d&ms=au%2Crdu&mv=m&mvi=7&pl=24&initcwndbps=1156250&vprv=1&mime=video%2Fmp4&ns=IfeS9nwqOTE5tDa7CHCB7ycF&ratebypass=yes&dur=629.934&lmt=1607146858586311&mt=1623989808&fvip=7&fexp=24001373%2C24007246&c=WEB&txp=5432434&n=9TZKny5-1IDFfpLFT&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cvprv%2Cmime%2Cns%2Cratebypass%2Cdur%2Clmt&sig=AOq0QJ8wRAIgQeeR5ZuUdSiaQoY7qgmbxT8t8DNhoYtIkgf1LmJ4-1sCIFyn85k3CP7vu-sxt-nzOrW_nLStfO3jzJsDVzOZ7Z_g&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Cinitcwndbps&lsig=AG3C_xAwRAIgH7Uj1-mt5ePEw4VQnieKvfIzx64SwDJPg-Q8XGscCi0CIDiY6_ndpTGV0d-5ad-TMMCts3ULUWez6mBGQeCmNUrH'}}
+                      // controls={true}
+                      style={{ width:340, height, resizeMode: 'cover', borderRadius: 10 ,marginLeft:10}}>
+                      
+                        </VideoPlayer>
+                         {/* <Image source={Play} style={{backgroundColor:'blue',width:50,height:50}}/> */}
+                         {/* </View>
                       ))
                 }
               </ScrollView>
-            </View>
-            <View style={{ flexDirection: 'row', bottom: 0, alignSelf: 'center', margin: 6 }}>
+            </View> */} 
+            {/* <View style={{ flexDirection: 'row', bottom: 0, alignSelf: 'center', margin: 6 }}>
               {
                 img.map((i, k) => (
                   <Text key={k} style={k == this.state.active ? styles.padingActiveText : styles.padingText}>⬤</Text>
                 ))
               }
-            </View>
-          </View>
-          <View><Text style={{ fontSize: 18,margin:10,marginTop:-10 }}>Connect with Dazzlers</Text>
-            {/* <TouchableOpacity>
-              <Image source={imgee} style={{ marginTop: -30, marginLeft: 310, width: 38, height: 38 }}></Image>
-              <Image source={imgee2} style={{ marginTop: -38, marginLeft: 314, color: '#A7ACC8' }}></Image>
-
-              <Text style={{ color: '#A7ACC8', fontSize: 12, marginLeft: 310, marginTop: 4 }}>see all</Text>
-            </TouchableOpacity> */}
+            </View> */}
+          {/* </View> */}
+          <View><Text style={{ fontSize: 18,margin:10,marginTop:20 }}>Connect with Dazzlers</Text>
             <View>
               <View style={{ margin:10, width, height: 256 }}>
                 <ScrollView horizontal
