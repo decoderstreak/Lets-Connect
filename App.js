@@ -39,6 +39,7 @@ import Stack from './Relax/stack'
 import Mentors from './Mentors/Mentor';
 import Mentor from './Mentors/Eachmentor';
 // import Mentor from './Mentors/Eachm';
+import Hii from './Mentors/newM';
 import { NavigationContainer } from '@react-navigation/native';
  export default function App(){
   
@@ -55,7 +56,8 @@ import { NavigationContainer } from '@react-navigation/native';
       //   <Stack />
       // </NavigationContainer>
       // <Mentors />
-      <Mentor />
+      // <Mentor />
+      <Hii/>
       // <Logo />
 
     )
