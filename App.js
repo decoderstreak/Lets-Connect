@@ -33,10 +33,14 @@
  import Home from '../Lets-Connect/Home/Home.js';
  import Cards from '../Lets-Connect/Card2/Card2.js';
  import ScrollingTest from './Scrolling/ScrollingTest';
+ import Mentors from './Mentors/Mentor';
+ import Mentor from './Mentors/Eachmentor';
+ import FireStore from './StorageDataBase/FireStore';
   export default function App(){
      return(
        <AuthScreens/>
       // <ScrollingTest/>
+      // <FireStore/>
      ) 
  }
  const styles = StyleSheet.create({

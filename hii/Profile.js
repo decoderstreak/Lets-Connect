@@ -37,7 +37,8 @@ import p from '../assets/Avatar.png'
 import { firebase } from '@react-native-firebase/auth';
 import auth from '@react-native-firebase/auth';
 import { set } from 'react-native-reanimated';
-export default function Profile() {
+import Cross from '../assets/cross';
+export default function Profile({navigation}) {
   const [Name, setName] = useState('')
   const [Email, setEmail] = useState('')
   const [NewName, setNewName] = useState('')
@@ -64,7 +65,10 @@ export default function Profile() {
   }
     return (
       <View>
-        <ScrollView style={{height:590}}>
+        <TouchableOpacity style={{marginTop:15,marginLeft:20}}  onPress={() => navigation.goBack()}>
+   <Cross />
+    </TouchableOpacity>
+        <ScrollView style={{height:510}}>
             <View style={{margin:20}}>
                   <View style={{alignItems:'center',justifyContent:'center'}}>  
                   <Image source={p}  style={{

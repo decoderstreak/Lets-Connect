@@ -22,6 +22,8 @@ import Play from '../Sounds/play1.png';
 import Pause from '../Sounds/pause1.png';
 import VideoPlayer from 'react-native-video-controls';
 import ScrollingTest from '../Scrolling/ScrollingTest';
+import firestore from '@react-native-firebase/firestore';
+import FireStore from '../StorageDataBase/FireStore';
 // import SectionListInFocus from '@reactly/react-native-autoplay-scroll-video'
 
 const { width } = Dimensions.get("window");
@@ -49,62 +51,65 @@ const img = [
 ]
 class Home extends Component {
   threshold=150;
-    constructor() {
-        super();
-        this.state = { 
+  constructor(props) {
+    super(props)
+    this.state = {
+      Lists:[] ,
           paused:true,
           muted:true,
           positions:{start:null,end:null},
-          // position:{start:null,end:null},
           uid: '',
-          url:'https://firebasestorage.googleapis.com/v0/b/let-s-connect-84651.appspot.com/o/Zoom%20Meeting%202021-06-04%2021-03-37.mp4?alt=media&token=5ae8c54c-c036-45b7-9df1-fca74e2799c3'
+          url:'https://firebasestorage.googleapis.com/v0/b/let-s-connect-84651.appspot.com/o/Zoom%20Meeting%202021-06-04%2021-03-37.mp4?alt=media&token=5ae8c54c-c036-45b7-9df1-fca74e2799c3',
         }
       }
+      // list=[]
       signOut = () => {
-        auth().signOut().then(() => {
-          this.props.navigation.navigate('Login')
-        })
-        .catch(error => this.setState({ errorMessage: error.message }))
-      }  
-      // onVedioLayout=event=>{
-      //   const {width}=Dimensions.get('window')
-      //   // this.state.positions.start=event.nativeEvent.layout.x
+        auth().signOut()
+        // .then(() => {
+        //   this.props.navigation.navigate('Login')
+        // })
+        // .catch(error => this.setState({ errorMessage: error.message }))
+      } 
+       
+      // List=
+      //   firestore()
+      //   .collection('Mentors')
+      //   .get()
+        // .then(querySnapshot => {
+        //   console.log('Total users: ', querySnapshot.size);
+        //   querySnapshot.forEach(documentSnapshot => {
+        //    const list=documentSnapshot.data()
+        //     // console.log(list,"------");
+        //    });
+        // });
+      
+      // getList=()=>{
+      //   this.List.then(i=>{
+      //     console.log('Total users: ', i.size);
+      //     i.forEach(j=>{
+      //       console.log('data mawa',j.data());
+      //     j.data().map(k=>{
+      //       return(
+      //         <View>
+      //           <Text>
+      //             hi mawa {j.Name}
+      //           </Text>
+      //         </View>
+      //       )
+      //     })
+      //   })
+      //   })
       // }
-    //   onVedioLayout=event=>{
-    //     const {width}=Dimensions.get('window')
-    //     this.state.positions.start= -(
-    //         event.nativeEvent.layout.x
-    //         -width
-    //         +this.threshold
-    //         )
-    //     this.state.position
-    //     {console.log(event.nativeEvent.layout.x,"this is layout");}
-    //     // {console.log(this.state.position.start,"this is start");}
-    //     // this.state.position.end=
-    //     // event.nativeEvent.layout.x
-    //     // +event.nativeEvent.layout.width
-    //     // -this.threshold
-    //     // {console.log(this.state.position.end,"this is end");}
-    // }
-    // onScroll=event=>{
-    //      const scrollPosition=event.nativeEvent.contentOffset.x;
-    //      const paused=this.state.paused
-    //     //  const {start,end}=this.state.position
-    //      {console.log('scroll positon is',scrollPosition);}
-    //     //  {console.log(this.state.position.start,"this is start");}
-    //     //  {console.log(this.state.position.end,"this is end");}
-    //      if(scrollPosition>720 && scrollPosition<760 )
-    //      {
-    //         this.setState({
-    //             paused:false
-    //         })
-    //      }
-    //      else{
-    //          this.setState({
-    //              paused:true
-    //          })
-    //      }
-    // } 
+        // console.log(this.List,'mawa brooo');
+        // this.List().map((i)=>{
+        //   return(
+        //     <View>
+        //       <Text>hi mawa brooo{i.Name}</Text>
+        //     </View>
+        //   )
+        // })
+       
+      
     render() { 
          this.state = { 
         displayName: auth().currentUser.displayName,
@@ -112,8 +117,8 @@ class Home extends Component {
         email:auth().currentUser.email,
       } 
       let urlv={uri:"https://firebasestorage.googleapis.com/v0/b/let-s-connect-84651.appspot.com/o/VEDIOS%2Fbdaywishvedio.mp4?alt=media&token=6df0a81e-4b65-489a-aa33-7b0d0569a856"
-
       }
+      console.log(this.state.Lists);
         return (
             <View>
             <View style={{margin:20,flexDirection:'row'}}>
@@ -160,130 +165,33 @@ class Home extends Component {
            <View>
             <ScrollingTest/>
            </View>
-           {/* <View style={{ marginTop: 20, width: 59, borderRadius: 5 }}> */}
-             {/* <SafeAreaView style={{flex:1}}>
-
-            <ScrollView horizontal={true} scrollEventThrottle={16} onScroll={this.onScroll} >
-                <View style={{marginLeft:750,marginRight:750}}>
-            <VideoPlayer */}
-            {/* <ScrollView
-            style={{width:800,marginLeft:750,marginRight:750}}
-            scrollEventThrottle={16}
-            onScroll={this.onScroll}
-              pagingEnabled
-              horizontal={true}
-              // onScroll={this.onScroll}
-              showsHorizontalScrollIndicator={true}
-              style={{ width, height }}>
-              {
-                videos.map((image, index) => (
-                  <View style={{marginLeft:750,marginRight:750}}>
-                  <VideoPlayer
-                    key={index}
-                    playInBackground={false}
-                    onLayout={this.onVedioLayout}
-                    paused={this.state.paused}
-                    // paused= {true}
-                    // paused= {this.state.active ? console.log('false'):console.log('true')}
-                    source={{ uri: 'https://r7---sn-ci5gup-8b5e.googlevideo.com/videoplayback?expire=1624012235&ei=ayHMYKbQBYeAjuMPz8SxmAs&ip=103.159.33.77&id=o-AOCCmOpdJMgMvCcb6a732DV5OE21lRxcEmw0rUrppHrA&itag=22&source=youtube&requiressl=yes&mh=XH&mm=31%2C29&mn=sn-ci5gup-8b5e%2Csn-ci5gup-h55d&ms=au%2Crdu&mv=m&mvi=7&pl=24&initcwndbps=1156250&vprv=1&mime=video%2Fmp4&ns=IfeS9nwqOTE5tDa7CHCB7ycF&ratebypass=yes&dur=629.934&lmt=1607146858586311&mt=1623989808&fvip=7&fexp=24001373%2C24007246&c=WEB&txp=5432434&n=9TZKny5-1IDFfpLFT&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cvprv%2Cmime%2Cns%2Cratebypass%2Cdur%2Clmt&sig=AOq0QJ8wRAIgQeeR5ZuUdSiaQoY7qgmbxT8t8DNhoYtIkgf1LmJ4-1sCIFyn85k3CP7vu-sxt-nzOrW_nLStfO3jzJsDVzOZ7Z_g&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Cinitcwndbps&lsig=AG3C_xAwRAIgH7Uj1-mt5ePEw4VQnieKvfIzx64SwDJPg-Q8XGscCi0CIDiY6_ndpTGV0d-5ad-TMMCts3ULUWez6mBGQeCmNUrH'}}
-                    style={{ width:340, height, resizeMode: 'contain', borderRadius: 10 ,marginLeft:10}}></VideoPlayer>
-                    </View>
-                ))
-              }
-            </ScrollView> */}
-          {/* </View> */}
-          {/* <View style={{ flexDirection: 'row', bottom: 0, alignSelf: 'center', margin: 6 }}>
-              {
-                img.map((i, k) => (
-                  <Text key={k} style={k == this.state.active ? styles.padingActiveText : styles.padingText}>⬤</Text>
-                ))
-              }
-            </View> */}
-            {/* <View><Text style={{ margin:10, fontSize: 18 ,marginTop:-10}}>Connect with inner core</Text> */}
-            {/* <View style={{ marginTop: 10, width, height, borderRadius: 5}}>
-              <ScrollView
-                pagingEnabled
-                horizontal
-                onScroll={this.change}
-                showsHorizontalScrollIndicator={false}
-                style={{ width, height }}>
-                {
-                  vids.map((image, index) => (
-                    <View style={{flexDirection:'row'}}>
-                    <VideoPlayer
-                    // paused={true}
-                      key={index}
-                      // tapAnywhereToPause={true}
-                      source={{ uri: 'https://r7---sn-ci5gup-8b5e.googlevideo.com/videoplayback?expire=1624012235&ei=ayHMYKbQBYeAjuMPz8SxmAs&ip=103.159.33.77&id=o-AOCCmOpdJMgMvCcb6a732DV5OE21lRxcEmw0rUrppHrA&itag=22&source=youtube&requiressl=yes&mh=XH&mm=31%2C29&mn=sn-ci5gup-8b5e%2Csn-ci5gup-h55d&ms=au%2Crdu&mv=m&mvi=7&pl=24&initcwndbps=1156250&vprv=1&mime=video%2Fmp4&ns=IfeS9nwqOTE5tDa7CHCB7ycF&ratebypass=yes&dur=629.934&lmt=1607146858586311&mt=1623989808&fvip=7&fexp=24001373%2C24007246&c=WEB&txp=5432434&n=9TZKny5-1IDFfpLFT&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cvprv%2Cmime%2Cns%2Cratebypass%2Cdur%2Clmt&sig=AOq0QJ8wRAIgQeeR5ZuUdSiaQoY7qgmbxT8t8DNhoYtIkgf1LmJ4-1sCIFyn85k3CP7vu-sxt-nzOrW_nLStfO3jzJsDVzOZ7Z_g&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Cinitcwndbps&lsig=AG3C_xAwRAIgH7Uj1-mt5ePEw4VQnieKvfIzx64SwDJPg-Q8XGscCi0CIDiY6_ndpTGV0d-5ad-TMMCts3ULUWez6mBGQeCmNUrH'}}
-                      // controls={true}
-                      style={{ width:340, height, resizeMode: 'cover', borderRadius: 10 ,marginLeft:10}}>
-                      
-                        </VideoPlayer>
-                         {/* <Image source={Play} style={{backgroundColor:'blue',width:50,height:50}}/> */}
-                         {/* </View>
-                      ))
-                }
-              </ScrollView>
-            </View> */} 
-            {/* <View style={{ flexDirection: 'row', bottom: 0, alignSelf: 'center', margin: 6 }}>
-              {
-                img.map((i, k) => (
-                  <Text key={k} style={k == this.state.active ? styles.padingActiveText : styles.padingText}>⬤</Text>
-                ))
-              }
-            </View> */}
-          {/* </View> */}
           <View><Text style={{ fontSize: 18,margin:10,marginTop:20 }}>Connect with Dazzlers</Text>
             <View>
-              <View style={{ margin:10, width, height: 256 }}>
+              <FireStore/>
+              {/* <View style={{height: 256 }}>
                 <ScrollView horizontal
                   showsHorizontalScrollIndicator={false}>
-                    <TouchableOpacity onPress={()=>this.props.navigation.navigate('Mentors')}>
-                  <View style={{ height: 207, width: 152, borderWidth: 2, borderColor: '#116faf', borderRadius: 9 }}>
-                    <Image
-                      source={photo}
-                      style={{ width: 149, height: 126, borderRadius: 5, marginLeft: -0.5 }}>
-                    </Image>
-                    <Text style={{ textAlign: 'center', marginTop: 10, fontSize: 14 }}>B.Sudarshan sir</Text>
-                    <Text style={{ textAlign: 'center', fontSize: 10, textAlign: 'justify', padding: 18 }}>
-                    </Text>
-                  </View>
-                  </TouchableOpacity>
-                  <TouchableOpacity onPress={()=>this.props.navigation.navigate('Mentors')}>
-                  <View style={{ height: 207, width: 152, marginLeft: 20, borderWidth: 2, borderColor: '#116faf', borderRadius: 9 }}>
-                    <Image
-                      source={photo}
-                      style={{ width: 149, height: 126, borderRadius: 5, marginLeft: -0.5 }}>
-                    </Image>
-                    <Text style={{ textAlign: 'center', marginTop: 20, fontSize: 14 }}>Viswanath Murthy</Text>
-                    <Text style={{ textAlign: 'center', fontSize: 10, textAlign: 'justify', padding: 18 }}>
-                    </Text>
-                  </View>
-                  </TouchableOpacity>
-                  <TouchableOpacity onPress={()=>this.props.navigation.navigate('Mentors')}>
-                  <View style={{ height: 207, width: 152, marginLeft: 20, borderWidth: 2, borderColor: '#116faf', borderRadius: 9 }}>
-                    <Image
-                      source={{ uri: 'https://images.pexels.com/photos/4916161/pexels-photo-4916161.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500', }}
-                      style={{ width: 149, height: 126, borderRadius: 5, marginLeft: -1 }}>
-                    </Image>
-                    <Text style={{ textAlign: 'center', marginTop: 20, fontSize: 14 }}>Viswanath Murthy</Text>
-                    <Text style={{ textAlign: 'center', fontSize: 10, textAlign: 'justify', padding: 18 }}>
-                    </Text>
-                  </View>
-                  </TouchableOpacity>
-                  <TouchableOpacity onPress={()=>this.props.navigation.navigate('Mentors')}>
-                  <View style={{ height: 207, width: 152, marginLeft: 20, borderWidth: 2, borderColor: '#116faf', borderRadius: 9 }}>
-                    <Image
-                      source={{ uri: 'https://images.pexels.com/photos/4916161/pexels-photo-4916161.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500', }}
-                      style={{ width: 149, height: 126, borderRadius: 5, marginLeft: -1 }}>
-                    </Image>
-                    <Text style={{ textAlign: 'center', marginTop: 20, fontSize: 14 }}>Viswanath Murthy</Text>
-                    <Text style={{ textAlign: 'center', fontSize: 10, textAlign: 'justify', padding: 18 }}>
-                    </Text>
-                  </View>
-                  </TouchableOpacity>
-                </ScrollView>
-              </View>
+                    { */}
+                      {/* // this.getList() */}
+                      {/* // List.map((i)=>{ */
+                      //   return(
+                      //     <TouchableOpacity key={i.id} onPress={()=>this.props.navigation.navigate('Eachmentor')}>
+                      //   <View style={{ height: 207, width: 152, borderWidth: 2, borderColor: '#BEBEC3', borderRadius: 9,margin:10 }}>
+                      //     <Image
+                      //       source={i.img}
+                      //       style={{ width: 149, height: 126, borderRadius: 5, marginLeft: -0.5 }}>
+                      //     </Image>
+                      //     <Text style={{ textAlign: 'center', marginTop: 10, fontSize: 14 }}>{i.Name}</Text>
+                      //     {/* <Text style={{ textAlign: 'center', fontSize: 10, textAlign: 'justify', padding: 18 }}>
+                      //     </Text> */}
+                      //   </View>
+                      //   </TouchableOpacity>
+
+                      //   )
+                      // })
+                    }
+                   {/* </ScrollView>
+              </View> */}
             </View>
           </View>
             {/* <View>
@@ -368,6 +276,7 @@ class Home extends Component {
                  marginTop:28
                     }}
                 />
+                {/* <Button title="Signout" onPress={()=>this.signOut()}/> */}
                 </View>
                 </View>
               </RBSheet>

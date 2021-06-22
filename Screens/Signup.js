@@ -39,7 +39,7 @@ import auth from '@react-native-firebase/auth';
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
 import { LoginManager, AccessToken } from 'react-native-fbsdk';
 import Back from '../assets/backarrow';
-
+import firestore from '@react-native-firebase/firestore';
 
 function Signup({navigation}) {
   const [Name, setName] = useState('')

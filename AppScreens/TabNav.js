@@ -7,9 +7,11 @@ import RelaxIcon from '../Icons/RelaxIcon';
 import ConnectIcon from '../Icons/ConnectIcon';
 import MentorIcon from '../Icons/MentorIcon';
 import Sadhana from './sadhana/Sadhana';
-import Relax from '../Relax/Relax'
+// import Relax from '../Relax/Relax'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import MentorFocusedIcon from '../Icons/MentorFocusedIcon';
+import Mentor from '../Mentors/Mentor'
+import Relax from '../Relax/stack'
 const Tab = createBottomTabNavigator();
 export default function TabNav() {
     return (
@@ -60,7 +62,7 @@ export default function TabNav() {
                 )
             }}/>
             <Tab.Screen
-               name="Mentors" component={Mentors}
+               name="Mentors" component={Mentor}
                options={{
                 tabBarIcon:({focused})=>(
                     <View style={{flexDirection:'column'}}>
