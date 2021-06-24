@@ -121,14 +121,13 @@ export default class Mentors extends React.Component{
       <View style={{paddingTop:15}}>
       <Image source={l.img} style={styles.img} />
       </View>
-        
+
       <View style={{paddingTop:5}}> 
       <Text style={{fontSize:25}}>{l.Name}</Text>
       <Text style={{color:'#9B9B9B'}}>{l.Year}</Text>
       <Text style={{color:'#9B9B9B'}}>{l.position}</Text>
       <Text style={{color:'#9B9B9B'}}>{l.Email}</Text>
       </View> 
-
 
       <View style={{marginTop:40}}>
       <Svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

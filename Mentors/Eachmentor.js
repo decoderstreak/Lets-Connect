@@ -37,8 +37,12 @@ import Svg, {
  
 } from 'react-native-svg';
 import {Card} from 'react-native-shadow-cards';
-export default function Mentor({navigation})
+export default function Mentor({route,navigation})
 {
+  list=()=>{
+   console.log('in each mentor broo', (route.params.list.Name))
+  }
+  // var list=navigation.getParam('list'),
   return(
     <View style={{
       marginLeft:20,
@@ -56,7 +60,7 @@ export default function Mentor({navigation})
                     <View style={{margin:20,flexDirection:'row',marginTop:10}}>
                     <Text style={styles.heading}>Mentor</Text></View>
                 </View>
-              
+              {list()}
     {/* ---------------------------------------------------Header---------------------------------------------------------- */}
       
       <ScrollView>
@@ -72,16 +76,18 @@ export default function Mentor({navigation})
                          
         </View> 
         <View style={{alignItems:'center',marginTop:10}}>
-<Text style={{fontSize:22,color:'black'}}>B Sudharshan </Text>
-<Text style={{color:'#9A8B8B',paddingLeft:35,paddingRight:25}}>Senior Software Engineer at WorkTImes 
-                                               Cofounder of ENGAMES,Tech pro,full stack 
+<Text style={{fontSize:22,color:'black'}}>{route.params.list.Name}</Text>
+<Text style={{color:'#9A8B8B'}}>
+  {route.params.list.Edu}
+  {/* Senior Software Engineer at WorkTImes 
+                                               Cofounder of ENGAMES,Tech pro,full stack  */}
 </Text>
   </View>
   <View style={{paddingTop:20}}>
   <Text style={{fontSize:18}}>Current Working Status</Text>
   <View style={{paddingTop:7}}>
   <Card style={{height:51,paddingTop:12,paddingLeft:10,borderWidth:1,borderColor:"rgba(201, 201, 201, 1)"}}>
-<Text style={{fontSize:14,color:'#9A8B8B',}}>Pursuing PHD in Georgia Tech</Text>
+<Text style={{fontSize:14,color:'#9A8B8B',}}>{route.params.list.Status}</Text>
   </Card>
   </View>
   </View>

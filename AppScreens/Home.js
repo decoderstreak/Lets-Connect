@@ -70,46 +70,6 @@ class Home extends Component {
         // })
         // .catch(error => this.setState({ errorMessage: error.message }))
       } 
-       
-      // List=
-      //   firestore()
-      //   .collection('Mentors')
-      //   .get()
-        // .then(querySnapshot => {
-        //   console.log('Total users: ', querySnapshot.size);
-        //   querySnapshot.forEach(documentSnapshot => {
-        //    const list=documentSnapshot.data()
-        //     // console.log(list,"------");
-        //    });
-        // });
-      
-      // getList=()=>{
-      //   this.List.then(i=>{
-      //     console.log('Total users: ', i.size);
-      //     i.forEach(j=>{
-      //       console.log('data mawa',j.data());
-      //     j.data().map(k=>{
-      //       return(
-      //         <View>
-      //           <Text>
-      //             hi mawa {j.Name}
-      //           </Text>
-      //         </View>
-      //       )
-      //     })
-      //   })
-      //   })
-      // }
-        // console.log(this.List,'mawa brooo');
-        // this.List().map((i)=>{
-        //   return(
-        //     <View>
-        //       <Text>hi mawa brooo{i.Name}</Text>
-        //     </View>
-        //   )
-        // })
-       
-      
     render() { 
          this.state = { 
         displayName: auth().currentUser.displayName,
@@ -167,32 +127,8 @@ class Home extends Component {
            </View>
           <View><Text style={{ fontSize: 18,margin:10,marginTop:20 }}>Connect with Dazzlers</Text>
             <View>
-              <FireStore/>
-              {/* <View style={{height: 256 }}>
-                <ScrollView horizontal
-                  showsHorizontalScrollIndicator={false}>
-                    { */}
-                      {/* // this.getList() */}
-                      {/* // List.map((i)=>{ */
-                      //   return(
-                      //     <TouchableOpacity key={i.id} onPress={()=>this.props.navigation.navigate('Eachmentor')}>
-                      //   <View style={{ height: 207, width: 152, borderWidth: 2, borderColor: '#BEBEC3', borderRadius: 9,margin:10 }}>
-                      //     <Image
-                      //       source={i.img}
-                      //       style={{ width: 149, height: 126, borderRadius: 5, marginLeft: -0.5 }}>
-                      //     </Image>
-                      //     <Text style={{ textAlign: 'center', marginTop: 10, fontSize: 14 }}>{i.Name}</Text>
-                      //     {/* <Text style={{ textAlign: 'center', fontSize: 10, textAlign: 'justify', padding: 18 }}>
-                      //     </Text> */}
-                      //   </View>
-                      //   </TouchableOpacity>
-
-                      //   )
-                      // })
-                    }
-                   {/* </ScrollView>
-              </View> */}
-            </View>
+              <FireStore navigation={this.props.navigation}/>
+             </View>
           </View>
             {/* <View>
               <Video source={urlv} style={{width:200,height:500}}/>

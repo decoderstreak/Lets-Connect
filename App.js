@@ -36,9 +36,17 @@
  import Mentors from './Mentors/Mentor';
  import Mentor from './Mentors/Eachmentor';
  import FireStore from './StorageDataBase/FireStore';
+ import GettingCourses from './StorageDataBase/GettingCourses';
+ import TestingThree from './StorageDataBase/TestingThree';
+import TestingFour from './StorageDataBase/TestingFour';
+import CourseSlider from './AppScreens/Slider/CourseSlider'
   export default function App(){
      return(
-       <AuthScreens/>
+       <CourseSlider/>
+      //  <TestingFour/>
+      //  <GettingCourses/>
+      //  <TestingThree/>
+      //  <AuthScreens/>
       // <ScrollingTest/>
       // <FireStore/>
      ) 
