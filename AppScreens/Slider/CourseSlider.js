@@ -37,6 +37,7 @@ function CourseSlider({route,navigation}){
     // const Next = () =>{
     //     setCurrentposition(currentPosition+1);
     // }
+    const l = route.params;
         return (
             <View style={{flex:1,backgroundColor:"#116FAF",}}>
               <View style={{ display:'flex',flexDirection:'row',marginTop:'10%'}}>
@@ -46,7 +47,7 @@ function CourseSlider({route,navigation}){
               </TouchableOpacity>
               </View>
               <View>
-              <Text style={{color:'#FFFFFF',fontSize:32}}>{route.params.title}</Text>
+              <Text style={{color:'#FFFFFF',fontSize:32}}>{l.course}</Text>
               </View>
               </View>
               <View style={{flex:1,marginLeft:'10%'}}>
