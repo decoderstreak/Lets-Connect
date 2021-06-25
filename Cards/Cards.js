@@ -33,7 +33,7 @@ export default class Cards extends Component {
                },
 
                {
-                course: 'BOOTSTRAP',
+               course: 'BOOTSTRAP',
                colors:['#4701c1','#844adb',],
                img:img3,
         
