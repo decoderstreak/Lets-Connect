@@ -1,11 +1,45 @@
 import React, { useState } from 'react'
-import { Text, View,TouchableOpacity } from 'react-native'
-import StepIndicator from 'react-native-step-indicator'
-// import { Ionicons } from '@expo/vector-icons'; 
+import { Text, View,TouchableOpacity,Linking } from 'react-native'
+import StepIndicator from 'react-native-step-indicator' 
 import Icon from 'react-native-ionicons';
  
-const labels = ['Introduction','Editors','Basic','Tags','Html css',
-'Html forms','Html graphics','Html Media','Basic Applications',
+const labels = [
+    {
+        label: 'Introduction',
+        link:'https://www.youtube.com/watch?v=AKdfzGpydPU'
+    },
+    {
+        label: 'Editors',
+        link:'https://www.youtube.com/watch?v=p3XTZlZ6-xw',
+    },
+    {
+        label: 'Basic',
+        link:'https://www.youtube.com/results?search_query=gate+tutorials+for+ece+playlists',
+    },
+    {
+        label: 'Tags',
+        link:'https://www.youtube.com/watch?v=AKdfzGpydPU'
+    },
+    {
+        label: 'Html css',
+        link:'https://www.youtube.com/watch?v=p3XTZlZ6-xw',
+    },
+    {
+        label: 'Html forms',
+        link:'https://www.youtube.com/results?search_query=gate+tutorials+for+ece+playlists',
+    },
+    {
+        label: 'Html graphics',
+        link:'https://www.youtube.com/watch?v=AKdfzGpydPU'
+    },
+    {
+        label: 'Html Media',
+        link:'https://www.youtube.com/watch?v=p3XTZlZ6-xw',
+    },
+    {
+        label: 'Basic Applications',
+        link:'https://www.youtube.com/results?search_query=gate+tutorials+for+ece+playlists',
+    }
 ]
 const customStyles = {
   stepIndicatorSize: 20,
@@ -34,29 +68,8 @@ const customStyles = {
 
 function CourseSlider({route,navigation}){
     const [currentPosition,setCurrentposition]=useState(0);
-    const [Array, setArray] = useState([])
-    // const Next = () =>{
-    //     setCurrentposition(currentPosition+1);
-    // }
-    console.log(route.params.data.FIELD);
-    {
-        Object.values(route.params.data.FIELD).map(i=>{
-            // console.log('cccc',i)
-            return(
-                <View>
-                    {Object.keys(i).map(j=>{
-                        // console.log('fff',j);
-                        // setArray(j)
-                        // console.log('j boss',Array);
-                      //   return(
-                      //       <StepIndicator
-                      //       direction={'vertical'}/>
-                      //   )
-                    })}
-                </View>
-            )
-        })
-    }
+    const l = route.params;
+    {console.log(route.params,'testing');}
         return (
             <View style={{flex:1,backgroundColor:"#116FAF",}}>
                 
@@ -67,32 +80,35 @@ function CourseSlider({route,navigation}){
               </TouchableOpacity>
               </View>
               <View>
-              <Text style={{color:'#FFFFFF',fontSize:32}}>{route.params.data.LANG}</Text>
+              <Text style={{color:'#FFFFFF',fontSize:32}}>{route.params.name}</Text>
               </View>
               </View>
               <View style={{flex:1,marginLeft:'10%'}}>
-             
-         <StepIndicator
+        <StepIndicator
          customStyles={customStyles}
          currentPosition={currentPosition}
-         labels={labels}
+         labels={l.info}
          direction={'vertical'}
-         stepCount={route.params.data.FIELD.length} 
+         stepCount={route.params.info.length} 
          renderLabel={function (position, stepStatus, label, currentPosition){
-         
+            //  console.log(route.params.info.length)
             return (
                 <View style={{marginLeft:'12%',marginTop:'2%'}}>
                 <TouchableOpacity
                 style={{width:130,height:30,borderRadius:5,backgroundColor:"#FFFFFF",}}
-                onPress={()=>  setCurrentposition(position.position)}
+                onPress={() => 
+// console.log('link',position.label.link)
+                    {Linking.openURL(position.label.link)}
+                // console.log(position.label.link,'link broo')     
+                } 
                 >
                <Text
                 style={{fontSize:16,color:'black',textAlign:'center',padding:'3%'}}>
-                 { position.label}
+                    {position.label.label}
+                 {/* {route.params.info[0].position.label} */}
                 </Text>
               </TouchableOpacity>
-              
-               </View>
+              </View>
             )
     }}
     />   

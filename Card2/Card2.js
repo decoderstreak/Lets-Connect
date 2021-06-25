@@ -14,10 +14,52 @@ export default class Cards extends Component {
         super(props)
     
         this.state = {
-             List:[]
+            data:[
+                {
+                 course: 'C',
+                 colors:['#116faf','#2d9ed6', '#90bcda'],
+                 img:img1,
+                },
+                {
+                 course: 'C++',
+                 colors:['#18ec84','#048046',],
+                 img:img2,
+                },
+                {
+                 course: 'JAVA',
+                colors:['#ff0000','#750000',],
+                img:img3,
+                },
+                {
+                 course: 'PYTHON',
+                 colors:['#0da1fe','#c4e5f9'],
+                 img:img4,
+                },
+            ],
+                
+            List:[]
+           
         }
     } 
-
+    componentDidMount=()=>{
+        firestore()
+        .collection('TESTTHREE')
+        .doc('COURSE')
+        .collection('WEBDEVELOPMENT')
+        .get()
+        .then(querySnapshot => {
+        //  console.log('Total users: ', querySnapshot.size);
+     
+         querySnapshot.forEach(documentSnapshot => {
+           console.log('User ID: ', documentSnapshot.id, documentSnapshot.data());
+           this.state.List=this.state.List.concat(documentSnapshot.data())
+           this.setState({
+               List:(this.state.List)
+           })
+           console.log(this.state.List[0].FIELD);
+         });
+     })
+        }
     render() {
         return (
             <View >
@@ -29,43 +71,34 @@ export default class Cards extends Component {
                 </Svg>
                 </TouchableOpacity>
                     <View style={{margin:20,flexDirection:'row',marginTop:10}}>
-                    <Text style={styles.heading}>Web Development</Text>
+                    <Text style={styles.heading}>Programming</Text>
                     </View>
                 </View>
               
                 <ScrollView style={{height:560}}>
                     {/* ------------------------------------CARDS---------------------------------------------------------- */}
                 <View>     
-                <LinearGradient start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }} colors={['#116faf','#2d9ed6', '#90bcda',]} style={{ width: 330, height: 80, borderRadius: 20, margin:10 }}>
-                    <View style={{justifyContent:'center',alignItems:'center',flexDirection:'row'}}>
-                        <Text style={{color:'white',fontSize:22,justifyContent:'center',alignItems:'center',marginLeft:80}}>HTML</Text>
-                        <Image source={img1} style={{width:70,height:65,marginTop:10,marginLeft:100}}></Image>
+                {
+                        this.state.data.map((i)=>{
+                            return(
+                <View >
+            <TouchableOpacity 
+            onPress={()=>this.props.navigation.navigate('CourseSlider',
+                {info:this.state.List[3].FIELD,
+                 name: i.course})}>
+             <LinearGradient start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }} colors={i.colors} style={{ width: 330, height: 80, borderRadius: 20, margin:10 }}>
+                    <View style={{flexDirection:'row'}}>
+                            <Text style={{color:'white',fontSize:22,position:"absolute",marginLeft:60,marginTop:20,alignContent:"center"}}>{i.course}</Text>
+                            <View style={{marginLeft:150}}>
+                            <Image source={i.img} style={{width:70,height:65,marginTop:10,marginLeft:100}}></Image>
+                            </View>
                     </View>
-                </LinearGradient>
-                <LinearGradient start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }} colors={['#116faf','#2d9ed6', '#90bcda',]} style={{ width: 330, height: 80, borderRadius: 20, margin:10 }}>
-                    <View style={{justifyContent:'center',alignItems:'center',flexDirection:'row'}}>
-                        <Text style={{color:'white',fontSize:22,justifyContent:'center',alignItems:'center',marginLeft:80}}>CSS</Text>
-                        <Image source={img1} style={{width:70,height:65,marginTop:10,marginLeft:100}}></Image>
-                    </View>
-                </LinearGradient>
-                <LinearGradient start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }} colors={['#18ec84','#048046',]} style={{ width: 330, height: 80, borderRadius: 20, margin:10 }}>
-                    <View style={{justifyContent:'center',alignItems:'center',flexDirection:'row'}}>
-                        <Text style={{color:'white',fontSize:22,justifyContent:'center',alignItems:'center',marginLeft:70}}>CSS</Text>
-                        <Image source={img2} style={{width:60,height:65,marginTop:10,marginLeft:120}}></Image>
-                    </View>
-                </LinearGradient>
-                <LinearGradient start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }} colors={['#ff0000','#750000',]} style={{ width: 330, height: 80, borderRadius: 20, margin:10 }}>
-                    <View style={{justifyContent:'center',alignItems:'center',flexDirection:'row'}}>
-                        <Text style={{color:'white',fontSize:22,justifyContent:'center',alignItems:'center',marginLeft:50}}>BOOTSTRAP</Text>
-                        <Image source={img3} style={{width:70,height:65,marginTop:10,marginLeft:70}}></Image>
-                    </View>
-                </LinearGradient>
-                <LinearGradient start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }} colors={['#0da1fe','#c4e5f9']} style={{ width: 330, height: 80, borderRadius: 20, margin:10 }}>
-                    <View style={{justifyContent:'center',alignItems:'center',flexDirection:'row'}}>
-                        <Text style={{color:'white',fontSize:22,justifyContent:'center',alignItems:'center',marginLeft:80}}>JS</Text>
-                        <Image source={img4} style={{width:70,height:65,marginTop:10,marginLeft:130}}></Image>
-                    </View>
-                </LinearGradient>
+            </LinearGradient>
+            </TouchableOpacity>
+            </View>
+                            )
+                        })
+    }
                 </View>
                 </ScrollView>
             </View>

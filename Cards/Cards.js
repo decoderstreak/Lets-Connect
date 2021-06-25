@@ -16,12 +16,51 @@ export default class Cards extends Component {
         super(props)
     
         this.state = {
-           List:[]  
+           List:[
+               {
+                course: 'HTML',
+                colors:['#E65100','#FA500C', '#FB743E', '#FC9870','#FDAA89',],
+                img:img1,
+               
+               },
+
+               {
+                course: 'CSS',
+                colors:['#116faf','#2d9ed6', '#90bcda',],
+                img:img2,
+               
+               
+               },
+
+               {
+                course: 'BOOTSTRAP',
+               colors:['#4701c1','#844adb',],
+               img:img3,
+        
+               
+
+               },
+               {
+                course: 'JS',
+                colors:['#f79b34','#fbd603'],
+                img:img4,
+             
+              
+               
+
+               },
+              
+
+               
+
+           ]  
         }
     }
     render() {
         return (
+            
               <View >
+                  
                 <View style={{ marginTop: 20, marginLeft: 10 ,flexDirection:'row'}}>
                   <TouchableOpacity onPress={()=>this.props.navigation.goBack()}>
                     <Svg width="56" height="55" viewBox="0 0 56 55" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -36,44 +75,49 @@ export default class Cards extends Component {
                
                 <ScrollView style={{height:560}}>
                     {/* ------------------------------------CARDS---------------------------------------------------------- */}
-                <View>
+                    {
+                        this.state.List.map((i)=>{
+                            return(
+
+                <View >
+                    <TouchableOpacity onPress={()=>this.props.navigation.navigate('CourseSlider',i)}>
+                    
                    
-                <LinearGradient start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }} colors={['#E65100','#FA500C', '#FB743E', '#FC9870','#FDAA89',]} style={{ width: 330, height: 80, borderRadius: 20, margin:10 }}>
-                                <View style={{justifyContent:'center',alignItems:'center',flexDirection:'row'}}>
-                                    <Text style={{color:'white',fontSize:22,justifyContent:'center',alignItems:'center',marginLeft:80}}>HTML</Text>
-                                    <Image source={img1} style={{width:70,height:65,marginTop:10,marginLeft:100}}></Image>
+                <LinearGradient start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }} colors={i.colors} style={{ width: 330, height: 80, borderRadius: 20, margin:10 }}>
+                                <View style={{flexDirection:'row'}}>
+                                    <Text style={{color:'white',fontSize:22,position:"absolute",marginLeft:60,marginTop:20,alignContent:"center"}}>{i.course}</Text>
+                                    <View style={{marginLeft:150}}>
+                                    <Image source={i.img} style={{width:70,height:65,marginTop:10,marginLeft:100}}></Image>
+                                    </View>
                                 </View>
                             </LinearGradient>
+                            </TouchableOpacity>
                     
-                <LinearGradient start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }} colors={['#116faf','#2d9ed6', '#90bcda',]} style={{ width: 330, height: 80, borderRadius: 20, margin:10 }}>
-                    <View style={{justifyContent:'center',alignItems:'center',flexDirection:'row'}}>
-                        <Text style={{color:'white',fontSize:22,justifyContent:'center',alignItems:'center',marginLeft:70}}>CSS</Text>
-                        <Image source={img2} style={{width:60,height:65,marginTop:10,marginLeft:120}}></Image>
-                    </View>
-                </LinearGradient>
-                <LinearGradient start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }} colors={['#4701c1','#844adb',]} style={{ width: 330, height: 80, borderRadius: 20, margin:10 }}>
-                    <View style={{justifyContent:'center',alignItems:'center',flexDirection:'row'}}>
-                        <Text style={{color:'white',fontSize:22,justifyContent:'center',alignItems:'center',marginLeft:50}}>BOOTSTRAP</Text>
-                        <Image source={img3} style={{width:70,height:65,marginTop:10,marginLeft:70}}></Image>
-                    </View>
-                </LinearGradient>
-                <LinearGradient start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }} colors={['#f79b34','#fbd603']} style={{ width: 330, height: 80, borderRadius: 20, margin:10 }}>
-                    <View style={{justifyContent:'center',alignItems:'center',flexDirection:'row'}}>
-                        <Text style={{color:'white',fontSize:22,justifyContent:'center',alignItems:'center',marginLeft:80}}>JS</Text>
-                        <Image source={img4} style={{width:70,height:65,marginTop:10,marginLeft:130}}></Image>
-                    </View>
-                </LinearGradient>
-                <View style={{flexDirection:'row'}}>
+               
+               
+                            
+                </View>
+                            )
+                        })
+    }
+                  
+                  <View style={{flexDirection:'row'}}>
+                      <TouchableOpacity onPress={()=>console.log("react")}>
                     <View style={{width:145,height:145,borderRadius:10,marginTop:15,marginLeft:21,backgroundColor:'black'}}>
                         <Image source={img5} style={{width:145,height:145}}></Image>
                     </View>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={()=>console.log("Angular")} >
                     <View style={{width:145,height:145,borderRadius:10,marginTop:15,marginLeft:21,backgroundColor:'black'}}>
                         <Image source={img6} style={{width:145,height:145}}></Image>
                     </View>
-                </View>                
-                </View>
+                    </TouchableOpacity>
+                </View>   
                 </ScrollView>
+    
             </View>
+            
+                  
         )
     }
 }

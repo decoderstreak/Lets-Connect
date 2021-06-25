@@ -14,7 +14,9 @@ import TestButtons from '../StorageDataBase/TestButtons';
 const Stack =createStackNavigator();
 export default function AppScreenStack() {
     return (
-       <Stack.Navigator headerMode={false} initialRouteName="Test">
+       <Stack.Navigator headerMode={false} 
+    //    initialRouteName="Test"
+       >
            <Stack.Screen name="Welcome" component={Welcome}/>
            <Stack.Screen name="Tabnav" component={TabNav}/>
            <Stack.Screen name="Profile" component={Profile}/>
