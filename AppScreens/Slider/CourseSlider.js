@@ -69,7 +69,7 @@ const customStyles = {
 function CourseSlider({route,navigation}){
     const [currentPosition,setCurrentposition]=useState(0);
     const l = route.params;
-    {console.log(route.params,'testing');}
+    // {console.log(position,'testing');}
         return (
             <View style={{flex:1,backgroundColor:"#116FAF",}}>
                 
@@ -91,15 +91,14 @@ function CourseSlider({route,navigation}){
          direction={'vertical'}
          stepCount={route.params.info.length} 
          renderLabel={function (position, stepStatus, label, currentPosition){
-            //  console.log(route.params.info.length)
+             console.log(position,'yyyyyy brooooo')
             return (
                 <View style={{marginLeft:'12%',marginTop:'2%'}}>
                 <TouchableOpacity
                 style={{width:130,height:30,borderRadius:5,backgroundColor:"#FFFFFF",}}
                 onPress={() => 
-// console.log('link',position.label.link)
                     {Linking.openURL(position.label.link)}
-                // console.log(position.label.link,'link broo')     
+                    // setCurrentposition(position.position)    
                 } 
                 >
                <Text
