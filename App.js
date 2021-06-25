@@ -40,6 +40,7 @@
  import TestingThree from './StorageDataBase/TestingThree';
 import TestingFour from './StorageDataBase/TestingFour';
 import CourseSlider from './AppScreens/Slider/CourseSlider'
+import TestButtons from './StorageDataBase/TestButtons';
   export default function App(){
      return(
       //  <Cards/>
@@ -48,6 +49,7 @@ import CourseSlider from './AppScreens/Slider/CourseSlider'
       //  <GettingCourses/>
       //  <TestingThree/>
        <AuthScreens/>
+      // <TestButtons/>
       // <ScrollingTest/>
       // <FireStore/>
      ) 
