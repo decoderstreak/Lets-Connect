@@ -34,11 +34,32 @@ const customStyles = {
 
 function CourseSlider({route,navigation}){
     const [currentPosition,setCurrentposition]=useState(0);
+    const [Array, setArray] = useState([])
     // const Next = () =>{
     //     setCurrentposition(currentPosition+1);
     // }
+    console.log(route.params.data.FIELD);
+    {
+        Object.values(route.params.data.FIELD).map(i=>{
+            // console.log('cccc',i)
+            return(
+                <View>
+                    {Object.keys(i).map(j=>{
+                        // console.log('fff',j);
+                        // setArray(j)
+                        // console.log('j boss',Array);
+                      //   return(
+                      //       <StepIndicator
+                      //       direction={'vertical'}/>
+                      //   )
+                    })}
+                </View>
+            )
+        })
+    }
         return (
             <View style={{flex:1,backgroundColor:"#116FAF",}}>
+                
               <View style={{ display:'flex',flexDirection:'row',marginTop:'10%'}}>
                   <View>
                       <TouchableOpacity>
@@ -46,16 +67,17 @@ function CourseSlider({route,navigation}){
               </TouchableOpacity>
               </View>
               <View>
-              <Text style={{color:'#FFFFFF',fontSize:32}}>{route.params.title}</Text>
+              <Text style={{color:'#FFFFFF',fontSize:32}}>{route.params.data.LANG}</Text>
               </View>
               </View>
               <View style={{flex:1,marginLeft:'10%'}}>
+             
          <StepIndicator
          customStyles={customStyles}
          currentPosition={currentPosition}
          labels={labels}
          direction={'vertical'}
-         stepCount={9} 
+         stepCount={route.params.data.FIELD.length} 
          renderLabel={function (position, stepStatus, label, currentPosition){
          
             return (
@@ -69,6 +91,7 @@ function CourseSlider({route,navigation}){
                  { position.label}
                 </Text>
               </TouchableOpacity>
+              
                </View>
             )
     }}
