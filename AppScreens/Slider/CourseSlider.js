@@ -32,7 +32,7 @@ const customStyles = {
 }
 
 
-function CourseSlider(){
+function CourseSlider({route,navigation}){
     const [currentPosition,setCurrentposition]=useState(0);
     // const Next = () =>{
     //     setCurrentposition(currentPosition+1);
@@ -46,7 +46,7 @@ function CourseSlider(){
               </TouchableOpacity>
               </View>
               <View>
-              <Text style={{color:'#FFFFFF',fontSize:32}}>HTML</Text>
+              <Text style={{color:'#FFFFFF',fontSize:32}}>{route.params.title}</Text>
               </View>
               </View>
               <View style={{flex:1,marginLeft:'10%'}}>

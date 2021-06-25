@@ -9,6 +9,7 @@ import Cards2 from '../Card2/Card2'
 // import Mentors from './Mentors';
 import Mentor from '../Mentors/Mentor'
 import Eachmentor from '../Mentors/Eachmentor'
+import CourseSlider from './Slider/CourseSlider';
 const Stack =createStackNavigator();
 export default function AppScreenStack() {
     return (
@@ -19,6 +20,7 @@ export default function AppScreenStack() {
            <Stack.Screen name="Cards" component={Cards}/>
            <Stack.Screen name="Cards2" component={Cards2}/>
            <Stack.Screen name="Mentor" component={Mentor}/>
+           <Stack.Screen name="CourseSlider" component={CourseSlider}/>
            <Stack.Screen name="Eachmentor" component={Eachmentor}/>
        </Stack.Navigator>
     )

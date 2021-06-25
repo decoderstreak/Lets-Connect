@@ -10,26 +10,14 @@ import img5 from '../Cards/act.png'
 import img6 from '../Cards/Angular.png'
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import database from '@react-native-firebase/database';
+import firestore from '@react-native-firebase/firestore';
 export default class Cards extends Component {
     constructor(props) {
         super(props)
     
         this.state = {
-           data:[]  
+           List:[]  
         }
-    }
-    
-    componentDidMount=()=>{
-        database()
-        .ref('/Courses/Web Development')
-        .once('value')
-        .then(snapshot => {
-          console.log('User data: ', snapshot.val());
-          this.setState({
-              data:snapshot.val()
-          })
-          console.log('list data',Object.keys(this.state.data));
-        });
     }
     render() {
         return (
@@ -49,19 +37,14 @@ export default class Cards extends Component {
                 <ScrollView style={{height:560}}>
                     {/* ------------------------------------CARDS---------------------------------------------------------- */}
                 <View>
-                    {
-                        Object.keys(this.state.data).map((i)=>{
-                            return(
-                                <LinearGradient start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }} colors={['#E65100','#FA500C', '#FB743E', '#FC9870','#FDAA89',]} style={{ width: 330, height: 80, borderRadius: 20, margin:10 }}>
-                                    <View style={{justifyContent:'center',alignItems:'center',flexDirection:'row'}}>
-                                        <Text style={{color:'white',fontSize:22,justifyContent:'center',alignItems:'center',marginLeft:80}}>{i}</Text>
-                                        <Image source={img1} style={{width:70,height:65,marginTop:10,marginLeft:100}}></Image>
-                                    </View>
-                                </LinearGradient>
-                            )
-
-                        })
-                    }
+                   
+                <LinearGradient start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }} colors={['#E65100','#FA500C', '#FB743E', '#FC9870','#FDAA89',]} style={{ width: 330, height: 80, borderRadius: 20, margin:10 }}>
+                                <View style={{justifyContent:'center',alignItems:'center',flexDirection:'row'}}>
+                                    <Text style={{color:'white',fontSize:22,justifyContent:'center',alignItems:'center',marginLeft:80}}>HTML</Text>
+                                    <Image source={img1} style={{width:70,height:65,marginTop:10,marginLeft:100}}></Image>
+                                </View>
+                            </LinearGradient>
+                    
                 <LinearGradient start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }} colors={['#116faf','#2d9ed6', '#90bcda',]} style={{ width: 330, height: 80, borderRadius: 20, margin:10 }}>
                     <View style={{justifyContent:'center',alignItems:'center',flexDirection:'row'}}>
                         <Text style={{color:'white',fontSize:22,justifyContent:'center',alignItems:'center',marginLeft:70}}>CSS</Text>

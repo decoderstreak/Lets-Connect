@@ -25,7 +25,7 @@ export default class FireStore extends Component {
         });
     }
     render() {
-        console.log(this.props.navigation,'props broo');
+        // console.log(this.props.navigation,'props broo');
         return (
             <View>
                 <ScrollView  horizontal={true}
@@ -33,7 +33,7 @@ export default class FireStore extends Component {
                   showsHorizontalScrollIndicator={false}>   
                 {
                     Object.values(this.state.Lists).map((i)=>{
-                        console.log('i boss',i);
+                        // console.log('i boss',i);
                         return(
                             <View>     
                           <TouchableOpacity key={i.id} onPress={()=>this.props.navigation.navigate('Eachmentor',{list:i})}>

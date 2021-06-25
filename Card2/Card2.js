@@ -8,7 +8,16 @@ import img3 from '../Card2/Java.png'
 import img4 from '../Card2/Python.png'
 import img5 from '../Cards/act.png'
 import img6 from '../Cards/Angular.png'
+import firestore from '@react-native-firebase/firestore';
 export default class Cards extends Component {
+    constructor(props) {
+        super(props)
+    
+        this.state = {
+             List:[]
+        }
+    } 
+
     render() {
         return (
             <View >
@@ -26,10 +35,16 @@ export default class Cards extends Component {
               
                 <ScrollView style={{height:560}}>
                     {/* ------------------------------------CARDS---------------------------------------------------------- */}
-                <View>
+                <View>     
                 <LinearGradient start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }} colors={['#116faf','#2d9ed6', '#90bcda',]} style={{ width: 330, height: 80, borderRadius: 20, margin:10 }}>
                     <View style={{justifyContent:'center',alignItems:'center',flexDirection:'row'}}>
                         <Text style={{color:'white',fontSize:22,justifyContent:'center',alignItems:'center',marginLeft:80}}>HTML</Text>
+                        <Image source={img1} style={{width:70,height:65,marginTop:10,marginLeft:100}}></Image>
+                    </View>
+                </LinearGradient>
+                <LinearGradient start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }} colors={['#116faf','#2d9ed6', '#90bcda',]} style={{ width: 330, height: 80, borderRadius: 20, margin:10 }}>
+                    <View style={{justifyContent:'center',alignItems:'center',flexDirection:'row'}}>
+                        <Text style={{color:'white',fontSize:22,justifyContent:'center',alignItems:'center',marginLeft:80}}>CSS</Text>
                         <Image source={img1} style={{width:70,height:65,marginTop:10,marginLeft:100}}></Image>
                     </View>
                 </LinearGradient>

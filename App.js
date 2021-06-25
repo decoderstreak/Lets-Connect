@@ -42,11 +42,12 @@ import TestingFour from './StorageDataBase/TestingFour';
 import CourseSlider from './AppScreens/Slider/CourseSlider'
   export default function App(){
      return(
-       <CourseSlider/>
+      //  <Cards/>
+      //  <CourseSlider/>
       //  <TestingFour/>
       //  <GettingCourses/>
       //  <TestingThree/>
-      //  <AuthScreens/>
+       <AuthScreens/>
       // <ScrollingTest/>
       // <FireStore/>
      ) 
