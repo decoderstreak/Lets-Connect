@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Text, View,TouchableOpacity,Linking } from 'react-native'
+import { Text, View,TouchableOpacity,Linking ,ScrollView} from 'react-native'
 import StepIndicator from 'react-native-step-indicator' 
 import Icon from 'react-native-ionicons';
  
@@ -74,7 +74,9 @@ function CourseSlider({route,navigation}){
             <View style={{flex:1,backgroundColor:"#116FAF",}}>
                 
               <View style={{ display:'flex',flexDirection:'row',marginTop:'10%'}}>
+                  
                   <View>
+                   
                       <TouchableOpacity>
               {/* <Icon name="arrow-back-circle-outline" size={48} color="white"style={{marginLeft:'18%'}}/> */}
               </TouchableOpacity>
@@ -94,11 +96,11 @@ function CourseSlider({route,navigation}){
             //  console.log(route.params.info.length)
             return (
                 <View style={{marginLeft:'12%',marginTop:'2%'}}>
+                       <ScrollView>
                 <TouchableOpacity
-                style={{width:130,height:30,borderRadius:5,backgroundColor:"#FFFFFF",}}
-                onPress={() => 
-// console.log('link',position.label.link)
-                    {Linking.openURL(position.label.link)}
+                style={{width:180,height:30,borderRadius:5,backgroundColor:"#FFFFFF",}}
+                onPress={() => {Linking.openURL(position.label.link)}
+                // ,setCurrentposition(position.position)
                 // console.log(position.label.link,'link broo')     
                 } 
                 >
@@ -108,6 +110,8 @@ function CourseSlider({route,navigation}){
                  {/* {route.params.info[0].position.label} */}
                 </Text>
               </TouchableOpacity>
+              </ScrollView>
+              
               </View>
             )
     }}

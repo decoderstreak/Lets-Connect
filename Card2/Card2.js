@@ -19,21 +19,25 @@ export default class Cards extends Component {
                  course: 'C',
                  colors:['#116faf','#2d9ed6', '#90bcda'],
                  img:img1,
+                 index:0
                 },
                 {
                  course: 'C++',
                  colors:['#18ec84','#048046',],
                  img:img2,
+                 index:1,
                 },
                 {
                  course: 'JAVA',
                 colors:['#ff0000','#750000',],
                 img:img3,
+                index:2,
                 },
                 {
                  course: 'PYTHON',
                  colors:['#0da1fe','#c4e5f9'],
                  img:img4,
+                 index:3
                 },
             ],
                 
@@ -45,7 +49,7 @@ export default class Cards extends Component {
         firestore()
         .collection('TESTTHREE')
         .doc('COURSE')
-        .collection('WEBDEVELOPMENT')
+        .collection('PROGRAMMING')
         .get()
         .then(querySnapshot => {
         //  console.log('Total users: ', querySnapshot.size);
@@ -84,7 +88,7 @@ export default class Cards extends Component {
                 <View >
             <TouchableOpacity 
             onPress={()=>this.props.navigation.navigate('CourseSlider',
-                {info:this.state.List[3].FIELD,
+                {info:this.state.List[i.index].FIELD,
                  name: i.course})}>
              <LinearGradient start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }} colors={i.colors} style={{ width: 330, height: 80, borderRadius: 20, margin:10 }}>
                     <View style={{flexDirection:'row'}}>
