@@ -119,6 +119,7 @@ class Home extends Component {
                 // borderRadius:'5%'
                 // width:
               }}>
+                <TouchableOpacity onPress={()=>this.props.navigation.navigate("Cards")>
                 <ImageBackground source={home} 
                 style={{
                   width:'100%',
@@ -133,6 +134,7 @@ class Home extends Component {
                   // marginTop:'50%'
                 }}>Development</Text>
 </ImageBackground>
+</TouchableOpacity>
               </View>
               <View
               style={{
@@ -146,6 +148,7 @@ class Home extends Component {
                 // alignContent:'center'
                 // width:
               }}>
+                <TouchableOpacity onPress={()=>this.props.navigation.navigate("Cards2")>
                 <ImageBackground source={program} 
                 style={{
                   width:'100%',
@@ -159,6 +162,7 @@ style={{
   fontSize:16,
 }}>Programming</Text>
 </ImageBackground>
+</TouchableOpacity>
               </View>
               {/* <View
               style={{
