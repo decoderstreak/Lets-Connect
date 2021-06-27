@@ -49,7 +49,7 @@ export default class Cards extends Component {
         firestore()
         .collection('TESTTHREE')
         .doc('COURSE')
-        .collection('WEBDEVELOPMENT')
+        .collection('PROGRAMMING')
         .get()
         .then(querySnapshot => {
         //  console.log('Total users: ', querySnapshot.size);

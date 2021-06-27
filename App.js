@@ -22,7 +22,7 @@
  import Storage from './StorageDataBase/Storage';
  import Stack from './navigation/stack'
  import AuthScreens  from './Authentications/AuthScreens';
- import Welcome from './AppScreens/Welcome';
+//  import Welcome from './AppScreens/Welcome';
  import Connect from './Screens/Connect';
  import Sadhana from './AppScreens/sadhana/Sadhana'
  import Track from './Sounds/Trackplayer'
@@ -30,7 +30,7 @@
  import GettingFiles from './StorageDataBase/GettingFiles';
  import Logo from './Screens/Logo'
  import Card2 from '../Lets-Connect/Card2/Card2.js'
- import Home from '../Lets-Connect/Home/Home.js';
+ import Home from '../Lets-Connect/AppScreens/Home.js';
  import Cards from '../Lets-Connect/Card2/Card2.js';
  import ScrollingTest from './Scrolling/ScrollingTest';
  import Mentors from './Mentors/Mentor';
@@ -41,6 +41,7 @@
 import TestingFour from './StorageDataBase/TestingFour';
 import CourseSlider from './AppScreens/Slider/CourseSlider'
 import TestButtons from './StorageDataBase/TestButtons';
+import Welcome from './AppScreens/welcome/Welcome';
   export default function App(){
      return(
       //  <Cards/>
@@ -48,7 +49,9 @@ import TestButtons from './StorageDataBase/TestButtons';
       //  <TestingFour/>
       //  <GettingCourses/>
       //  <TestingThree/>
+      // <Home/>
        <AuthScreens/>
+      // <Welcome/>
       // <TestButtons/>
       // <ScrollingTest/>
       // <FireStore/>

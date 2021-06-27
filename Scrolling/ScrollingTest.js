@@ -115,7 +115,7 @@ export default class ScrollingTest extends Component {
                     onLayout={this.onVedioLayout1}
                     paused={this.state.paused1}
                     source={{ uri:'https://r6---sn-ci5gup-8b5l.googlevideo.com/videoplayback?expire=1624207966&ei=_h3PYJ_2F5fL4-EPlJy6mA8&ip=103.159.33.76&id=o-AObqliUtaVbpZdmT4YP3A2MgbceBtID2ORQ8E17XVfRk&itag=22&source=youtube&requiressl=yes&mh=Z6&mm=31%2C29&mn=sn-ci5gup-8b5l%2Csn-ci5gup-h55d&ms=au%2Crdu&mv=m&mvi=6&pl=24&initcwndbps=1595000&vprv=1&mime=video%2Fmp4&ns=T8hEqKfB1B6xFB2Haa5hoGAF&cnr=14&ratebypass=yes&dur=67.453&lmt=1476561022666829&mt=1624185644&fvip=6&fexp=24001373%2C24007246&beids=9466588&c=WEB&n=_OHXJNe9soKGf1R3w&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cvprv%2Cmime%2Cns%2Ccnr%2Cratebypass%2Cdur%2Clmt&sig=AOq0QJ8wRAIgMxycr9ylLrIrcoDJ4OCkHhO4ZbPON--hQM0PDqUtN6UCIGisTEuuMmvm3dcJwYlod6yaQzFrewYQFlzfQwWs_m6b&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Cinitcwndbps&lsig=AG3C_xAwRgIhAODFJxfSHg1n_KBIzVzXB3NlqIMyQhI76hvesKeutgjmAiEA4r03Si8-wIf3sySUtB0jRbOQvw5nplu_daGUeUX_xF8%3D'}}
-                    style={{ width:330,height:100, resizeMode: 'contain', borderRadius: 10 ,marginLeft:10}}>
+                    style={{ width:320,height:100, resizeMode: 'contain', borderRadius: 10 ,marginLeft:10}}>
             </VideoPlayer>
             </View>
 {/* ----------------------------------------1/2-video------------------------------------------------------ */}
@@ -132,7 +132,7 @@ export default class ScrollingTest extends Component {
                     playInBackground={false}
                     paused={true}
                     source={{ uri:'https://r6---sn-ci5gup-8b5l.googlevideo.com/videoplayback?expire=1624207966&ei=_h3PYJ_2F5fL4-EPlJy6mA8&ip=103.159.33.76&id=o-AObqliUtaVbpZdmT4YP3A2MgbceBtID2ORQ8E17XVfRk&itag=22&source=youtube&requiressl=yes&mh=Z6&mm=31%2C29&mn=sn-ci5gup-8b5l%2Csn-ci5gup-h55d&ms=au%2Crdu&mv=m&mvi=6&pl=24&initcwndbps=1595000&vprv=1&mime=video%2Fmp4&ns=T8hEqKfB1B6xFB2Haa5hoGAF&cnr=14&ratebypass=yes&dur=67.453&lmt=1476561022666829&mt=1624185644&fvip=6&fexp=24001373%2C24007246&beids=9466588&c=WEB&n=_OHXJNe9soKGf1R3w&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cvprv%2Cmime%2Cns%2Ccnr%2Cratebypass%2Cdur%2Clmt&sig=AOq0QJ8wRAIgMxycr9ylLrIrcoDJ4OCkHhO4ZbPON--hQM0PDqUtN6UCIGisTEuuMmvm3dcJwYlod6yaQzFrewYQFlzfQwWs_m6b&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Cinitcwndbps&lsig=AG3C_xAwRgIhAODFJxfSHg1n_KBIzVzXB3NlqIMyQhI76hvesKeutgjmAiEA4r03Si8-wIf3sySUtB0jRbOQvw5nplu_daGUeUX_xF8%3D'}}
-                    style={{ width:330,height:200, resizeMode: 'cover', borderRadius: 10 ,marginLeft:10}}>
+                    style={{ width:320,height:200, resizeMode: 'cover', borderRadius: 10 ,marginLeft:10}}>
             </VideoPlayer>
             </View>
             </ScrollView>
@@ -152,7 +152,7 @@ export default class ScrollingTest extends Component {
                     onLayout={this.onVedioLayout2}
                     paused={true}
                     source={{ uri:'https://r6---sn-ci5gup-8b5l.googlevideo.com/videoplayback?expire=1624207966&ei=_h3PYJ_2F5fL4-EPlJy6mA8&ip=103.159.33.76&id=o-AObqliUtaVbpZdmT4YP3A2MgbceBtID2ORQ8E17XVfRk&itag=22&source=youtube&requiressl=yes&mh=Z6&mm=31%2C29&mn=sn-ci5gup-8b5l%2Csn-ci5gup-h55d&ms=au%2Crdu&mv=m&mvi=6&pl=24&initcwndbps=1595000&vprv=1&mime=video%2Fmp4&ns=T8hEqKfB1B6xFB2Haa5hoGAF&cnr=14&ratebypass=yes&dur=67.453&lmt=1476561022666829&mt=1624185644&fvip=6&fexp=24001373%2C24007246&beids=9466588&c=WEB&n=_OHXJNe9soKGf1R3w&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cvprv%2Cmime%2Cns%2Ccnr%2Cratebypass%2Cdur%2Clmt&sig=AOq0QJ8wRAIgMxycr9ylLrIrcoDJ4OCkHhO4ZbPON--hQM0PDqUtN6UCIGisTEuuMmvm3dcJwYlod6yaQzFrewYQFlzfQwWs_m6b&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Cinitcwndbps&lsig=AG3C_xAwRgIhAODFJxfSHg1n_KBIzVzXB3NlqIMyQhI76hvesKeutgjmAiEA4r03Si8-wIf3sySUtB0jRbOQvw5nplu_daGUeUX_xF8%3D'}}
-                    style={{ width:330,height:200, resizeMode: 'cover', borderRadius: 10 ,marginLeft:10}}>
+                    style={{ width:320,height:200, resizeMode: 'cover', borderRadius: 10 ,marginLeft:10}}>
             </VideoPlayer>
             </View>
             </ScrollView>
@@ -174,7 +174,7 @@ export default class ScrollingTest extends Component {
                     onLayout={this.onVedioLayout2}
                     paused={this.state.paused2}
                     source={{ uri:'https://r7---sn-ci5gup-8b5e.googlevideo.com/videoplayback?expire=1624208128&ei=oB7PYMSBIub64-EPz4WY6A0&ip=103.159.33.75&id=o-AGD9817SOAFfP8x4Horb_XeoVnW5z_k9jysIYjUA0R-n&itag=22&source=youtube&requiressl=yes&mh=XH&mm=31%2C29&mn=sn-ci5gup-8b5e%2Csn-ci5gup-h55d&ms=au%2Crdu&mv=m&mvi=7&pl=24&initcwndbps=1243750&vprv=1&mime=video%2Fmp4&ns=BcyEWlE-3MccX6f-0nYHF80F&ratebypass=yes&dur=629.934&lmt=1607146858586311&mt=1624185644&fvip=7&fexp=24001373%2C24007246&beids=9466588&c=WEB&txp=5432434&n=yOTlN58uMb6aXRem8&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cvprv%2Cmime%2Cns%2Cratebypass%2Cdur%2Clmt&sig=AOq0QJ8wRAIgBEhIhxYxinWe3a8_FGuFrasr7avDYGw-98eV4aKBJGUCIFB1gi_ACwuveLQqf8oyKI6eHCHcFU_i3hnmQb3_F1A3&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Cinitcwndbps&lsig=AG3C_xAwRQIhAIPYwXhBUVVbxkR31rdf_B0hwAkmJADUem5ZxlMpOnwsAiAf0rRc90V29Mr81RMI3WSIpNArL-6Szlu9yA4NS-xxvw%3D%3D'}}
-                    style={{ width:330,height:200, resizeMode: 'cover', borderRadius: 10 ,marginLeft:10}}>
+                    style={{ width:320,height:200, resizeMode: 'cover', borderRadius: 10 ,marginLeft:10}}>
             </VideoPlayer>
             </View>
 {/* ----------------------------------------2/2-video------------------------------------------------------ */}
@@ -192,7 +192,7 @@ export default class ScrollingTest extends Component {
                     playInBackground={false}
                     paused={true}
                     source={{ uri:'https://r7---sn-ci5gup-8b5e.googlevideo.com/videoplayback?expire=1624208128&ei=oB7PYMSBIub64-EPz4WY6A0&ip=103.159.33.75&id=o-AGD9817SOAFfP8x4Horb_XeoVnW5z_k9jysIYjUA0R-n&itag=22&source=youtube&requiressl=yes&mh=XH&mm=31%2C29&mn=sn-ci5gup-8b5e%2Csn-ci5gup-h55d&ms=au%2Crdu&mv=m&mvi=7&pl=24&initcwndbps=1243750&vprv=1&mime=video%2Fmp4&ns=BcyEWlE-3MccX6f-0nYHF80F&ratebypass=yes&dur=629.934&lmt=1607146858586311&mt=1624185644&fvip=7&fexp=24001373%2C24007246&beids=9466588&c=WEB&txp=5432434&n=yOTlN58uMb6aXRem8&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cvprv%2Cmime%2Cns%2Cratebypass%2Cdur%2Clmt&sig=AOq0QJ8wRAIgBEhIhxYxinWe3a8_FGuFrasr7avDYGw-98eV4aKBJGUCIFB1gi_ACwuveLQqf8oyKI6eHCHcFU_i3hnmQb3_F1A3&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Cinitcwndbps&lsig=AG3C_xAwRQIhAIPYwXhBUVVbxkR31rdf_B0hwAkmJADUem5ZxlMpOnwsAiAf0rRc90V29Mr81RMI3WSIpNArL-6Szlu9yA4NS-xxvw%3D%3D'}}
-                    style={{ width:330,height:200, resizeMode: 'cover', borderRadius: 10 ,marginLeft:10}}>
+                    style={{ width:320,height:200, resizeMode: 'cover', borderRadius: 10 ,marginLeft:10}}>
             </VideoPlayer>
             </View>
             </ScrollView>
@@ -213,7 +213,7 @@ export default class ScrollingTest extends Component {
                     // onLayout={this.onVedioLayout2}
                     paused={true}
                     source={{ uri:'https://r7---sn-ci5gup-8b5e.googlevideo.com/videoplayback?expire=1624208128&ei=oB7PYMSBIub64-EPz4WY6A0&ip=103.159.33.75&id=o-AGD9817SOAFfP8x4Horb_XeoVnW5z_k9jysIYjUA0R-n&itag=22&source=youtube&requiressl=yes&mh=XH&mm=31%2C29&mn=sn-ci5gup-8b5e%2Csn-ci5gup-h55d&ms=au%2Crdu&mv=m&mvi=7&pl=24&initcwndbps=1243750&vprv=1&mime=video%2Fmp4&ns=BcyEWlE-3MccX6f-0nYHF80F&ratebypass=yes&dur=629.934&lmt=1607146858586311&mt=1624185644&fvip=7&fexp=24001373%2C24007246&beids=9466588&c=WEB&txp=5432434&n=yOTlN58uMb6aXRem8&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cvprv%2Cmime%2Cns%2Cratebypass%2Cdur%2Clmt&sig=AOq0QJ8wRAIgBEhIhxYxinWe3a8_FGuFrasr7avDYGw-98eV4aKBJGUCIFB1gi_ACwuveLQqf8oyKI6eHCHcFU_i3hnmQb3_F1A3&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Cinitcwndbps&lsig=AG3C_xAwRQIhAIPYwXhBUVVbxkR31rdf_B0hwAkmJADUem5ZxlMpOnwsAiAf0rRc90V29Mr81RMI3WSIpNArL-6Szlu9yA4NS-xxvw%3D%3D'}}
-                     style={{ width:330,height:300, resizeMode: 'cover', borderRadius: 10 ,marginLeft:10}}>
+                     style={{ width:320,height:300, resizeMode: 'cover', borderRadius: 10 ,marginLeft:10}}>
             </VideoPlayer>
             </View>
             </ScrollView>

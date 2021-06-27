@@ -57,7 +57,7 @@ export default function Profile({navigation}) {
  async function Update(){
   update = {
     displayName: NewName,
-    email:NewName
+    email:NewEmail
   }
     await firebase.auth().currentUser.updateProfile(update);
     // await firebase.auth().currentUser.updateProfile(NewEmail);

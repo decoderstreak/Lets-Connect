@@ -49,7 +49,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff'
   },
   textStyle: {
-    fontSize: 15,
-    marginBottom: 20
+    fontSize: 14,
+    marginBottom: 20,
+    color:'#EBEAEC',
   }
 });

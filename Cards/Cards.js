@@ -16,11 +16,12 @@ export default class Cards extends Component {
         super(props)
     
         this.state = {
-           List:[
+           data:[
                {
                 course: 'HTML',
                 colors:['#E65100','#FA500C', '#FB743E', '#FC9870','#FDAA89',],
                 img:img1,
+                index:2,
                
                },
 
@@ -28,14 +29,16 @@ export default class Cards extends Component {
                 course: 'CSS',
                 colors:['#116faf','#2d9ed6', '#90bcda',],
                 img:img2,
+                index:1
                
                
                },
 
                {
-                course: 'BOOTSTRAP',
+               course: 'BOOTSTRAP',
                colors:['#4701c1','#844adb',],
                img:img3,
+               index:0
         
                
 
@@ -44,6 +47,7 @@ export default class Cards extends Component {
                 course: 'JS',
                 colors:['#f79b34','#fbd603'],
                 img:img4,
+                index:3
              
               
                
@@ -53,9 +57,29 @@ export default class Cards extends Component {
 
                
 
-           ]  
+           ],
+           List:[]  
         }
     }
+    componentDidMount=()=>{
+        firestore()
+        .collection('TESTTHREE')
+        .doc('COURSE')
+        .collection('WEBDEVELOPMENT')
+        .get()
+        .then(querySnapshot => {
+        //  console.log('Total users: ', querySnapshot.size);
+     
+         querySnapshot.forEach(documentSnapshot => {
+           console.log('User ID: ', documentSnapshot.id, documentSnapshot.data());
+           this.state.List=this.state.List.concat(documentSnapshot.data())
+           this.setState({
+               List:(this.state.List)
+           })
+           console.log(this.state.List[0].FIELD);
+         });
+     })
+        }
     render() {
         return (
             
@@ -76,11 +100,13 @@ export default class Cards extends Component {
                 <ScrollView style={{height:560}}>
                     {/* ------------------------------------CARDS---------------------------------------------------------- */}
                     {
-                        this.state.List.map((i)=>{
+                        this.state.data.map((i)=>{
                             return(
 
                 <View >
-                    <TouchableOpacity onPress={()=>this.props.navigation.navigate('CourseSlider',i)}>
+                    <TouchableOpacity onPress={()=>this.props.navigation.navigate('CourseSlider',
+                {info:this.state.List[i.index].FIELD,
+                 name: i.course})}>
                     
                    
                 <LinearGradient start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }} colors={i.colors} style={{ width: 330, height: 80, borderRadius: 20, margin:10 }}>

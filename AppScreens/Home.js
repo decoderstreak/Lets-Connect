@@ -25,9 +25,9 @@ import ScrollingTest from '../Scrolling/ScrollingTest';
 import firestore from '@react-native-firebase/firestore';
 import FireStore from '../StorageDataBase/FireStore';
 // import SectionListInFocus from '@reactly/react-native-autoplay-scroll-video'
-
-const { width } = Dimensions.get("window");
-const height = width * 0.50;
+const width=Dimensions.get('window').width
+const height =Dimensions.get('window').height
+// const height = width * 0.50;
 const images = [
   'https://st1.latestly.com/wp-content/uploads/2019/07/02-3-1.jpg',
   'https://www.quotationof.com/images/dennis-ritchies-quotes-5.jpg',
@@ -62,7 +62,6 @@ class Home extends Component {
           url:'https://firebasestorage.googleapis.com/v0/b/let-s-connect-84651.appspot.com/o/Zoom%20Meeting%202021-06-04%2021-03-37.mp4?alt=media&token=5ae8c54c-c036-45b7-9df1-fca74e2799c3',
         }
       }
-      // list=[]
       signOut = () => {
         auth().signOut()
         // .then(() => {
@@ -78,38 +77,119 @@ class Home extends Component {
       } 
       let urlv={uri:"https://firebasestorage.googleapis.com/v0/b/let-s-connect-84651.appspot.com/o/VEDIOS%2Fbdaywishvedio.mp4?alt=media&token=6df0a81e-4b65-489a-aa33-7b0d0569a856"
       }
-      console.log(this.state.Lists);
+      // console.log(this.state.Lists);
+      console.log('width',width);
+      console.log('height',height);
         return (
             <View>
-            <View style={{margin:20,flexDirection:'row'}}>
+            <View style={{flexDirection:'row',marginLeft:'5%',marginTop:'5%',marginBottom:'3%'}}>
 {/* ---------------------------------------------------Header---------------------------------------------------------- */}
                 <Text style={styles.heading}>Let's Connect</Text>
-                <TouchableOpacity style={{marginLeft:80}} onPress={()=>this.RBSheet.open()}>
+                <TouchableOpacity 
+                style={styles.profile}
+                onPress={()=>this.RBSheet.open()}>
                 <MentorIcon props={'black'}/>
                 </TouchableOpacity>
-                <TouchableOpacity style={{marginLeft:30}} onPress={()=>console.log('notification')}>
+                <TouchableOpacity style={styles.notification} onPress={()=>console.log('notification')}>
                 <NotificationIcon/>
                 </TouchableOpacity>
             </View>
 {/* ----------------------------------------------------BODY------------------------------------------------------------------ */}
-          <ScrollView style={{height:550}}>
-           <View>
-           <View>
-            <LinearGradient start={{ x: 1, y: 0 }} end={{ x: 0, y: 0 }} colors={['#90bcda', '#608BC5', '#116faf', '#116faf',]} style={{ width:330, height: 80, borderRadius: 20, margin:10 }}/>
-          <Text style={{ fontSize: 18, margin:10 }}>Techify</Text>
-          <View style={{ flexDirection: 'row',margin:10 }}>
-            <View>
-            <TouchableOpacity 
-            onPress={()=>this.props.navigation.navigate("Cards")}
+          <ScrollView style={{height:'100%'}}>
+           {/* <View>
+           <View> */}
+            <LinearGradient start={{ x: 1, y: 0 }} end={{ x: 0, y: 0 }} colors={['#90bcda', '#608BC5', '#116faf', '#116faf',]} 
+            style={{ width:'90%', height: 80, borderRadius: 20, marginLeft:'5%',marginTop:'2%'}}/>
+          <Text style={{ fontSize: 16, marginLeft:'5%',marginTop:'3%' }}>Techify</Text>
+          <View 
+          style={{ 
+            flexDirection:'row',
+            marginLeft:'5%',
+            marginTop:'3%',
+            // backgroundColor:'black',
+            width:'90%',
+            height:'15%'
+            }}>
+              <View 
+              style={{
+                position:'absolute',
+                width:'47%',
+                height:'100%',
+                // backgroundColor:'pink',
+                // borderRadius:'5%'
+                // width:
+              }}>
+                <ImageBackground source={home} 
+                style={{
+                  width:'100%',
+                  height:'100%',
+                  justifyContent:'center',
+                  alignItems:'center'}}>
+                <Text
+                style={{
+                  color:'white',
+                  fontWeight:'bold',
+                  fontSize:16,
+                  // marginTop:'50%'
+                }}>Development</Text>
+</ImageBackground>
+              </View>
+              <View
+              style={{
+                position:'relative',
+                width:'47%',
+                height:'100%',
+                // backgroundColor:'pink',
+                // borderRadius:'5%',
+                marginLeft:'53%',
+                // justifyContent:'center',
+                // alignContent:'center'
+                // width:
+              }}>
+                <ImageBackground source={program} 
+                style={{
+                  width:'100%',
+                  height:'100%',
+                  justifyContent:'center',
+                  alignItems:'center'}}>
+<Text
+style={{
+  color:'white',
+  fontWeight:'bold',
+  fontSize:16,
+}}>Programming</Text>
+</ImageBackground>
+              </View>
+              {/* <View
+              style={{
+                position:'absolute',
+                width:'50%',
+                height:'100%',
+                backgroundColor:'pink',
+                borderRadius:25
+                // width:
+              }}>
+
+              </View> */}
+            {/* <View style={{width:'45%',height:'50%'}}>
+            <TouchableOpacity onPress={()=>this.props.navigation.navigate("Cards")} 
+            style={{backgroundColor:20}} 
             >
-              <ImageBackground source={home} 
-              style={{ width: 157, height: 177,justifyContent:'center',alignItems:'center' }}
-              >
-                <Text style={{ color: 'white', fontSize: 18,marginTop:100 }}>Development</Text>
+              <ImageBackground source={home} style={{justifyContent:'center',alignItems:'center',borderRadius:20,width:'100%',height:'100%'}}>
+                <Text style={{ color: 'white', fontSize: 16,fontWeight:'bold' }}>Development</Text>
               </ImageBackground>
             </TouchableOpacity>
-            </View>
-            <View style={{marginLeft:15}}>
+            </View> */}
+            {/* <View style={{width:'45%',height:'100%',marginLeft:'4%'}}>
+            <TouchableOpacity onPress={()=>this.props.navigation.navigate("Cards2")} 
+            // style={{backgroundColor:20}} 
+            >
+              <ImageBackground source={program} style={{justifyContent:'center',alignItems:'center',borderRadius:20}}>
+                <Text style={{ color: 'white', fontSize: 16,fontWeight:'bold'}}>Programming</Text>
+              </ImageBackground>
+            </TouchableOpacity>
+            </View> */}
+            {/* <View style={{marginLeft:15}}>
             <TouchableOpacity 
             onPress={()=>this.props.navigation.navigate("Cards2")}
             >
@@ -117,16 +197,16 @@ class Home extends Component {
               <Text style={{ color: 'white', fontSize: 18,marginTop:100 }}>Programming</Text>
               </ImageBackground>
             </TouchableOpacity>
-            </View>
+            </View> */}
           </View>
-          </View>
-           </View>
+          {/* </View>
+           </View> */}
 {/* -----------------------------------------------------vedios section---------------------------------------------------- */}
-           <View>
+           <View style={{marginLeft:'3%',marginTop:'5%'}}>
             <ScrollingTest/>
            </View>
-          <View><Text style={{ fontSize: 18,margin:10,marginTop:20 }}>Connect with Dazzlers</Text>
-            <View>
+          <View><Text style={{ fontSize: 18,margin:'5%',marginTop:'2%' }}>Connect with Dazzlers</Text>
+            <View style={{marginLeft:'3%'}}>
               <FireStore navigation={this.props.navigation}/>
              </View>
           </View>
@@ -141,7 +221,7 @@ class Home extends Component {
               }}
                 closeOnDragDown={true}
                 closeOnPressMask={true}
-                height={500}
+                height={400}
                 customStyles={{
                   wrapper: {
                     backgroundColor: "transparent"
@@ -155,10 +235,13 @@ class Home extends Component {
                   },
                 }}
               >
+                <ScrollView 
+                // style={{height:300}}
+                >
                   <View>
-                <View style={{flexDirection:'row'}}>
-                <Text style={{fontSize:34,marginLeft:20}}>My profile</Text>
-                <View style={{marginTop:20,marginLeft:130}}>
+                <View style={{flexDirection:'row',justifyContent:'center'}}>
+                <Text style={{fontSize:22,fontWeight:'bold',margin:'2%'}}>My profile</Text>
+                <View style={{margin:'3%',marginLeft:'40%'}}>
                 <TouchableOpacity onPress={()=>this.props.navigation.navigate("Profile")}>
                   <Text style={{fontSize:14,color:'#116FAF',fontWeight:'bold'}}>Edit</Text>
                 </TouchableOpacity>
@@ -166,31 +249,58 @@ class Home extends Component {
                 </View>
                 <View style={styles.container}>
                 <Image source={image} />
-                <Text style={{fontSize:20,marginTop:18,color:'#222222'}}> {this.state.displayName}</Text>
+                <Text style={{fontSize:18,margin:'5%',color:'#222222',fontWeight:'bold'}}> {this.state.displayName}</Text>
                 </View>
                 <View>
-                <View style={styles.name}>
+                  <View style={{margin:'5%',flexDirection:'row',marginTop:'6%'}}>
+                    <Nameicon/>
+                    <Text style={{fontSize:18,marginLeft:'5%'}}>Name:</Text>
+                    <Text style={{fontSize:16,color:'#9B9B9B',marginLeft:'1%'}}> {this.state.displayName}</Text>
+                  </View>
+                  <View style={{margin:'5%',flexDirection:'row'}}>
+                  <Emailicon />
+                    <Text style={{fontSize:18,marginLeft:'5%'}}>E-mail:</Text>
+                    <Text style={{fontSize:16,color:'#9B9B9B',marginLeft:'1%'}}>{this.state.email}</Text>
+                  </View>
+                  <View style={{margin:'5%',flexDirection:'row',marginLeft:'4%'}}>
+                  <Callender />
+                  {/* <View style={{textAlign:'right'}}> */}
+                    <Text style={{fontSize:18,marginLeft:'4%',}}>Academic Year:</Text>
+                  {/* </View> */}
+                    <Text style={{fontSize:16,color:'#9B9B9B',marginLeft:'1%'}}>2020</Text>
+                  </View>
+                  <View style={{justifyContent:'center',alignItems:'center'}}>
+                    {/* <Button title="Signout" onPress={()=>this.signOut()}/> */}
+                    <TouchableOpacity 
+                    style={styles.button}
+                    onPress={()=>this.signOut()}
+                    // onPress={()=>this.props.navigation.navigate('Tabnav')}
+                    >
+                        <Text style={styles.buttontext}>Sign Out</Text>
+                    </TouchableOpacity>
+                  </View>
+                {/* <View style={styles.name}>
                 <View style={{marginLeft:-10}}>
                 <Nameicon />
                 </View>
                 <Text style={{fontSize:20,marginLeft:-80}}>Name</Text>
                 <Text style={{fontSize:16,color:'#9B9B9B'}}> {this.state.displayName}</Text>
-                </View>
-                <View
+                </View> */}
+                {/* <View
                   style={{
                  borderBottomColor: '#E8E8E8',
                  borderBottomWidth: 0.25,
                  height:0.5,
                   width:340,
-                 marginTop:28
+                //  marginTop:28
                     }}
-                />
-                <View style={{ display:'flex',flexDirection:'row',justifyContent:'space-around',marginTop:20}}>
+                /> */}
+                {/* <View style={{ display:'flex',flexDirection:'row',justifyContent:'space-around',marginTop:20}}>
                 <Emailicon />
                 <Text style={{fontSize:20,marginLeft:-15}}>E-mail</Text>
                 <Text style={{fontSize:16,color:'#9B9B9B'}}> {this.state.email}</Text>
-                </View>
-                <View
+                </View> */}
+                {/* <View
                   style={{
                  borderBottomColor: '#E8E8E8',
                  borderBottomWidth: 0.25,
@@ -198,23 +308,24 @@ class Home extends Component {
                  marginTop:28,
                  marginLeft:-20
                     }}
-                />
-                <View style={{display:'flex',flexDirection:'row',justifyContent:'space-around',marginTop:20,marginLeft:-10}}>
+                /> */}
+                {/* <View style={{display:'flex',flexDirection:'row',justifyContent:'space-around',marginTop:20,marginLeft:-10}}>
                 <Callender />
                 <Text style={{fontSize:20,marginLeft:-30}}>Academic Year</Text>
                 <Text style={{fontSize:16,color:'#9B9B9B'}}>2020</Text>
-                </View>
-                <View
+                </View> */}
+                {/* <View
                   style={{
                  borderBottomColor: '#E8E8E8',
                  borderBottomWidth: 0.25,
                   width:340,
                  marginTop:28
                     }}
-                />
-                {/* <Button title="Signout" onPress={()=>this.signOut()}/> */}
+                /> */}
+                
                 </View>
                 </View>
+                </ScrollView>
               </RBSheet>
             </ScrollView>
             </ScrollView>
@@ -223,48 +334,68 @@ class Home extends Component {
     }
 }
 const styles = StyleSheet.create({
-    heading:{
-        fontSize:22,
-        fontWeight:'bold'
+heading:{
+        fontSize:20,
+        fontWeight:'bold',
+        // marginLeft:30
 },
-    textStyle: {
+textStyle: {
       fontSize: 15,
       marginBottom: 20
-    },
-    name:
-        {
+},
+name:
+{
             display:'flex',
             flexDirection:'row',
             justifyContent:'space-around',
             marginTop:50,
             marginLeft:-25
-        },
-        container: {
+},
+    container: {
                 display:'flex',
                 flexDirection:'row',
                 marginLeft:20,
                 marginTop:20
               },
-              backgroundVideo: {
+    backgroundVideo: {
                 position: 'absolute',
                 top: 0,
                 left: 0,
                 bottom: 0,
                 right: 0,
               },
-              padingText: {
+    padingText: {
                   color: '#888',
                   padding: 3,
                   margin: 3,
                   fontSize: (width / 30)
                 },
-                padingActiveText: {
+    padingActiveText: {
                   color: 'black',
                   padding: 3,
                   margin: 3,
                   fontSize: (width / 30),
-                }
-              // })
+                },
+                profile:{
+                  marginLeft:'40%'
+                },
+                notification:{
+                  marginLeft:'7%'
+                },
+                buttontext:{
+                  fontSize:16,
+                  fontWeight:'bold',
+                  color:'white'
+              },
+              button:{
+                backgroundColor:'#116FAF',
+                width:width/(1.135),
+                height:height/(14),
+                borderRadius:30,
+                justifyContent:'center',
+                alignItems:'center'
+            },
+    
   }
   )
   export default Home

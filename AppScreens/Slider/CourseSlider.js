@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Text, View,TouchableOpacity,Linking } from 'react-native'
+import { Text, View,TouchableOpacity,Linking ,ScrollView} from 'react-native'
 import StepIndicator from 'react-native-step-indicator' 
 import Icon from 'react-native-ionicons';
  
@@ -74,7 +74,9 @@ function CourseSlider({route,navigation}){
             <View style={{flex:1,backgroundColor:"#116FAF",}}>
                 
               <View style={{ display:'flex',flexDirection:'row',marginTop:'10%'}}>
+                  
                   <View>
+                   
                       <TouchableOpacity>
               {/* <Icon name="arrow-back-circle-outline" size={48} color="white"style={{marginLeft:'18%'}}/> */}
               </TouchableOpacity>
@@ -93,20 +95,24 @@ function CourseSlider({route,navigation}){
          renderLabel={function (position, stepStatus, label, currentPosition){
              console.log(position,'yyyyyy brooooo')
             return (
-                <View style={{marginLeft:'12%',marginTop:'2%'}}>
+                <View style={{marginLeft:'12%',margin:'5%'}}>
+                       {/* <ScrollView> */}
                 <TouchableOpacity
-                style={{width:130,height:30,borderRadius:5,backgroundColor:"#FFFFFF",}}
+                style={{borderRadius:5,backgroundColor:"#FFFFFF"}}
                 onPress={() => 
+                    
                     {Linking.openURL(position.label.link)}
                     // setCurrentposition(position.position)    
                 } 
                 >
                <Text
-                style={{fontSize:16,color:'black',textAlign:'center',padding:'3%'}}>
+                style={{fontSize:16,color:'black',textAlign:'center',padding:'3%',justifyContent:'space-around'}}>
                     {position.label.label}
                  {/* {route.params.info[0].position.label} */}
                 </Text>
               </TouchableOpacity>
+              {/* </ScrollView> */}
+              
               </View>
             )
     }}
