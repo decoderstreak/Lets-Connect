@@ -17,7 +17,7 @@
    LearnMoreLinks,
    ReloadInstructions,
  } from 'react-native/Libraries/NewAppScreen';
- import Signup from './mine/Signup';
+//  import Signup from './mine/Signup';
  import S from './hii/S'
  import Storage from './StorageDataBase/Storage';
  import Stack from './navigation/stack'
@@ -41,6 +41,8 @@
 import TestingFour from './StorageDataBase/TestingFour';
 import CourseSlider from './AppScreens/Slider/CourseSlider'
 import TestButtons from './StorageDataBase/TestButtons';
+import Signup from './Screens/Signup';
+import Login from './Screens/Login';
   export default function App(){
      return(
       //  <Cards/>
@@ -49,6 +51,9 @@ import TestButtons from './StorageDataBase/TestButtons';
       //  <GettingCourses/>
       //  <TestingThree/>
        <AuthScreens/>
+      // <Signup />
+      // <Login />
+      // <Mentors />
       // <TestButtons/>
       // <ScrollingTest/>
       // <FireStore/>

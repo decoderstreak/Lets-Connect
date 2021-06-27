@@ -65,12 +65,15 @@ const customStyles = {
   currentStepLabelColor: '#FFFFFF'
 }
 
-
 function CourseSlider({route,navigation}){
     const [currentPosition,setCurrentposition]=useState(0);
     const l = route.params;
+    
+    
     {console.log(route.params,'testing');}
         return (
+           
+                
             <View style={{flex:1,backgroundColor:"#116FAF",}}>
                 
               <View style={{ display:'flex',flexDirection:'row',marginTop:'10%'}}>
@@ -94,13 +97,15 @@ function CourseSlider({route,navigation}){
          stepCount={route.params.info.length} 
          renderLabel={function (position, stepStatus, label, currentPosition){
             //  console.log(route.params.info.length)
+
             return (
                 <View style={{marginLeft:'12%',marginTop:'2%'}}>
                        <ScrollView>
                 <TouchableOpacity
                 style={{width:180,height:30,borderRadius:5,backgroundColor:"#FFFFFF",}}
-                onPress={() => {Linking.openURL(position.label.link)}
-                // ,setCurrentposition(position.position)
+                onPress={() => 
+                    {Linking.openURL(position.label.link)}
+                // // ,setCurrentposition(position.position)
                 // console.log(position.label.link,'link broo')     
                 } 
                 >

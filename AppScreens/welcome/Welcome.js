@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {View,Text,Image,TouchableOpacity,ScrollView} from 'react-native'
+import {View,Text,Image,TouchableOpacity,ScrollView,SafeAreaView} from 'react-native'
 import elipse from './ellipse.png'
 import bird from './Vector.png'
 import auth from '@react-native-firebase/auth';
@@ -16,8 +16,10 @@ export default class Welcome extends Component {
             uid: auth().currentUser.uid
           }   
         return (
-            <View style={{backgroundColor:'#116faf'}}>
-                <ScrollView style={{height:650}}>
+          
+            
+            <View style={{backgroundColor:'#116faf',flex:1}}>
+                <ScrollView>
                     <View style={{justifyContent:'center',alignItems:'center'}}>
                     <View  style={{marginTop:50,alignItems:'center',justifyContent:'center',width:250}}>
                     <Text style={{color:'white',fontSize:20,alignContent:'center',justifyContent:'center'}}>Hi {this.state.displayName} ,</Text> 
@@ -35,13 +37,15 @@ export default class Welcome extends Component {
                 <View><Image source={bird} style={{marginTop:11,marginLeft:237}}></Image></View>
                 <View><Image source={bird} style={{marginLeft:37,width:22,height:8}}></Image></View>
                 <View style={{alignItems:'center'}}><Image source={elipse} style={{width:350,height:200,marginTop:-10}}></Image></View>
-                <View style={{backgroundColor:"116faf",height:256,width:416,marginTop:5,justifyContent:"center"}} >
-                    <TouchableOpacity style={{width:360,height:63,borderRadius:38,backgroundColor:"#EBEAEC",marginTop:10,alignItems:'center',justifyContent:'center'}} onPress={()=>this.props.navigation.navigate('Tabnav')}>
-                        <Text style={{fontSize:14,alignItems:'center',justifyContent:'center'}}>GET STARTED</Text>
+
+                <View style={{backgroundColor:"116faf",justifyContent:"center",alignItems:"center",marginTop:140}} >
+                    <TouchableOpacity style={{width:290,height:55,borderRadius:38,backgroundColor:"white",alignItems:'center',justifyContent:'center'}} onPress={()=>this.props.navigation.navigate('Tabnav')}>
+                        <Text style={{fontSize:15,alignItems:'center',justifyContent:'center',fontWeight:"bold"}}>GET STARTED</Text>
                     </TouchableOpacity>
                 </View>
                 </ScrollView>
             </View>
+           
         )
     }
 }

@@ -32,17 +32,17 @@ export default class FireStore extends Component {
                 style={{height:500}}
                   showsHorizontalScrollIndicator={false}>   
                 {
-                    Object.values(this.state.Lists).map((i)=>{
+                    Object.values(this.state.Lists).map((list)=>{
                         // console.log('i boss',i);
                         return(
                             <View>     
-                          <TouchableOpacity key={i.id} onPress={()=>this.props.navigation.navigate('Eachmentor',{list:i})}>
+                          <TouchableOpacity key={list.id} onPress={()=>this.props.navigation.navigate('Eachmentor',list)}>
                          <View style={{ height: 207, width: 152, borderWidth: 2, borderColor: '#BEBEC3', borderRadius: 9,margin:10 }}>
                            <Image
                              source={photo}
                              style={{ width: 149, height: 126, borderRadius: 5, marginLeft: -0.5 }}>
                            </Image>
-                           <Text style={{ textAlign: 'center', marginTop: 10, fontSize: 14 }}>{i.Name}</Text>
+                           <Text style={{ textAlign: 'center', marginTop: 10, fontSize: 14 }}>{list.Name}</Text>
                            <Text style={{ textAlign: 'center', fontSize: 10, textAlign: 'justify', padding: 18 }}>
                            </Text>
                          </View>
