@@ -17,7 +17,7 @@
    LearnMoreLinks,
    ReloadInstructions,
  } from 'react-native/Libraries/NewAppScreen';
- import Signup from './mine/Signup';
+//  import Signup from './mine/Signup';
  import S from './hii/S'
  import Storage from './StorageDataBase/Storage';
  import Stack from './navigation/stack'
@@ -26,7 +26,7 @@
  import Connect from './Screens/Connect';
  import Sadhana from './AppScreens/sadhana/Sadhana'
  import Track from './Sounds/Trackplayer'
- import Profile from './hii/Profile';
+//  import Profile from './hii/Profile';
  import GettingFiles from './StorageDataBase/GettingFiles';
  import Logo from './Screens/Logo'
  import Card2 from '../Lets-Connect/Card2/Card2.js'
@@ -42,6 +42,7 @@ import TestingFour from './StorageDataBase/TestingFour';
 import CourseSlider from './AppScreens/Slider/CourseSlider'
 import TestButtons from './StorageDataBase/TestButtons';
 import Welcome from './AppScreens/welcome/Welcome';
+import Profile from './hii/Profile';
   export default function App(){
      return(
       //  <Cards/>
@@ -51,6 +52,7 @@ import Welcome from './AppScreens/welcome/Welcome';
       //  <TestingThree/>
       // <Home/>
        <AuthScreens/>
+      // <Profile/>
       // <Welcome/>
       // <TestButtons/>
       // <ScrollingTest/>

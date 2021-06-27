@@ -12,7 +12,7 @@ export default class extends React.Component {
             </View>
             <View style={{marginTop:100,justifyContent:'center',alignItems:'center'}}>
             <TouchableOpacity
-             style={{width:320,height:56,borderRadius:40,backgroundColor:"#1578A1",marginTop:-19,justifyContent:'center'}}
+             style={{width:320,height:56,borderRadius:40,backgroundColor:"#116FAF",marginTop:-19,justifyContent:'center'}}
              onPress={() => this.props.navigation.navigate('Login')}
              >
             <Text

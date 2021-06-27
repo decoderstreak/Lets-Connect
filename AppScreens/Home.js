@@ -64,10 +64,10 @@ class Home extends Component {
       }
       signOut = () => {
         auth().signOut()
-        // .then(() => {
-        //   this.props.navigation.navigate('Login')
-        // })
-        // .catch(error => this.setState({ errorMessage: error.message }))
+        .then(() => {
+          this.props.navigation.navigate('Login')
+        })
+        .catch(error => this.setState({ errorMessage: error.message }))
       } 
     render() { 
          this.state = { 
@@ -213,7 +213,9 @@ style={{
             {/* <View>
               <Video source={urlv} style={{width:200,height:500}}/>
             </View> */}
-            <ScrollView>
+            <ScrollView 
+            // style={{height:300}}
+            >
    {/* ----------------------------------------------------RB SHEET-------------------------------------------------------*/}
               <RBSheet
                ref={ref => {
@@ -235,18 +237,22 @@ style={{
                   },
                 }}
               >
-                <ScrollView 
-                // style={{height:300}}
-                >
+                
                   <View>
                 <View style={{flexDirection:'row',justifyContent:'center'}}>
                 <Text style={{fontSize:22,fontWeight:'bold',margin:'2%'}}>My profile</Text>
                 <View style={{margin:'3%',marginLeft:'40%'}}>
+                  
                 <TouchableOpacity onPress={()=>this.props.navigation.navigate("Profile")}>
                   <Text style={{fontSize:14,color:'#116FAF',fontWeight:'bold'}}>Edit</Text>
                 </TouchableOpacity>
                 </View>
                 </View>
+                {/* <ScrollView 
+                // style={{height:300}}
+                > */}
+
+                
                 <View style={styles.container}>
                 <Image source={image} />
                 <Text style={{fontSize:18,margin:'5%',color:'#222222',fontWeight:'bold'}}> {this.state.displayName}</Text>
@@ -324,8 +330,9 @@ style={{
                 /> */}
                 
                 </View>
+              
                 </View>
-                </ScrollView>
+                {/* </ScrollView> */}
               </RBSheet>
             </ScrollView>
             </ScrollView>

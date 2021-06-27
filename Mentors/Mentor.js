@@ -40,6 +40,8 @@ import Svg, {
 import {Card} from 'react-native-elements';
 // import {Card} from 'react-native-shadow-cards';
 import img1 from '../assets/Avatar.png'
+import firestore from '@react-native-firebase/firestore';
+import Back from '../assets/backarrow';
 export default class Mentors extends React.Component{
     constructor(props) {
         super(props);
@@ -91,53 +93,68 @@ export default class Mentors extends React.Component{
                         },
                         
                         
-                    ]
+                    ],
+                    MentorCards: [],
         };
       }
+      componentDidMount=()=>{
+        firestore()
+        .collection('Mentors')
+        .get()
+        .then(querySnapshot => {
+          console.log('Users ', querySnapshot.size);
+          querySnapshot.forEach(documentSnapshot => {
+            this.state.MentorCards=this.state.MentorCards.concat(documentSnapshot.data())
+            {
+                this.setState({
+                    MentorCards:this.state.MentorCards
+                })
+            }
+          });
+        });
+    }
 
 
     render(){
     return(
-<View style={{backgroundColor:'white'}}>
-<View style={{ flexDirection:'row',margin:10}}>
+<View style={{backgroundColor:'white',flex:1,marginBottom:60}}>
+<View style={styles.header}>
                    <TouchableOpacity onPress={()=>this.props.navigation.goBack()}>
-                    <Svg width="56" height="55" viewBox="0 0 56 55" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <Rect x="55.2611" y="54.5" width="54" height="54" rx="27" transform="rotate(-180 55.2611 54.5)" stroke="#EBEAEC" />
-                        <Path d="M37.6102 28.5L22.334 28.5L28.7453 35.0889L27.3699 36.5L19.1392 28.0667C18.8359 27.7556 18.8359 27.2556 19.1392 26.9444L27.3699 18.5L28.7453 19.9111L22.334 26.5L37.6102 26.5L37.6102 27.5L37.6102 28.5Z" fill="#3F414E" />
-                    </Svg>
+                    <Back />
                     </TouchableOpacity>
-                    <View style={{margin:20,flexDirection:'row',marginTop:10}}>
+                 
                     <Text style={styles.heading}>Mentors</Text></View>
-                </View>
-      <ScrollView style={{height:510}}>
+             
+      <ScrollView>
             <View style= {{flex:1,backgroundColor:"white",marginBottom:20}}>
          {
-                  this.state.Mentors.map((l) =>{
+                  this.state.MentorCards.map((list) =>{
                       return(
-                        <TouchableOpacity onPress={()=>this.props.navigation.navigate('Eachmentor')}>
-                        <Card  containerStyle={{borderRadius:10,borderWidth:2,}}>
+                        
+                        <Card  containerStyle={{borderRadius:10}}>
         <View style={{flexDirection:'row',justifyContent:'space-between'}}>
 
-      <View style={{paddingTop:15}}>
-      <Image source={l.img} style={styles.img} />
+      <View style={{marginTop:15}}>
+      <Image source={require('../assets/Avatar.png')} style={styles.img} />
       </View>
 
-      <View style={{paddingTop:5}}> 
-      <Text style={{fontSize:25}}>{l.Name}</Text>
-      <Text style={{color:'#9B9B9B'}}>{l.Year}</Text>
-      <Text style={{color:'#9B9B9B'}}>{l.position}</Text>
-      <Text style={{color:'#9B9B9B'}}>{l.Email}</Text>
+      <View style={{marginTop:5}}> 
+      <Text style={{fontSize:25}}>{list.Name}</Text>
+      <Text style={{color:'#9B9B9B'}}>{list.Edu}</Text>
+      <Text style={{color:'#9B9B9B'}}>{list.Status}</Text>
+      <Text style={{color:'#9B9B9B'}}>{list.Email}</Text>
       </View> 
-
-      <View style={{marginTop:40}}>
+      <TouchableOpacity onPress={()=>this.props.navigation.navigate('Eachmentor',list)}>
+      <View style={{marginTop:45}}>
       <Svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <Path d="M2.01 21L23 12L2.01 3L2 10L17 12L2 14L2.01 21Z" fill="#116FAF"/>
         </Svg>
         </View>
+        </TouchableOpacity>
 
         </View>
       </Card>
-      </TouchableOpacity>
+    
                       )
                         })
                     }
@@ -149,12 +166,18 @@ export default class Mentors extends React.Component{
 }
 const styles=({
   img :{
-    width:65,
-    height:65,
+    width:60,
+    height:60,
 },
 heading:{
   fontSize:22,
   fontWeight:'bold',
-  // marginLeft:10
-}
+  marginLeft:15,
+  marginTop:5
+},
+header:{
+  marginLeft:20,
+  flexDirection:"row",
+  marginTop:15
+},
 });

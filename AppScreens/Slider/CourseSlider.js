@@ -65,12 +65,15 @@ const customStyles = {
   currentStepLabelColor: '#FFFFFF'
 }
 
-
 function CourseSlider({route,navigation}){
     const [currentPosition,setCurrentposition]=useState(0);
     const l = route.params;
-    // {console.log(position,'testing');}
+    
+    
+    {console.log(route.params,'testing');}
         return (
+           
+                
             <View style={{flex:1,backgroundColor:"#116FAF",}}>
                 
               <View style={{ display:'flex',flexDirection:'row',marginTop:'10%'}}>

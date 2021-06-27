@@ -11,6 +11,7 @@ import {
   Touchable,
   TextInput,
   Image,
+  Dimensions
 } from 'react-native';
 import Svg, {
     Circle,
@@ -38,6 +39,8 @@ import { firebase } from '@react-native-firebase/auth';
 import auth from '@react-native-firebase/auth';
 import { set } from 'react-native-reanimated';
 import Cross from '../assets/cross';
+const width=Dimensions.get('screen').width
+const height =Dimensions.get('screen').height
 export default function Profile({navigation}) {
   const [Name, setName] = useState('')
   const [Email, setEmail] = useState('')
@@ -59,17 +62,29 @@ export default function Profile({navigation}) {
     displayName: NewName,
     email:NewEmail
   }
+  console.log('updated info',update);
     await firebase.auth().currentUser.updateProfile(update);
     // await firebase.auth().currentUser.updateProfile(NewEmail);
     // await firebase.auth().currentUser.updateProfile(NewYear);
   }
     return (
-      <View>
-        <TouchableOpacity style={{marginTop:15,marginLeft:20}}  onPress={() => navigation.goBack()}>
-   <Cross />
-    </TouchableOpacity>
-        <ScrollView style={{height:510}}>
-            <View style={{margin:20}}>
+      <View >
+        <View style={{flexDirection:'row',margin:'5%'}}>
+        <TouchableOpacity   onPress={() => navigation.goBack()}>
+         <Cross />
+        </TouchableOpacity>
+        <View style={{margin:'2.8%'}}>
+          <Text 
+          style={{fontSize:20,fontWeight:'bold'}}
+          // style={{fontSize:'20',fontWeight:'bold'}}
+          >Edit Profile</Text>
+        </View>
+        </View>
+        
+        <ScrollView style={{height:'95%'}}>
+            <View 
+            // style={{margin:20}}
+            >
                   <View style={{alignItems:'center',justifyContent:'center'}}>  
                   <Image source={p}  style={{
                             height: 120,
@@ -81,7 +96,9 @@ export default function Profile({navigation}) {
 <View style={{alignItems:'center',marginTop:10,justifyContent:'center'}}>
 <Text style={{fontSize:14,color:'#116FAF'}}>Change Profile Picture </Text>
 </View>
-<View style={{paddingTop:60}}>
+<View 
+style={{margin:'5%',marginBottom:'3%'}}
+>
 <Text style={styles.text1}>Name</Text>
 <TextInput placeholder={Name} style={styles.textinput} onChangeText={(value)=>setNewName(value)}></TextInput>
   <Text style={styles.text1}>Email Address</Text>
@@ -90,14 +107,18 @@ export default function Profile({navigation}) {
   <TextInput placeholder="2020"  style={styles.textinput}  onChangeText={(value)=>setNewYear(value)}></TextInput>
   </View>
   </View>
-  </ScrollView>
-  <View style={styles.footer}>
+  
+  <View 
+  style={{justifyContent:'center',alignItems:'center',marginTop:'10%'}}
+  // style={styles.button}
+  >
         <TouchableOpacity style={styles.button} onPress={()=>{Update()
 // console.log('newname',NewName),
 // console.log('newemail',NewEmail),
 // console.log('newYear',NewYear)
         }}><Text style={styles.buttonText}>Save Changes</Text></TouchableOpacity>
   </View>
+  </ScrollView>
   </View>
    );
       };
@@ -153,15 +174,23 @@ export default function Profile({navigation}) {
             alignItems:'center',
             justifyContent:'center',
             // marginTop:20,
-            shadowColor: "black",
-            shadowOffset: { width: 0, height: 4 },
-            shadowOpacity: 0.2,
-            elevation: 3,
+            // shadowColor: "black",
+            // shadowOffset: { width: 0, height: 4 },
+            // shadowOpacity: 0.2,
+            // elevation: 3,
           },
           footerText: {
-            color:'white',
+            // color:'white',
             fontWeight:'bold',
             alignItems:'center',
-            fontSize:18,
+            // fontSize:18,
           }, 
+          button:{
+            backgroundColor:'#116FAF',
+            width:width/(1.135),
+            height:height/(14),
+            borderRadius:30,
+            justifyContent:'center',
+            alignItems:'center'
+        },
           });

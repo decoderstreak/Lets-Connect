@@ -50,6 +50,7 @@ class Welcome extends Component {
                 </View>
                 </ScrollView>
             </View>
+           
         )
     }
 }
