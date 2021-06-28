@@ -61,27 +61,37 @@ function Signup({navigation}) {
   // ------------------------------------------------SIGNIN WITH MAIL & PASSWORD----------------------------------------
   async function signinwithmailpassword(){
   
-  setLoader(true)  
+   if(email==''||Password=='')
+   {
+     Alert.alert('Enter details')
+   }
+   else{
   console.log(email,Password);
   auth()
   .createUserWithEmailAndPassword(email, Password)
   .then(() => {
-  
+    setLoader(true) 
     console.log('User account created & signed in!');
-    
+    Alert.alert('User account created & signed in!')
    
   })
   .catch(error => {
-    if (error.code === 'auth/email-already-in-use') {
+    if (error.code === 'auth/email-already-in-use') 
+    {
+      setLoader(false) 
       console.log('That email address is already in use!');
+      Alert.alert('That email address is already in use!')
     }
 
     if (error.code === 'auth/invalid-email') {
+      setLoader(false) 
       console.log('That email address is invalid!');
+      Alert.alert('auth/invalid-email')
     }
 
     console.error(error);
   });
+}
  }
   //------------------------------------------------GOOGLE SIGNIN CODE-------------------------------------------------- 
   GoogleSignin.configure({
@@ -107,10 +117,11 @@ function Signup({navigation}) {
 // -------------------------------------FACEBOOK SIGNIN CODE--------------------------------------------
   async function onFacebookButtonPress() {
     // Attempt login with permissions
-    setLoader(true)
+    
     const result = await LoginManager.logInWithPermissions(['public_profile', 'email']);
   
     if (result.isCancelled) {
+      setLoader(false)
       throw 'User cancelled the login process';
     }
   
@@ -118,6 +129,7 @@ function Signup({navigation}) {
     const data = await AccessToken.getCurrentAccessToken();
   
     if (!data) {
+      setLoader(false)
       throw 'Something went wrong obtaining access token';
     }
   
@@ -125,7 +137,10 @@ function Signup({navigation}) {
     const facebookCredential = auth.FacebookAuthProvider.credential(data.accessToken);
   
     // Sign-in the user with the credential
-    return auth().signInWithCredential(facebookCredential);
+    return (
+      setLoader(true),
+      auth().signInWithCredential(facebookCredential)
+    )
   }
     return (
        <>

@@ -11,6 +11,7 @@ import Mentor from '../Mentors/Mentor'
 import Eachmentor from '../Mentors/Eachmentor'
 import CourseSlider from './Slider/CourseSlider';
 import TestButtons from '../StorageDataBase/TestButtons';
+import SignOut from '../Screens/SignOut';
 const Stack =createStackNavigator();
 export default function AppScreenStack() {
     return (
@@ -26,6 +27,7 @@ export default function AppScreenStack() {
            <Stack.Screen name="CourseSlider" component={CourseSlider}/>
            <Stack.Screen name="Eachmentor" component={Eachmentor}/>
            <Stack.Screen name="Test" component={TestButtons}/>
+           <Stack.Screen name="SignOut" component={SignOut}/>
        </Stack.Navigator>
     )
 }

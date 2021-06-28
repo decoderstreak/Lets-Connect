@@ -98,7 +98,9 @@ function CourseSlider({route,navigation}){
          renderLabel={function (position, stepStatus, label, currentPosition){
              console.log(position,'yyyyyy brooooo')
             return (
-                <View style={{marginLeft:'12%',margin:'5%'}}>
+                <View 
+                // style={{marginLeft:'12%',margin:'5%'}}
+                >
                        {/* <ScrollView> */}
                 <TouchableOpacity
                 style={{borderRadius:5,backgroundColor:"#FFFFFF"}}

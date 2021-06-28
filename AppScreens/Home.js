@@ -1,5 +1,5 @@
 import React,{Component} from 'react'
-import { View, Text,Button,ScrollView,StyleSheet,Image, TouchableOpacity, ImageBackground, Dimensions ,fixed} from 'react-native'
+import { View, Text,Button,ScrollView,StyleSheet,Image, TouchableOpacity, ImageBackground, Dimensions ,fixed, Alert} from 'react-native'
 import auth from '@react-native-firebase/auth';
 import storage from '@react-native-firebase/storage';
 import Video from 'react-native-video';
@@ -65,7 +65,8 @@ class Home extends Component {
       signOut = () => {
         auth().signOut()
         .then(() => {
-          this.props.navigation.navigate('Login')
+          Alert.alert('SignedOut Successfully!!!')
+          this.props.navigation.navigate('SignOut')
         })
         .catch(error => this.setState({ errorMessage: error.message }))
       } 
@@ -119,7 +120,7 @@ class Home extends Component {
                 // borderRadius:'5%'
                 // width:
               }}>
-                <TouchableOpacity onPress={()=>this.props.navigation.navigate("Cards")>
+                <TouchableOpacity onPress={()=>this.props.navigation.navigate("Cards")}>
                 <ImageBackground source={home} 
                 style={{
                   width:'100%',
@@ -148,7 +149,7 @@ class Home extends Component {
                 // alignContent:'center'
                 // width:
               }}>
-                <TouchableOpacity onPress={()=>this.props.navigation.navigate("Cards2")>
+                <TouchableOpacity onPress={()=>this.props.navigation.navigate("Cards2")}>
                 <ImageBackground source={program} 
                 style={{
                   width:'100%',

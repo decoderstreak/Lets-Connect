@@ -21,7 +21,7 @@ export default class Cards extends Component {
                 course: 'HTML',
                 colors:['#E65100','#FA500C', '#FB743E', '#FC9870','#FDAA89',],
                 img:img1,
-                index:2,
+                index:3,
                
                },
 
@@ -29,7 +29,7 @@ export default class Cards extends Component {
                 course: 'CSS',
                 colors:['#116faf','#2d9ed6', '#90bcda',],
                 img:img2,
-                index:1
+                index:2
                
                
                },
@@ -38,7 +38,7 @@ export default class Cards extends Component {
                course: 'BOOTSTRAP',
                colors:['#4701c1','#844adb',],
                img:img3,
-               index:0
+               index:1
         
                
 
@@ -47,7 +47,7 @@ export default class Cards extends Component {
                 course: 'JS',
                 colors:['#f79b34','#fbd603'],
                 img:img4,
-                index:3
+                index:4
              
               
                
@@ -128,12 +128,16 @@ export default class Cards extends Component {
     }
                   
                   <View style={{flexDirection:'row'}}>
-                      <TouchableOpacity onPress={()=>console.log("react")}>
+                      <TouchableOpacity onPress={()=>this.props.navigation.navigate('CourseSlider',
+                {info:this.state.List[5].FIELD,
+                 name: 'ReactJS'})}>
                     <View style={{width:145,height:145,borderRadius:10,marginTop:15,marginLeft:21,backgroundColor:'black'}}>
                         <Image source={img5} style={{width:145,height:145}}></Image>
                     </View>
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={()=>console.log("Angular")} >
+                    <TouchableOpacity onPress={()=>this.props.navigation.navigate('CourseSlider',
+                {info:this.state.List[0].FIELD,
+                 name: 'AngularJS'})} >
                     <View style={{width:145,height:145,borderRadius:10,marginTop:15,marginLeft:21,backgroundColor:'black'}}>
                         <Image source={img6} style={{width:145,height:145}}></Image>
                     </View>
