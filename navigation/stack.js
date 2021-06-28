@@ -17,7 +17,7 @@ function Stack(){
     return(
         <stackScreen.Navigator headerMode="none" initialRouteName="Logo">
           <stackScreen.Screen name="Logo" component={Logo} />
-          <stackScreen.Screen name="Welcome" component={Welcome} />
+          {/* <stackScreen.Screen name="Welcome" component={Welcome} /> */}
           <stackScreen.Screen name="Signup" component={Signup} />
           <stackScreen.Screen name="Login" component={Login} />
           {/* <stackScreen.Screen name="Home" component={Home}/>

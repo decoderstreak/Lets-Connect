@@ -65,6 +65,7 @@ function Login({navigation}) {
     setLoader(true)
     if((email=='')||(Password==''))
     {
+      setLoader(false)
       Alert.alert("Enter the details")
     }
     else
@@ -97,10 +98,11 @@ function Login({navigation}) {
 // -------------------------------------FACEBOOK SIGNIN CODE--------------------------------------------
   async function onFacebookButtonPress() {
     // Attempt login with permissions
-    setLoader(true)
+    
     const result = await LoginManager.logInWithPermissions(['public_profile', 'email']);
   
     if (result.isCancelled) {
+      setLoader(false)
       throw 'User cancelled the login process';
     }
   
@@ -108,6 +110,7 @@ function Login({navigation}) {
     const data = await AccessToken.getCurrentAccessToken();
   
     if (!data) {
+      setLoader(false)
       throw 'Something went wrong obtaining access token';
     }
   
@@ -116,7 +119,7 @@ function Login({navigation}) {
   
     // Sign-in the user with the credential
     return (
-      
+      setLoader(true),
       auth().signInWithCredential(facebookCredential))
   }
  

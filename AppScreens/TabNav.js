@@ -20,7 +20,7 @@ export default function TabNav() {
             showLabel:false,
             style:{
                 position:'absolute',
-                height:60,
+                height:50,
                 elevation:0
             }
         }}
@@ -31,8 +31,8 @@ export default function TabNav() {
             tabBarIcon:({focused})=>(
                 <View style={{flexDirection:'column'}}>
                 <View style={{
-                    borderRadius:15,
-                    width:40,height:40,
+                    borderRadius:13,
+                    width:33,height:33,
                     backgroundColor:focused ? '#116FAF' :'white',
                     alignItems:'center',
                     justifyContent:'center',
@@ -49,8 +49,8 @@ export default function TabNav() {
                 tabBarIcon:({focused})=>(
                     <View style={{flexDirection:'column'}}>
                     <View style={{
-                        borderRadius:15,
-                        width:40,height:40,
+                        borderRadius:13,
+                        width:33,height:33,
                         backgroundColor:focused ? '#116FAF' :'white',
                         alignItems:'center',
                         justifyContent:'center',
@@ -67,8 +67,8 @@ export default function TabNav() {
                 tabBarIcon:({focused})=>(
                     <View style={{flexDirection:'column'}}>
                     <View style={{
-                        borderRadius:15,
-                        width:40,height:40,
+                        borderRadius:13,
+                        width:35,height:35,
                         backgroundColor:focused ? '#116FAF' :'white',
                         alignItems:'center',
                         justifyContent:'center',

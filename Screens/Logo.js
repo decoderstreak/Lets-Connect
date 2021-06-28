@@ -1,8 +1,9 @@
-import React from 'react'
+import React ,{Component} from 'react'
 import { View,Image,Text,TouchableOpacity,ScrollView,StyleSheet,SafeAreaView} from 'react-native'
 import image from './logo.jpeg'
 
-export default class extends React.Component {
+
+class Logo extends Component{
     render(){
     return (
      <SafeAreaView style={{ flex: 1,alignContent:"center",alignItems:"center"}}>
@@ -48,3 +49,4 @@ const styles = StyleSheet.create({
   },
  
   });
+  export default Logo;

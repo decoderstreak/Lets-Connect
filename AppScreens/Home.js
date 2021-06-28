@@ -1,5 +1,5 @@
 import React,{Component} from 'react'
-import { View, Text,Button,ScrollView,StyleSheet,Image, TouchableOpacity, ImageBackground, Dimensions ,fixed} from 'react-native'
+import { View, Text,Button,ScrollView,StyleSheet,Image, TouchableOpacity, ImageBackground, Dimensions ,fixed, Alert} from 'react-native'
 import auth from '@react-native-firebase/auth';
 import storage from '@react-native-firebase/storage';
 import Video from 'react-native-video';
@@ -65,7 +65,8 @@ class Home extends Component {
       signOut = () => {
         auth().signOut()
         .then(() => {
-          this.props.navigation.navigate('Login')
+          Alert.alert('SignedOut Successfully!!!')
+
         })
         .catch(error => this.setState({ errorMessage: error.message }))
       } 
@@ -133,8 +134,8 @@ class Home extends Component {
                   fontSize:16,
                   // marginTop:'50%'
                 }}>Development</Text>
-</ImageBackground>
-</TouchableOpacity>
+                </ImageBackground>
+                </TouchableOpacity>
               </View>
               <View
               style={{
@@ -155,15 +156,15 @@ class Home extends Component {
                   height:'100%',
                   justifyContent:'center',
                   alignItems:'center'}}>
-<Text
-style={{
-  color:'white',
-  fontWeight:'bold',
-  fontSize:16,
-}}>Programming</Text>
-</ImageBackground>
-</TouchableOpacity>
-              </View>
+                <Text
+                style={{
+                  color:'white',
+                  fontWeight:'bold',
+                  fontSize:16,
+                }}>Programming</Text>
+                </ImageBackground>
+                </TouchableOpacity>
+                              </View>
               {/* <View
               style={{
                 position:'absolute',
@@ -203,8 +204,7 @@ style={{
             </TouchableOpacity>
             </View> */}
           </View>
-          {/* </View>
-           </View> */}
+         
 {/* -----------------------------------------------------vedios section---------------------------------------------------- */}
            <View style={{marginLeft:'3%',marginTop:'5%'}}>
             <ScrollingTest/>
@@ -225,9 +225,11 @@ style={{
                ref={ref => {
               this.RBSheet = ref;
               }}
+             
                 closeOnDragDown={true}
                 closeOnPressMask={true}
                 height={400}
+                
                 customStyles={{
                   wrapper: {
                     backgroundColor: "transparent"
@@ -239,10 +241,12 @@ style={{
                   draggableIcon: {
                     backgroundColor: "#000"
                   },
+                 
                 }}
               >
-                
                   <View>
+              
+                  
                 <View style={{flexDirection:'row',justifyContent:'center'}}>
                 <Text style={{fontSize:22,fontWeight:'bold',margin:'2%'}}>My profile</Text>
                 <View style={{margin:'3%',marginLeft:'40%'}}>
@@ -252,9 +256,7 @@ style={{
                 </TouchableOpacity>
                 </View>
                 </View>
-                {/* <ScrollView 
-                // style={{height:300}}
-                > */}
+               
 
                 
                 <View style={styles.container}>
@@ -283,60 +285,16 @@ style={{
                     {/* <Button title="Signout" onPress={()=>this.signOut()}/> */}
                     <TouchableOpacity 
                     style={styles.button}
-                    onPress={()=>this.signOut()}
-                    // onPress={()=>this.props.navigation.navigate('Tabnav')}
-                    >
+                    onPress={()=>this.signOut()}>
                         <Text style={styles.buttontext}>Sign Out</Text>
                     </TouchableOpacity>
                   </View>
-                {/* <View style={styles.name}>
-                <View style={{marginLeft:-10}}>
-                <Nameicon />
-                </View>
-                <Text style={{fontSize:20,marginLeft:-80}}>Name</Text>
-                <Text style={{fontSize:16,color:'#9B9B9B'}}> {this.state.displayName}</Text>
-                </View> */}
-                {/* <View
-                  style={{
-                 borderBottomColor: '#E8E8E8',
-                 borderBottomWidth: 0.25,
-                 height:0.5,
-                  width:340,
-                //  marginTop:28
-                    }}
-                /> */}
-                {/* <View style={{ display:'flex',flexDirection:'row',justifyContent:'space-around',marginTop:20}}>
-                <Emailicon />
-                <Text style={{fontSize:20,marginLeft:-15}}>E-mail</Text>
-                <Text style={{fontSize:16,color:'#9B9B9B'}}> {this.state.email}</Text>
-                </View> */}
-                {/* <View
-                  style={{
-                 borderBottomColor: '#E8E8E8',
-                 borderBottomWidth: 0.25,
-                  width:340,
-                 marginTop:28,
-                 marginLeft:-20
-                    }}
-                /> */}
-                {/* <View style={{display:'flex',flexDirection:'row',justifyContent:'space-around',marginTop:20,marginLeft:-10}}>
-                <Callender />
-                <Text style={{fontSize:20,marginLeft:-30}}>Academic Year</Text>
-                <Text style={{fontSize:16,color:'#9B9B9B'}}>2020</Text>
-                </View> */}
-                {/* <View
-                  style={{
-                 borderBottomColor: '#E8E8E8',
-                 borderBottomWidth: 0.25,
-                  width:340,
-                 marginTop:28
-                    }}
-                /> */}
+             
                 
                 </View>
               
                 </View>
-                {/* </ScrollView> */}
+             
               </RBSheet>
             </ScrollView>
             </ScrollView>

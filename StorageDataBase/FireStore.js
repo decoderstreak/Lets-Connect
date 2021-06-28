@@ -25,7 +25,7 @@ export default class FireStore extends Component {
         });
     }
     render() {
-        // console.log(this.props.navigation,'props broo');
+        console.log(this.state.Lists,'props broo');
         return (
             <View>
                 <ScrollView  horizontal={true}
@@ -33,17 +33,18 @@ export default class FireStore extends Component {
                   showsHorizontalScrollIndicator={false}>   
                 {
                     Object.values(this.state.Lists).map((list)=>{
-                        // console.log('i boss',i);
+                        console.log('i boss',list);
                         return(
                             <View>     
                           <TouchableOpacity key={list.id} onPress={()=>this.props.navigation.navigate('Eachmentor',list)}>
-                         <View style={{ height: 207, width: 152, borderWidth: 2, borderColor: '#BEBEC3', borderRadius: 9,margin:10 }}>
+                         <View style={{ height: 190, width: 152, borderWidth: 2, borderColor: '#BEBEC3', borderRadius: 9,margin:10}}>
                            <Image
                              source={photo}
                              style={{ width: 149, height: 126, borderRadius: 5, marginLeft: -0.5 }}>
                            </Image>
                            <Text style={{ textAlign: 'center', marginTop: 10, fontSize: 14 }}>{list.Name}</Text>
-                           <Text style={{ textAlign: 'center', fontSize: 10, textAlign: 'justify', padding: 18 }}>
+                           <Text style={{ textAlign: 'center', fontSize: 12, justifyContent:'center',color:'#9B9B9B'}}>
+                           {list.Status}
                            </Text>
                          </View>
                          </TouchableOpacity>

@@ -47,53 +47,6 @@ export default class Mentors extends React.Component{
         super(props);
         this.state = {
            
-                    Mentors : [
-                        {
-                            id:1,
-                            img:img1,
-                            Name:"Bhavya",
-                            Year: '2023',
-                            position:"Mean Stack Developer",
-                            Email:"bhavya@123"
-                        },
-                        {
-                            id:2,
-                            img:img1,
-                            Name:"Divya",
-                            Year: '2023',
-                            position:"Mean Stack Developer",
-                            Email:"divya@123"
-                        },
-                        {
-                            id:3,
-                            img:img1,
-                            Name:"Supraja",
-                            Year: '2023',
-                            position:"Mean Stack Developer",
-                            Email:"supraja@123"
-                            
-                        },
-                        {
-                            id:5,
-                            img:img1,
-                            Name:"Hari",
-                            Year: '2023',
-                            position:"Mean Stack Developer",
-                            Email:"hari@123"
-                            
-                        },
-                        {
-                            id:6,
-                            img:img1,
-                            Name:"Bhargavi",
-                            Year: '2023',
-                            position:"Mean Stack Developer",
-                            Email:"bhargavi@123"
-                            
-                        },
-                        
-                        
-                    ],
                     MentorCards: [],
         };
       }
