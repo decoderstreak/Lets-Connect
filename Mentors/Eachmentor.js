@@ -38,6 +38,7 @@ import Svg, {
 } from 'react-native-svg';
 import {Card} from 'react-native-shadow-cards';
 import Back from '../assets/backarrow';
+import MentorAvatar from '../Cards/MentorAvatar.png'
 export default function Mentor({route,navigation})
 {
   // list=()=>{
@@ -60,7 +61,7 @@ export default function Mentor({route,navigation})
     <View style={{marginTop:40,marginBottom:20,flex:1,alignItems:"center"}}>
 
       <View style={{alignItems:"center"}}>
-      <Image source={require('../assets/Avatar.png')}  style={{
+      <Image source={MentorAvatar}  style={{
                             height: 120,
                             width: 120,
                             backgroundColor: "#ddd",

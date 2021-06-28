@@ -2,6 +2,7 @@ import React,{Component} from 'react'
 import { View, Text,ScrollView,TouchableOpacity,Image } from 'react-native'
 import firestore from '@react-native-firebase/firestore';
 import photo from '../Home/Sir.png'
+import MentorAvatar from '../Cards/MentorAvatar.png'
 export default class FireStore extends Component {
     constructor(props) {
         super(props)
@@ -37,9 +38,9 @@ export default class FireStore extends Component {
                         return(
                             <View>     
                           <TouchableOpacity key={list.id} onPress={()=>this.props.navigation.navigate('Eachmentor',list)}>
-                         <View style={{ height: 190, width: 152, borderWidth: 2, borderColor: '#BEBEC3', borderRadius: 9,margin:10}}>
+                         <View style={{ height: 200, width: 152, borderWidth: 2, borderColor: '#BEBEC3', borderRadius: 9,marginLeft:10}}>
                            <Image
-                             source={photo}
+                             source={MentorAvatar}
                              style={{ width: 149, height: 126, borderRadius: 5, marginLeft: -0.5 }}>
                            </Image>
                            <Text style={{ textAlign: 'center', marginTop: 10, fontSize: 14 }}>{list.Name}</Text>

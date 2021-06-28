@@ -24,6 +24,7 @@ import VideoPlayer from 'react-native-video-controls';
 import ScrollingTest from '../Scrolling/ScrollingTest';
 import firestore from '@react-native-firebase/firestore';
 import FireStore from '../StorageDataBase/FireStore';
+
 // import SectionListInFocus from '@reactly/react-native-autoplay-scroll-video'
 const width=Dimensions.get('window').width
 const height =Dimensions.get('window').height
@@ -209,7 +210,7 @@ class Home extends Component {
            <View style={{marginLeft:'3%',marginTop:'5%'}}>
             <ScrollingTest/>
            </View>
-          <View><Text style={{ fontSize: 18,margin:'5%',marginTop:'2%' }}>Connect with Dazzlers</Text>
+          <View><Text style={{ fontSize: 18,margin:'5%',marginTop:'3%' }}>Connect with Dazzlers</Text>
             <View style={{marginLeft:'3%'}}>
               <FireStore navigation={this.props.navigation}/>
              </View>
@@ -228,6 +229,7 @@ class Home extends Component {
              
                 closeOnDragDown={true}
                 closeOnPressMask={true}
+                closeOnPressBack={true}
                 height={400}
                 
                 customStyles={{
@@ -244,6 +246,7 @@ class Home extends Component {
                  
                 }}
               >
+                {console.log('testing rbsheet')}
                   <View>
               
                   
@@ -251,7 +254,7 @@ class Home extends Component {
                 <Text style={{fontSize:22,fontWeight:'bold',margin:'2%'}}>My profile</Text>
                 <View style={{margin:'3%',marginLeft:'40%'}}>
                   
-                <TouchableOpacity onPress={()=>this.props.navigation.navigate("Profile")}>
+                <TouchableOpacity onPress={()=>{this.props.navigation.navigate("Profile"),this.RBSheet.close()}}>
                   <Text style={{fontSize:14,color:'#116FAF',fontWeight:'bold'}}>Edit</Text>
                 </TouchableOpacity>
                 </View>

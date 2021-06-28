@@ -62,7 +62,10 @@ const customStyles = {
   stepIndicatorLabelUnFinishedColor: '#aaaaaa',
   labelColor: '#999999',
   labelSize: 13,
-  currentStepLabelColor: '#FFFFFF'
+  currentStepLabelColor: '#FFFFFF',
+//   flex:1,
+//   alignItems:'flex-start'
+//   marginTop:20
 }
 
 function CourseSlider({route,navigation}){
@@ -76,7 +79,7 @@ function CourseSlider({route,navigation}){
                 
             <View style={{flex:1,backgroundColor:"#116FAF",}}>
                 
-              <View style={{ display:'flex',flexDirection:'row',marginTop:'10%'}}>
+              <View style={{ display:'flex',flexDirection:'row'}}>
                   
                   <View>
                    
@@ -84,11 +87,16 @@ function CourseSlider({route,navigation}){
               {/* <Icon name="arrow-back-circle-outline" size={48} color="white"style={{marginLeft:'18%'}}/> */}
               </TouchableOpacity>
               </View>
-              <View>
-              <Text style={{color:'#FFFFFF',fontSize:32}}>{route.params.name}</Text>
+              <View
+            //    style={{justifyContent:'center',alignItems:'center'}}
+               >
+              <Text style={{color:'#FFFFFF',fontSize:20,fontWeight:'bold',margin:20}}>{route.params.name}</Text>
               </View>
               </View>
-              <View style={{flex:1,marginLeft:'10%'}}>
+              <View 
+              style={{flex:1,marginLeft:'10%'}}
+              >
+                  <ScrollView>
         <StepIndicator
          customStyles={customStyles}
          currentPosition={currentPosition}
@@ -99,21 +107,21 @@ function CourseSlider({route,navigation}){
              console.log(position,'yyyyyy brooooo')
             return (
                 <View 
+                style={{marginTop:40,}}
+                // style={{alignItems:'flex-end'}}
                 // style={{marginLeft:'12%',margin:'5%'}}
                 >
                        {/* <ScrollView> */}
                 <TouchableOpacity
                 style={{borderRadius:5,backgroundColor:"#FFFFFF"}}
                 onPress={() => 
-                    
                     {Linking.openURL(position.label.link)}
                     // setCurrentposition(position.position)    
-                } 
+                 } 
                 >
                <Text
                 style={{fontSize:16,color:'black',textAlign:'center',padding:'3%',justifyContent:'space-around'}}>
                     {position.label.label}
-                 {/* {route.params.info[0].position.label} */}
                 </Text>
               </TouchableOpacity>
               {/* </ScrollView> */}
@@ -121,7 +129,8 @@ function CourseSlider({route,navigation}){
               </View>
             )
     }}
-    />   
+    />
+    </ScrollView>   
     </View>    
     {/* <TouchableOpacity style={{alignSelf:"center"}} onPress={()=>Next()}>
         <Text style={{color:"#FFFFFF",fontSize:25}}>Next</Text>

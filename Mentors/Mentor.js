@@ -70,7 +70,8 @@ export default class Mentors extends React.Component{
 
     render(){
     return(
-<View style={{backgroundColor:'white',flex:1,marginBottom:60}}>
+      <View style={{backgroundColor:'white',flex:1,}}>
+<View style={{marginBottom:60}}>
 <View style={styles.header}>
                    <TouchableOpacity onPress={()=>this.props.navigation.goBack()}>
                     <Back />
@@ -112,6 +113,7 @@ export default class Mentors extends React.Component{
                     }
     </View>
     </ScrollView>
+    </View>
     </View>
   );
 };

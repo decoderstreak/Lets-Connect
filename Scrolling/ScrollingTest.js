@@ -179,9 +179,7 @@ export default class ScrollingTest extends Component {
             </View>
 {/* ----------------------------------------2/2-video------------------------------------------------------ */}
             <View >
-                <ScrollView horizontal={true} 
-                
-                >
+                <ScrollView horizontal={true} >
                 <View 
                 style={{
                     height:200,
@@ -218,11 +216,7 @@ export default class ScrollingTest extends Component {
             </View>
             </ScrollView>
             </View> 
-
             </ScrollView>
-
-
-
             </SafeAreaView>
         )
     }
