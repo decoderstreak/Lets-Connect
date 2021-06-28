@@ -45,13 +45,10 @@ export default function Mentor({route,navigation})
   // }
   // var list=navigation.getParam('list'),
   return(
-    <View style={{
-     
-      flex:1
-      }}>
+    <View style={{flex:1,backgroundColor:"white",}}>
                 
                 <View style={styles.header}>
-                   <TouchableOpacity onPress={()=>this.props.navigation.goBack()}>
+                   <TouchableOpacity onPress={()=>navigation.goBack()}>
                     <Back />
                     </TouchableOpacity>
                  
@@ -60,7 +57,7 @@ export default function Mentor({route,navigation})
     {/* ---------------------------------------------------Header---------------------------------------------------------- */}
       
       <ScrollView>
-    <View style={{marginTop:40,paddingBottom:20,flex:1,alignItems:"center"}}>
+    <View style={{marginTop:40,marginBottom:20,flex:1,alignItems:"center"}}>
 
       <View style={{alignItems:"center"}}>
       <Image source={require('../assets/Avatar.png')}  style={{
@@ -70,23 +67,29 @@ export default function Mentor({route,navigation})
                             borderRadius: 50}}resizeMode="cover"/>  
                          
         </View> 
+
+
         <View style={{alignItems:'center',marginTop:10,alignContent:"center"}}>
-<Text style={{fontSize:22,color:'black'}}>{route.params.Name}</Text>
-<Text style={{color:'#9A8B8B'}}>
-  {route.params.Edu}
-</Text>
-  </View>
-  <View style={{paddingTop:20}}>
-  <Text style={{fontSize:18}}>Current Working Status</Text>
-  <View style={{paddingTop:7}}>
+        <Text style={{fontSize:22,color:'black'}}>{route.params.Name}</Text>
+        <Text style={{color:'#9A8B8B'}}>
+          {route.params.Edu}
+        </Text>
+          </View>
+
+
+
+  <View style={{marginTop:20}}>
+
+  <Text style={{fontSize:15,marginLeft:5}}>Current Working Status</Text>
+  <View style={{marginTop:7}}>
   <Card style={{height:51,paddingTop:12,paddingLeft:10,borderWidth:1,borderColor:"rgba(201, 201, 201, 1)"}}>
-<Text style={{fontSize:14,color:'#9A8B8B',}}>{route.params.Status}</Text>
+  <Text style={{fontSize:14,color:'#9A8B8B',}}>{route.params.Status}</Text>
   </Card>
   </View>
   </View>
-  <View style={{paddingTop:20}}>
-  <Text style={{fontSize:18}}>Skills</Text>
-  <View style={{paddingTop:7}}>
+  <View style={{marginTop:20}}>
+  <Text style={{fontSize:15,marginLeft:5}}>Skills</Text>
+  <View style={{marginTop:7}}>
   <Card style={{height:105,paddingTop:12,paddingLeft:10,borderWidth:1,borderColor:"rgba(201, 201, 201, 1)"}}>
 <Text style={{fontSize:14,color:'#9A8B8B',}}>{route.params.Skills}</Text>
   </Card>
@@ -109,7 +112,7 @@ export default function Mentor({route,navigation})
                             backgroundColor: "#ddd",
                             borderRadius: 50}}resizeMode="cover"/>
 
-      <Text style={{fontSize:18}}>{list}</Text>
+      <Text style={{fontSize:15}}>{list}</Text>
       
       <Text style={{color:'#9A8B8B'}}>Some project description</Text>
       </Card>

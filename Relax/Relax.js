@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet,ImageBackground,Image,TouchableOpacity,ScrollView} from 'react-native';
+import { View, Text, StyleSheet,ImageBackground,Image,TouchableOpacity,ScrollView,SafeAreaView} from 'react-native';
 import {Card} from 'react-native-elements';
 import relax from './images/Relax.png';
 import img1 from './images/River.png';
@@ -24,7 +24,7 @@ class Relax extends Component {
                     {
                         id:2,
                         img:img2,
-                        title:"Mountain Sounds",
+                        title:"Piano",
                         link: 'Player2'
                     },
                     {
@@ -36,7 +36,7 @@ class Relax extends Component {
                     {
                         id:4,
                         img:img4,
-                        title:"Piano Sound",
+                        title:"Sudarshan Kriya",
                         link: 'Track'
                     },
                     
@@ -53,34 +53,34 @@ class Relax extends Component {
   render() {
     return (
         
-
-      <View style={{flex:1, backgroundColor: "white", marginBottom:30}}>
-
-
-              <View style={styles.header}>
-                   <View style={styles.hcontent}>
-                       <TouchableOpacity style={{marginTop:-8}}  onPress={() =>this.props.navigation.goBack() }>
-                       <Back />
-                       </TouchableOpacity>
-                    <Text style={{fontSize:28,fontWeight:"bold",paddingLeft:15}}>Relax</Text>
-                    </View>
-              </View>
+                  <SafeAreaView style={{flex:1}}>
+                 <View style={{flex:1, backgroundColor: "white"}}>
+                     
+                  <View style={styles.header}>
+                   <TouchableOpacity onPress={()=>this.props.navigation.goBack()}>
+                    <Back />
+                    </TouchableOpacity>
+                 
+                    <Text style={styles.heading}>Relax</Text></View>
        
        
      
-              <ScrollView 
-            //   style={{backgroundColor:"white",height:40}}
-              >
-            <View style={{marginTop:25}}>
+            
+            <View style={{marginTop:10}}>
+
+
+                <View>
                 <ImageBackground source={relax} style={{ width: 339, height: 195, marginLeft: 9, marginTop: 1,}}>
-                    <Text style={{ fontSize: 25, marginLeft: 22, marginTop: 12 ,fontWeight:"bold"}}>Sadhana</Text>
+                    <Text style={{ fontSize: 25, marginLeft: 22, marginTop: 12 ,fontWeight:"bold"}}>Jai Gurudev</Text>
                 </ImageBackground>
                 </View>
                 <Text style={{fontSize:22,fontWeight:"bold",marginLeft:22,marginTop:20}}>Access Playlists</Text>
+                </View>
          
 
                                  {/* ...................cards...................... */}
-          <View>
+                                 <ScrollView>
+          <View style={{marginBottom:120}}>
               {
                   this.state.sounds.map((l) =>{
                       return( 
@@ -111,6 +111,7 @@ class Relax extends Component {
          </View>                       
          </ScrollView>
       </View>
+      </SafeAreaView>
     
     );
   }
@@ -140,20 +141,16 @@ const styles = StyleSheet.create( {
         fontWeight:"bold"
 
     },
-    header:{
+    heading:{
+        fontSize:22,
+        fontWeight:'bold',
+        marginLeft:15,
+        marginTop:5
+      },
+      header:{
+        marginLeft:20,
         flexDirection:"row",
-        paddingTop: 30,
-        // paddingLeft:10,
-        backgroundColor:"#FFFFFF",
-        height:60,
-        margin:10
-
-    },
-    hcontent :{
-        flexDirection:"row",
-        paddingLeft:10,
-        marginTop:-10
-
-    }
+        marginTop:15
+      },
     
 })

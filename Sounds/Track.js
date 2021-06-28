@@ -125,7 +125,7 @@ export default function Player({navigation}) {
 
 
   return (
-      <View style={{backgroundColor:"rgba(47, 129, 184, 1)"}}>
+      <View style={{backgroundColor:"rgba(47, 129, 184, 1)",flex:1}}>
     <TouchableOpacity style={{marginTop:15,marginLeft:30}}  onPress={() => navigation.goBack()}>
    <Cross />
     </TouchableOpacity>

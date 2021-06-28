@@ -39,21 +39,22 @@ class Welcome extends Component {
                 <View style={{alignItems:'center',marginTop:30}}>
                     <Image source={welcome} />
                 </View>
-                <View 
-                style={styles.buttonview} >
-                    <TouchableOpacity 
-                    style={styles.button}
-                    onPress={()=>this.props.navigation.navigate('Tabnav')
-                    }>
-                        <Text style={styles.buttontext}>Get Started</Text>
-                    </TouchableOpacity>
-                </View>
+                <View style={{marginTop:100,justifyContent:'center',alignItems:'center'}}>
+            <TouchableOpacity 
+            style={styles.button3}
+            onPress={()=>this.props.navigation.navigate('Tabnav')}>
+            <Text style={{fontSize:18,color:"black",fontWeight:"bold",marginTop:9}}>Get Started</Text>
+            </TouchableOpacity>
+            </View>
+
                 </ScrollView>
             </View>
            
         )
     }
 }
+
+
 const styles=StyleSheet.create({
 scrollheight:{
     height:height/(0.5)
@@ -86,6 +87,16 @@ button:{
 buttontext:{
     fontSize:16,
     fontWeight:'bold'
-}
+},
+button3:{
+    backgroundColor: "white",
+     borderRadius: 55,
+     width:280,
+     height:45,
+     flexDirection: 'row',
+    justifyContent: 'center',
+     marginBottom: 20,
+     
+  },
 })
 export default Welcome

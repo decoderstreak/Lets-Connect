@@ -1,27 +1,50 @@
 import React from 'react'
-import { View,Image,Text,TouchableOpacity,ScrollView} from 'react-native'
+import { View,Image,Text,TouchableOpacity,ScrollView,StyleSheet,SafeAreaView} from 'react-native'
 import image from './logo.jpeg'
 
 export default class extends React.Component {
     render(){
     return (
-        <View style={{backgroundColor:'white'}}>
+     <SafeAreaView style={{ flex: 1,alignContent:"center",alignItems:"center"}}>
+       
+      
+        
+        <View style={{backgroundColor:'white',alignContent:"center",flex:1,alignItems:"center",}}>
             <ScrollView>
-            <View style={{marginTop:210,backgroundColor:"fff"}}>
+
+
+            <View style={{backgroundColor:"fff",marginTop:210}}>
             <Image source={image} style={{ aspectRatio: 1.3,resizeMode:'cover' }}/>
             </View>
+
+
             <View style={{marginTop:100,justifyContent:'center',alignItems:'center'}}>
-            <TouchableOpacity
-             style={{width:320,height:56,borderRadius:40,backgroundColor:"#116FAF",marginTop:-19,justifyContent:'center'}}
-             onPress={() => this.props.navigation.navigate('Login')}
-             >
-            <Text
-             style={{marginLeft:100,fontSize:23,color:'white',fontWeight:'bold',fontFamily:'Roboto',justifyContent:'center',alignItems:'center'}}
-             >Let's Connect</Text>
+            <TouchableOpacity 
+            style={styles.button3}
+            onPress={() => this.props.navigation.navigate('Login')}>
+            <Text style={{fontSize:18,color:"white",fontWeight:"bold",marginTop:9}}>Let's Connect</Text>
             </TouchableOpacity>
             </View>
+
+
             </ScrollView>
-        </View>
+                </View>
+        </SafeAreaView>
     );
     }
+   
 }
+const styles = StyleSheet.create({
+    
+   button3:{
+    backgroundColor: "rgba(17, 111, 175, 1)",
+     borderRadius: 55,
+     width:280,
+     height:45,
+     flexDirection: 'row',
+    justifyContent: 'center',
+     marginBottom: 20,
+     
+  },
+ 
+  });

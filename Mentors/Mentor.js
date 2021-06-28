@@ -131,22 +131,21 @@ export default class Mentors extends React.Component{
                   this.state.MentorCards.map((list) =>{
                       return(
                         
-                        <Card  containerStyle={{borderRadius:10}}>
-        <View style={{flexDirection:'row',justifyContent:'space-between'}}>
+                        <Card  containerStyle={{borderRadius:15}}>
+        <View style={{flexDirection:'row',justifyContent:'space-between',alignItems:"center"}}>
 
-      <View style={{marginTop:15}}>
+      <View style={{marginTop:1}}>
       <Image source={require('../assets/Avatar.png')} style={styles.img} />
       </View>
 
-      <View style={{marginTop:5}}> 
-      <Text style={{fontSize:25}}>{list.Name}</Text>
-      <Text style={{color:'#9B9B9B'}}>{list.Edu}</Text>
-      <Text style={{color:'#9B9B9B'}}>{list.Status}</Text>
-      <Text style={{color:'#9B9B9B'}}>{list.Email}</Text>
+      <View style={{marginTop:1,position:"absolute",marginLeft:100}}> 
+      <Text style={{fontSize:18}}>{list.Name}</Text>
+      <Text style={{color:'#9B9B9B',fontSize:12}}>{list.Edu}</Text>
+      <Text style={{color:'#9B9B9B',fontSize:12}}>{list.Status}</Text>
       </View> 
       <TouchableOpacity onPress={()=>this.props.navigation.navigate('Eachmentor',list)}>
-      <View style={{marginTop:45}}>
-      <Svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <View style={{marginTop:4}}>
+      <Svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <Path d="M2.01 21L23 12L2.01 3L2 10L17 12L2 14L2.01 21Z" fill="#116FAF"/>
         </Svg>
         </View>

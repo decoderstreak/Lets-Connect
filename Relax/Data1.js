@@ -3,7 +3,7 @@ const songs = [
       title: 'death bed',
    
       artwork: require('./images/11.jpg'),
-      url: 'https://sample-music.netlify.app/death%20bed.mp3',
+      url: 'https://youtu.be/fr7YjLoKcDM',
       duration: 2 * 60 + 53,
       id: '1',
     },

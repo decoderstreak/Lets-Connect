@@ -188,14 +188,13 @@ export default function Player1({navigation}) {
   return (
     <SafeAreaView style={styles.container}>
       <SafeAreaView style={{height: 320}}>
-           <View style={styles.header}>
-                   <View style={styles.hcontent}>
-                       <TouchableOpacity style={{marginTop:-8}}  onPress={() => navigation.goBack() }>
-                       <Back />
-                       </TouchableOpacity>
-                    <Text style={{fontSize:28,fontWeight:"bold",paddingLeft:15}}>Relax</Text>
-                    </View>
-              </View>
+      <View style={styles.header}>
+      <TouchableOpacity   onPress={() => navigation.goBack() }>
+                    <Back />
+                    </TouchableOpacity>
+                 
+                    <Text style={styles.heading}>River Flowing</Text></View>
+          
         <Animated.FlatList
           ref={slider}
           horizontal
@@ -244,18 +243,17 @@ const styles = StyleSheet.create({
     maxHeight: 600,
     // backgroundColor:"white"
   },
-  header:{
-    flexDirection:"row",
-    paddingTop: 10,
-    paddingLeft:10,
   
-    height:60,
-
+heading:{
+  fontSize:22,
+  fontWeight:'bold',
+  marginLeft:15,
+  marginTop:4,
 },
-hcontent :{
-    flexDirection:"row",
-    paddingLeft:10,
-    marginTop:-10
-
-}
+header:{
+  marginLeft:20,
+  flexDirection:"row",
+  marginTop: -10,
+  marginBottom:15 
+},
 });
