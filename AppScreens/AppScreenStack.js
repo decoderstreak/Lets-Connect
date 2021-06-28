@@ -11,7 +11,11 @@ import Mentor from '../Mentors/Mentor'
 import Eachmentor from '../Mentors/Eachmentor'
 import CourseSlider from './Slider/CourseSlider';
 import TestButtons from '../StorageDataBase/TestButtons';
-const Stack =createStackNavigator();
+import Player1 from '../Relax/Player1';
+import Player2 from '../Relax/Player2';
+import Player3 from '../Relax/Player3';
+import Playerrr from '../Sounds/Track';
+const Stack = createStackNavigator();
 export default function AppScreenStack() {
     return (
        <Stack.Navigator headerMode={false} 
@@ -26,6 +30,10 @@ export default function AppScreenStack() {
            <Stack.Screen name="CourseSlider" component={CourseSlider}/>
            <Stack.Screen name="Eachmentor" component={Eachmentor}/>
            <Stack.Screen name="Test" component={TestButtons}/>
+           <Stack.Screen name="Player1" component={Player1} options={{headerShown:false}} />
+            <Stack.Screen name="Player2" component={Player2} options={{headerShown:false}} />
+            <Stack.Screen name="Player3" component={Player3}  options={{headerShown:false}}/>
+            <Stack.Screen name="Track" component={Playerrr} options={{headerShown:false}}  />
        </Stack.Navigator>
     )
 }

@@ -11,7 +11,7 @@ import Sadhana from './sadhana/Sadhana';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import MentorFocusedIcon from '../Icons/MentorFocusedIcon';
 import Mentor from '../Mentors/Mentor'
-import Relax from '../Relax/stack'
+import Relax from '../Relax/Relax'
 const Tab = createBottomTabNavigator();
 export default function TabNav() {
     return (
