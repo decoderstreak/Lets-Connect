@@ -25,10 +25,11 @@ import {View,Text} from 'react-native';
 function Back(){
     return(
         <View>
-         <Svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-<Path d="M27.417 21.0909L16.3071 21.0909L20.9698 25.8829L19.9696 26.9091L13.9836 20.7758C13.763 20.5495 13.763 20.1859 13.9836 19.9596L19.9696 13.8182L20.9698 14.8445L16.3071 19.6364L27.417 19.6364L27.417 20.3637L27.417 21.0909Z" fill="#3F414E"/>
-<Rect x="38.5" y="38.5" width="37" height="37" rx="18.5" transform="rotate(-180 38.5 38.5)" stroke="#EBEAEC" stroke-width="3"/>
+        <Svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+<Rect x="39.5" y="39.5" width="39" height="39" rx="19.5" transform="rotate(-180 39.5 39.5)" stroke="#211D26"/>
+<Path d="M26.7993 20.7232L15.6884 20.7232L20.3516 25.5185L19.3512 26.5455L13.3647 20.4079C13.1442 20.1815 13.1442 19.8176 13.3647 19.5911L19.3512 13.4455L20.3516 14.4724L15.6884 19.2677L26.7993 19.2677L26.7993 19.9955L26.7993 20.7232Z" fill="#3F414E"/>
 </Svg>
+
 
 
 

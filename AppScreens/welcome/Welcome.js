@@ -1,6 +1,6 @@
 import React, { Component} from 'react'
 import {View,Text,Image,TouchableOpacity,ScrollView,StyleSheet,Dimensions} from 'react-native'
-import welcome from './welcome.png'
+import welcome from './Welcomm.png'
 import bird from './Vector.png'
 import auth from '@react-native-firebase/auth';
 const width=Dimensions.get('screen').width
@@ -31,15 +31,15 @@ class Welcome extends Component {
                     <Text style={styles.texttag}>Hi {this.state.displayName} , Welcome to let’s connect</Text> 
                     </View>
                     </View>
-                <View style={{marginTop:8,justifyContent:'center',alignItems:'center'}}>
+                <View style={{marginTop:10,justifyContent:'center',alignItems:'center'}}>
                     <Text style={{color:'#EBEAEC',fontSize:14,fontWeight:'200',width:width/(1.2),textAlign:'center'}}>Explore the app, Find  your interest in specific technology and dive into it.</Text>
                 </View>
                 <View>
                 </View>
-                <View style={{alignItems:'center',marginTop:30}}>
+                <View style={{alignItems:'center',marginTop:40}}>
                     <Image source={welcome} />
                 </View>
-                <View style={{marginTop:100,justifyContent:'center',alignItems:'center'}}>
+                <View style={{marginTop:150,justifyContent:'center',alignItems:'center'}}>
             <TouchableOpacity 
             style={styles.button3}
             onPress={()=>this.props.navigation.navigate('Tabnav')}>

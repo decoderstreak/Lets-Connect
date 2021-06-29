@@ -25,7 +25,7 @@ export default class Welcome extends Component {
     return (
       <View style={styles.container}>
         <Text style = {styles.textStyle}>
-          Hello, {this.state.displayName}
+           {this.state.displayName}
         </Text>
           <Text>hi this is welcome page</Text>
           <Button title="get started" onPress={()=>this.props.navigation.navigate("Tabnav")}/>

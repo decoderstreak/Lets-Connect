@@ -355,17 +355,16 @@ name:
                   marginLeft:'7%'
                 },
                 buttontext:{
-                  fontSize:16,
-                  fontWeight:'bold',
-                  color:'white'
+                  fontFamily:'Roboto',fontSize:16,alignItems:'center',justifyContent:'center',fontWeight:"bold",color:"white",marginTop:9
               },
               button:{
-                backgroundColor:'#116FAF',
-                width:width/(1.135),
-                height:height/(14),
-                borderRadius:30,
-                justifyContent:'center',
-                alignItems:'center'
+                backgroundColor: "rgba(17, 111, 175, 1)",
+                borderRadius: 55,
+                width:280,
+                height:45,
+                flexDirection: 'row',
+               justifyContent: 'center',
+                marginBottom: 20,
             },
     
   }

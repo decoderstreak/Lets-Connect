@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet,ImageBackground,Image,TouchableOpacity,ScrollView,SafeAreaView} from 'react-native';
 import {Card} from 'react-native-elements';
-import relax from './images/Relax.png';
+import relax from './images/Relaxx.png';
 import img1 from './images/River.png';
 import img2 from './images/Mountains.png';
 import img3 from './images/Rela1.png';
@@ -84,7 +84,7 @@ class Relax extends Component {
               {
                   this.state.sounds.map((l) =>{
                       return( 
-                              <Card  containerStyle={{height:80,borderRadius:20,borderWidth:0,}}>
+                              <Card  containerStyle={{height:80,borderRadius:15,}}>
                                   <View style={{flexDirection:"row"}}>
                                   <View>
                                   <Image source={l.img} style={styles.img} />

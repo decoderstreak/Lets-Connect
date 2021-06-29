@@ -8,6 +8,7 @@ import img3 from '../Card2/Java.png'
 import img4 from '../Card2/Python.png'
 import img5 from '../Cards/act.png'
 import img6 from '../Cards/Angular.png'
+import Back from '../assets/backarrow';
 import firestore from '@react-native-firebase/firestore';
 export default class Cards extends Component {
     constructor(props) {
@@ -66,22 +67,17 @@ export default class Cards extends Component {
         }
     render() {
         return (
-            <View >
-                <View style={{ marginTop: 20, marginLeft: 10 ,flexDirection:'row'}}>
-                <TouchableOpacity onPress={()=>this.props.navigation.goBack()}>
-                <Svg width="56" height="55" viewBox="0 0 56 55" fill="none" xmlns="http://www.w3.org/2000/svg">
-                         <Rect x="55.2611" y="54.5" width="54" height="54" rx="27" transform="rotate(-180 55.2611 54.5)" stroke="#EBEAEC" />
-                         <Path d="M37.6102 28.5L22.334 28.5L28.7453 35.0889L27.3699 36.5L19.1392 28.0667C18.8359 27.7556 18.8359 27.2556 19.1392 26.9444L27.3699 18.5L28.7453 19.9111L22.334 26.5L37.6102 26.5L37.6102 27.5L37.6102 28.5Z" fill="#3F414E" />
-                </Svg>
-                </TouchableOpacity>
-                    <View style={{margin:20,flexDirection:'row',marginTop:10}}>
-                    <Text style={styles.heading}>Programming</Text>
-                    </View>
-                </View>
+            <View style={{flex:1}}>
+                <View style={styles.header}>
+                   <TouchableOpacity onPress={()=>this.props.navigation.goBack()}>
+                    <Back />
+                    </TouchableOpacity>
+                 
+                    <Text style={styles.heading}>Programming</Text></View>
               
-                <ScrollView style={{height:560}}>
+                <ScrollView >
                     {/* ------------------------------------CARDS---------------------------------------------------------- */}
-                <View>     
+                <View style={{marginTop:10}}>     
                 {
                         this.state.data.map((i)=>{
                             return(
@@ -90,7 +86,7 @@ export default class Cards extends Component {
             onPress={()=>this.props.navigation.navigate('CourseSlider',
                 {info:this.state.List[i.index].FIELD,
                  name: i.course})}>
-             <LinearGradient start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }} colors={i.colors} style={{ width: 330, height: 80, borderRadius: 20, margin:10 }}>
+             <LinearGradient start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }} colors={i.colors} style={{ width: 330, height: 80, borderRadius: 15, margin:10 }}>
                     <View style={{flexDirection:'row'}}>
                             <Text style={{color:'white',fontSize:22,position:"absolute",marginLeft:60,marginTop:20,alignContent:"center"}}>{i.course}</Text>
                             <View style={{marginLeft:150}}>
@@ -112,6 +108,13 @@ export default class Cards extends Component {
 const styles=StyleSheet.create({
     heading:{
         fontSize:22,
-        fontWeight:'bold'
-},
+        fontWeight:'bold',
+        marginLeft:15,
+        marginTop:5
+      },
+      header:{
+        marginLeft:20,
+        flexDirection:"row",
+        marginTop:15
+      },
 })
