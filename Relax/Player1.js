@@ -193,7 +193,7 @@ export default function Player1({navigation}) {
                     <Back />
                     </TouchableOpacity>
                  
-                    <Text style={styles.heading}>River Flowing</Text></View>
+                    <Text style={styles.heading}>Guided Meditations</Text></View>
           
         <Animated.FlatList
           ref={slider}
