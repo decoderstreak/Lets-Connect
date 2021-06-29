@@ -18,13 +18,13 @@ class Relax extends Component {
                     {
                         id:1,
                         img:img1,
-                        title:"River Flowing",
+                        title:"Guided Meditation",
                         link: 'Player1'
                     },
                     {
                         id:2,
                         img:img2,
-                        title:"Piano",
+                        title:"Violin",
                         link: 'Player2'
                     },
                     {

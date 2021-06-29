@@ -8,6 +8,7 @@
    Text,
    useColorScheme,
    View,
+   LogBox 
  } from 'react-native';
  
  import {
@@ -42,7 +43,13 @@ import TestingFour from './StorageDataBase/TestingFour';
 import CourseSlider from './AppScreens/Slider/CourseSlider'
 import TestButtons from './StorageDataBase/TestButtons';
 import Welcome from './AppScreens/welcome/Welcome';
-import Profile from './hii/Profile';
+import Profile from './hii/Profile'; 
+
+LogBox.ignoreAllLogs();
+
+// console.disableYellowBox = true;
+
+
   export default function App(){
      return(
       //  <Cards/>

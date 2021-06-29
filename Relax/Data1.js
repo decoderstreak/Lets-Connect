@@ -5,15 +5,15 @@ const songs = [
     {
       title: 'Mind Calming Meditation',
    
-      artwork: require('./images/11.jpg'),
+      artwork: require('./images/2.jpg'),
       url: Tra1,
-      duration: 2 * 60 + 53,
+      duration: 2 * 120,
       id: '1',
     },
     {
       title: 'Ulhas meditation',
    
-      artwork: require('./images/11.jpg'),
+      artwork: require('./images/12.jpg'),
       url: Tra2,
       duration: 2 * 60,
       id: '2',
@@ -21,7 +21,7 @@ const songs = [
     {
       title: 'Contentment meditation',
  
-      artwork: require('./images/11.jpg'),
+      artwork: require('./images/10.jpg'),
       url: Tra3,
       duration: 2 * 60,
       id: '3',

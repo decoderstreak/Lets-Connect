@@ -1,52 +1,34 @@
+import Tra1 from '../audios/Flute2.mp3'
+import Tra2 from '../audios/flute1.mp3'
+import Tra3 from '../audios/Flute3.mp3'
+
+
 const songs = [
     {
-      title: 'death bed',
+      title: 'Radhae Flute',
    
-      artwork: require('./images/11.jpg'),
-      url: 'https://sample-music.netlify.app/death%20bed.mp3',
+      artwork: require('./images/3.jpg'),
+      url: Tra1,
       duration: 2 * 60 + 53,
       id: '1',
     },
     {
-      title: 'bad liar',
+      title: 'Relaxing Flute',
    
-      artwork: require('./images/11.jpg'),
-      url: 'https://sample-music.netlify.app/Bad%20Liar.mp3',
+      artwork: require('./images/1.jpg'),
+      url: Tra2,
       duration: 2 * 60,
       id: '2',
     },
     {
-      title: 'faded',
+      title: 'Relax brain',
  
-      artwork: require('./images/11.jpg'),
-      url: 'https://sample-music.netlify.app/Faded.mp3',
+      artwork: require('./images/5.jpg'),
+      url: Tra3,
       duration: 2 * 60,
       id: '3',
     },
-    {
-      title: 'hate me',
-      artist: 'Ellie Goulding',
-      artwork: require('./images/11.jpg'),
-      url: 'https://sample-music.netlify.app/Hate%20Me.mp3',
-      duration: 2 * 60,
-      id: '4',
-    },
-    {
-      title: 'Solo',
    
-      artwork: require('./images/11.jpg'),
-      url: 'https://sample-music.netlify.app/Solo.mp3',
-      duration: 2 * 60,
-      id: '5',
-    },
-    {
-      title: 'without me',
-     
-      artwork: require('./images/11.jpg'),
-      url: 'https://sample-music.netlify.app/Without%20Me.mp3',
-      duration: 2 * 60,
-      id: '6',
-    },
   ];
   
   export default songs;
