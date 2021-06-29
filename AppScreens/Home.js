@@ -10,7 +10,7 @@ import NotificationIcon from '../Icons/NotificationIcon';
 import Callender from '../assets/callender';
 import Emailicon from '../assets/Emailicon';
 import Nameicon from '../assets/name';
-import image from '../assets/Avatar.png';
+import image from '../assets/ava.png';
 import RBSheet from "react-native-raw-bottom-sheet";
 import LinearGradient from 'react-native-linear-gradient';
 import home from '../Home/Development.png'
