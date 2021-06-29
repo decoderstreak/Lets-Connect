@@ -71,7 +71,7 @@ function Signup({navigation}) {
   .createUserWithEmailAndPassword(email, Password)
   .then(() => {
     setLoader(true) 
-    console.log('User account created & signed in!');
+    // console.log('User account created & signed in!');
     Alert.alert('User account created & signed in!')
    
   })
@@ -79,17 +79,17 @@ function Signup({navigation}) {
     if (error.code === 'auth/email-already-in-use') 
     {
       setLoader(false) 
-      console.log('That email address is already in use!');
+      // console.log('That email address is already in use!');
       Alert.alert('That email address is already in use!')
     }
 
     if (error.code === 'auth/invalid-email') {
       setLoader(false) 
-      console.log('That email address is invalid!');
+      // console.log('That email address is invalid!');
       Alert.alert('auth/invalid-email')
     }
 
-    console.error(error);
+    // console.error(error);
   });
 }
  }

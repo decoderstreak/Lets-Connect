@@ -105,7 +105,7 @@ export default function Mentor({route,navigation})
          route.params.Projects.map((list) =>{
             return(
            
-      <Card style={{width:144,height:175,alignItems:'center',paddingTop:10,borderWidth:1,borderColor:"rgba(201, 201, 201, 1)",marginLeft:10}}>
+      <Card style={{width:144,height:175,alignItems:'center',paddingTop:10,borderWidth:1,borderColor:"rgba(201, 201, 201, 1)",marginLeft:10}} key={list}>
       <Image source={require('../assets/1.png')}  style={{
                             height: 71,
                             width: 66,
@@ -144,7 +144,7 @@ header:{
   marginTop:15
 },
 heading:{
-  fontSize:22,
+  fontSize:20,
   fontWeight:'bold',
   marginLeft:15,
   marginTop:5

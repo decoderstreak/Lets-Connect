@@ -79,7 +79,7 @@ export default function Player3({navigation}) {
 
     TrackPlayer.setupPlayer().then(async () => {
       // The player is ready to be used
-      console.log('Player ready');
+      // console.log('Player ready');
       // add the array of songs in the playlist
       await TrackPlayer.reset();
       await TrackPlayer.add(songs);
@@ -90,7 +90,7 @@ export default function Player3({navigation}) {
 
       //add listener on track change
       TrackPlayer.addEventListener(PLAYBACK_TRACK_CHANGED, async e => {
-        console.log('song ended', e);
+        // console.log('song ended', e);
 
         const trackId = (await TrackPlayer.getCurrentTrack()) - 1; //get the current id
 

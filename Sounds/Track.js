@@ -81,7 +81,7 @@ export default function Player({navigation}) {
 
     TrackPlayer.setupPlayer().then(async () => {
       // The player is ready to be used
-      console.log('Player ready');
+      // console.log('Player ready');
       // add the array of songs in the playlist
       await TrackPlayer.reset();
       await TrackPlayer.add(songs);

@@ -73,8 +73,8 @@ function Login({navigation}) {
      auth().signInWithEmailAndPassword(email,Password)
      .then(()=>{
        setUser(true);
-       console.log('user :',User);
-        console.log("succesfuuly signedin");
+      //  console.log('user :',User);
+        // console.log("succesfuuly signedin");
      }).catch((error)=>{
       Alert.alert(error);
      })
@@ -145,8 +145,10 @@ function Login({navigation}) {
             <View style={{alignItems:"center",justifyContent:"space-around",marginTop:40}}>
 
             <TouchableOpacity 
-            style={styles.button1} onPress={()=>console.log('facebook login')}
-            onPress={()=>onFacebookButtonPress().then(() =>setUser(true), console.log('Signed in with Facebook!User is:',User))}>
+            style={styles.button1}
+            onPress={()=>onFacebookButtonPress().then(() =>setUser(true)
+            // , console.log('Signed in with Facebook!User is:',User)
+            )}>
               <View style={{flexDirection:"row",justifyContent:"space-evenly",marginTop:10}}>
                       <Svg width="13" height="25" viewBox="0 0 13 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <Path d="M10.6776 4.92937H12.8745V1.10305C12.4955 1.05091 11.192 0.933594 9.67389 0.933594C6.50635 0.933594 4.33649 2.92597 4.33649 6.58785V9.95794H0.841064V14.2355H4.33649V24.9985H8.62206V14.2365H11.9761L12.5085 9.95894H8.62105V7.01199C8.62206 5.77566 8.95495 4.92937 10.6776 4.92937Z" fill="white"/>
@@ -157,7 +159,8 @@ function Login({navigation}) {
 {/* ------------------------------------------------Google login button--------------------------------- */}
            <TouchableOpacity 
             style={styles.button2}
-            onPress={() => onGoogleButtonPress().then(() =>setUser(true),console.log('Signed in with Google! User is :',User)
+            onPress={() => onGoogleButtonPress().then(() =>setUser(true)
+              // ,console.log('Signed in with Google! User is :',User)
             )}>
                <View style={{flexDirection:"row",justifyContent:"space-evenly",marginTop:10}}>
                
@@ -191,17 +194,13 @@ function Login({navigation}) {
             <Text style={{alignSelf:'center',fontWeight:'bold',fontSize:14,marginTop:-15}}>Forgot password?</Text>
             </View>
             </View>
-
-          
-          
            <View style={{flexDirection:'row',justifyContent:'center',marginTop:40,marginBottom:20}}>
             <Text style={{fontSize:14}}>ALREADY HAVE AN ACCOUNT?</Text>
             <TouchableOpacity><Text style={{color:'blue'}} onPress={()=>navigation.navigate('Signup')}> Sign up</Text></TouchableOpacity>
             </View>
             </View>
             </ScrollView>
-       </>
-        
+       </>   
     )
 }
 const styles = StyleSheet.create({

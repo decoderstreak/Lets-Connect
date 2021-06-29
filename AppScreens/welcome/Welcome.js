@@ -19,8 +19,8 @@ class Welcome extends Component {
             displayName: auth().currentUser.displayName,
             uid: auth().currentUser.uid
           }   
-          console.log('width brooo',width);
-          console.log('height brooo',height);
+        //   console.log('width brooo',width);
+        //   console.log('height brooo',height);
         return (
             <View style={{backgroundColor:'#116faf',flex:1}}>
                 <ScrollView style={styles.scrollheight}>
@@ -39,11 +39,11 @@ class Welcome extends Component {
                 <View style={{alignItems:'center',marginTop:40}}>
                     <Image source={welcome} />
                 </View>
-                <View style={{marginTop:150,justifyContent:'center',alignItems:'center'}}>
+                <View style={{marginTop:80,justifyContent:'center',alignItems:'center'}}>
             <TouchableOpacity 
             style={styles.button3}
             onPress={()=>this.props.navigation.navigate('Tabnav')}>
-            <Text style={{fontSize:18,color:"black",fontWeight:"bold",marginTop:9}}>Get Started</Text>
+            <Text style={{fontSize:18,color:"black",fontWeight:"bold",justifyContent:'center',alignItems:'center'}}>Get Started</Text>
             </TouchableOpacity>
             </View>
 
@@ -95,6 +95,7 @@ button3:{
      height:45,
      flexDirection: 'row',
     justifyContent: 'center',
+    alignItems:'center',
      marginBottom: 20,
      
   },

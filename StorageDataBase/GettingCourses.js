@@ -28,8 +28,8 @@ export default class GettingCourses extends Component {
             Lists:this.state.Lists,
             List1:Object.values(this.state.Lists)
         })
-        console.log((this.state.Lists),'lists bro');
-        console.log(Object.values(this.state.List1),'another lists bro');
+        // console.log((this.state.Lists),'lists bro');
+        // console.log(Object.values(this.state.List1),'another lists bro');
     }
     });
   });
@@ -41,9 +41,9 @@ export default class GettingCourses extends Component {
                  {/* <Text> textInComponent </Text> */}
                 {
                     Object.values(this.state.Lists.map((i)=>{
-                        console.log(i);
+                        // console.log(i);
                         Object.keys(i).map((j)=>{
-                            console.log(j);
+                            // console.log(j);
                             return(
                                 
                                 <LinearGradient start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }} colors={['#E65100','#FA500C', '#FB743E', '#FC9870','#FDAA89',]} style={{ width: 330, height: 80, borderRadius: 20, margin:10 }}>

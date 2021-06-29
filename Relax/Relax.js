@@ -70,7 +70,7 @@ class Relax extends Component {
 
 
                 <View>
-                <ImageBackground source={relax} style={{ width: 339, height: 195, marginLeft: 9, marginTop: 1,}}>
+                <ImageBackground source={relax} style={{ width: 339, height: 195, marginLeft: 10, marginTop: 1,}}>
                     <Text style={{ fontSize: 25, marginLeft: 22, marginTop: 12 ,fontWeight:"bold"}}>Jai Gurudev</Text>
                 </ImageBackground>
                 </View>
@@ -84,7 +84,7 @@ class Relax extends Component {
               {
                   this.state.sounds.map((l) =>{
                       return( 
-                              <Card  containerStyle={{height:80,borderRadius:15,}}>
+                              <Card  containerStyle={{height:80,borderRadius:15,}} key={l.title}>
                                   <View style={{flexDirection:"row"}}>
                                   <View>
                                   <Image source={l.img} style={styles.img} />
@@ -142,7 +142,7 @@ const styles = StyleSheet.create( {
 
     },
     heading:{
-        fontSize:22,
+        fontSize:20,
         fontWeight:'bold',
         marginLeft:15,
         marginTop:5

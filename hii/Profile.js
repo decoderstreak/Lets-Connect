@@ -52,7 +52,7 @@ export default function Profile({navigation}) {
       setName(firebase.auth().currentUser.displayName)
       setEmail(firebase.auth().currentUser.email)
       // User logged in already or has just logged in.
-      console.log(firebase.auth().currentUser);
+      // console.log(firebase.auth().currentUser);
     } else {
       // User not logged in or has just logged out.
     }
@@ -62,7 +62,7 @@ export default function Profile({navigation}) {
     displayName: NewName,
     email:NewEmail
   }
-  console.log('updated info',update);
+  // console.log('updated info',update);
     await firebase.auth().currentUser.updateProfile(update);
     // await firebase.auth().currentUser.updateProfile(NewEmail);
     // await firebase.auth().currentUser.updateProfile(NewYear);
