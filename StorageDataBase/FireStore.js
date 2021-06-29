@@ -2,7 +2,7 @@ import React,{Component} from 'react'
 import { View, Text,ScrollView,TouchableOpacity,Image } from 'react-native'
 import firestore from '@react-native-firebase/firestore';
 import photo from '../Home/Sir.png'
-import MentorAvatar from '../Cards/MentorAvatar.png'
+import MentorAvatar from '../assets/Avatar6.png'
 export default class FireStore extends Component {
     constructor(props) {
         super(props)

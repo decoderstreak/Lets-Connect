@@ -71,7 +71,7 @@ export default function Player2({navigation}) {
     // position.addListener(({ value }) => {
     //   console.log(value);
     // });
-
+    // let unmounted = false;
     scrollX.addListener(({value}) => {
       const val = Math.round(value / width);
 
@@ -128,15 +128,17 @@ export default function Player2({navigation}) {
     });
 
     return () => {
+      // unmounted=true
       scrollX.removeAllListeners();
       TrackPlayer.destroy();
-
+      // { unmounted = true };
       // exitPlayer();
     };
   }, [scrollX]);
 
   // change the song when index changes
   useEffect(() => {
+    // let unmounted = false;
     if (isPlayerReady.current && isItFromUser.current) {
       TrackPlayer.skip(songs[songIndex].id)
         .then(_ => {
@@ -145,25 +147,40 @@ export default function Player2({navigation}) {
         .catch(e => console.log('error in changing track ', e));
     }
     index.current = songIndex;
+    // return () => { unmounted = true };
   }, [songIndex]);
 
-  const goNext = async () => {
+  const goNext = () => {
     slider.current.scrollToOffset({
       offset: (index.current + 1) * width,
     });
 
-    await TrackPlayer.play();
+     TrackPlayer.play()
+     .then((i)=>{
+      console.log(i);
+    })
+    .catch((err)=>{
+      console.log(err);
+    })
   };
-  const goPrv = async () => {
+  const goPrv = () => {
     slider.current.scrollToOffset({
       offset: (index.current - 1) * width,
     });
 
-    await TrackPlayer.play();
+  TrackPlayer.play()
+   .then((i)=>{
+    console.log('.....',i);
+  })
+  .catch((err)=>{
+    console.log('.....',err);
+  })
   };
 
   const renderItem = ({index, item}) => {
     return (
+      <>
+      {/* {unmounted=true} */}
       <Animated.View
         style={{
           alignItems: 'center',
@@ -182,6 +199,7 @@ export default function Player2({navigation}) {
           style={{width:300,height:250,borderRadius:10,marginTop:20}}
         />
       </Animated.View>
+      </>
     );
   };
 

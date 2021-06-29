@@ -7,7 +7,7 @@ const songs = [
    
       artwork: require('./images/2.jpg'),
       url: Tra1,
-      duration: 2 * 120,
+      duration: 2 * 450+20,
       id: '1',
     },
     {
@@ -15,7 +15,7 @@ const songs = [
    
       artwork: require('./images/12.jpg'),
       url: Tra2,
-      duration: 2 * 60,
+      duration: 2 * 570+52,
       id: '2',
     },
     {
@@ -23,7 +23,7 @@ const songs = [
  
       artwork: require('./images/10.jpg'),
       url: Tra3,
-      duration: 2 * 60,
+      duration: 2 * 600+12,
       id: '3',
     },
     // {

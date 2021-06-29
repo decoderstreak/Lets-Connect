@@ -66,6 +66,7 @@ export default function Player({navigation}) {
   const playbackState = usePlaybackState();
 
   useEffect(() => {
+    // let unmounted = false;
     scrollX.addListener(({value}) => {
       const val = Math.round(value / width);
 
@@ -101,10 +102,10 @@ export default function Player({navigation}) {
     });
 
     return () => {
+      // unmounted=true
       scrollX.removeAllListeners();
       TrackPlayer.destroy();
-
-     
+    // { unmounted = true };
     };
   }, [scrollX]);
 

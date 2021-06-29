@@ -67,6 +67,7 @@ export default function Player3({navigation}) {
   const playbackState = usePlaybackState();
 
   useEffect(() => {
+    // let unmounted = false;
     // position.addListener(({ value }) => {
     //   console.log(value);
     // });
@@ -127,6 +128,7 @@ export default function Player3({navigation}) {
     });
 
     return () => {
+      // unmounted=true
       scrollX.removeAllListeners();
       TrackPlayer.destroy();
 
@@ -136,6 +138,7 @@ export default function Player3({navigation}) {
 
   // change the song when index changes
   useEffect(() => {
+    // let unmounted = false;
     if (isPlayerReady.current && isItFromUser.current) {
       TrackPlayer.skip(songs[songIndex].id)
         .then(_ => {
@@ -144,21 +147,34 @@ export default function Player3({navigation}) {
         .catch(e => console.log('error in changing track ', e));
     }
     index.current = songIndex;
+    // return () => { unmounted = true };
   }, [songIndex]);
 
-  const goNext = async () => {
+  const goNext =  () => {
     slider.current.scrollToOffset({
       offset: (index.current + 1) * width,
     });
 
-    await TrackPlayer.play();
+    TrackPlayer.play()
+    .then((i)=>{
+      console.log(i);
+    })
+    .catch((err)=>{
+      console.log(err);
+    })
   };
-  const goPrv = async () => {
+  const goPrv =  () => {
     slider.current.scrollToOffset({
       offset: (index.current - 1) * width,
     });
 
-    await TrackPlayer.play();
+  TrackPlayer.play()
+    .then((i)=>{
+      console.log('......'.i);
+    })
+    .catch((err)=>{
+      console.log('.....',err);
+    })
   };
 
   const renderItem = ({index, item}) => {

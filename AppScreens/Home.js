@@ -10,7 +10,7 @@ import NotificationIcon from '../Icons/NotificationIcon';
 import Callender from '../assets/callender';
 import Emailicon from '../assets/Emailicon';
 import Nameicon from '../assets/name';
-import image from '../assets/Avatar.png';
+import image from '../assets/ava.png';
 import RBSheet from "react-native-raw-bottom-sheet";
 import LinearGradient from 'react-native-linear-gradient';
 import home from '../Home/Development.png'
@@ -101,7 +101,11 @@ class Home extends Component {
            {/* <View>
            <View> */}
             <LinearGradient start={{ x: 1, y: 0 }} end={{ x: 0, y: 0 }} colors={['#90bcda', '#608BC5', '#116faf', '#116faf',]} 
-            style={{ width:'90%', height: 80, borderRadius: 20, marginLeft:'5%',marginTop:'2%'}}/>
+            style={{ width:'90%', height: 80, borderRadius: 20, marginLeft:'5%',marginTop:'2%'}}>
+              <View style={{justifyContent:'center',alignItems:'center'}}>
+                 <Text style={{color:"white",fontSize:16,justifyContent:'center',alignContent:'center',margin:12}}>"Dream the Impossible. Know that you are born in this world to do something wonderful & unique."  </Text>
+                 </View>
+              </LinearGradient>
           <Text style={{ fontSize: 16, marginLeft:'5%',marginTop:'3%' }}>Techify</Text>
           <View 
           style={{ 

@@ -68,7 +68,7 @@ export default function Player1({navigation}) {
     // position.addListener(({ value }) => {
     //   console.log(value);
     // });
-
+    // let unmounted = false;
     scrollX.addListener(({value}) => {
       const val = Math.round(value / width);
 
@@ -124,15 +124,20 @@ export default function Player1({navigation}) {
     });
 
     return () => {
+     
       scrollX.removeAllListeners();
       TrackPlayer.destroy();
 
       // exitPlayer();
+      // { unmounted = true };
     };
+    // return () =>
+    
   }, [scrollX]);
 
   // change the song when index changes
   useEffect(() => {
+    // let unmounted = false;
     if (isPlayerReady.current && isItFromUser.current) {
       TrackPlayer.skip(songs[songIndex].id)
         .then(_ => {
@@ -141,6 +146,7 @@ export default function Player1({navigation}) {
         .catch(e => console.log('error in changing track ', e));
     }
     index.current = songIndex;
+    // return () => { unmounted = true };
   }, [songIndex]);
 
   const goNext =  () => {
@@ -148,18 +154,32 @@ export default function Player1({navigation}) {
       offset: (index.current + 1) * width,
     });
 
-     TrackPlayer.play();
+    TrackPlayer.play()
+    .then((i)=>{
+      console.log('.....',i);
+    })
+    .catch((err)=>{
+      console.log('.....',err);
+    })
   };
-  const goPrv =  () => {
+  const goPrv = () => {
     slider.current.scrollToOffset({
       offset: (index.current - 1) * width,
     });
 
-   TrackPlayer.play();
+ TrackPlayer.play()
+  .then((i)=>{
+    console.log('.....',i);
+  })
+  .catch((err)=>{
+    console.log('.....',err);
+  })
   };
 
   const renderItem = ({index, item}) => {
     return (
+      <>
+      {/* {unmounted = true} */}
       <Animated.View
         style={{
           alignItems: 'center',
@@ -179,6 +199,7 @@ export default function Player1({navigation}) {
           // style={{width: 320, height: 300, borderRadius: 5}}
         />
       </Animated.View>
+      </>
     );
   };
 
