@@ -94,7 +94,7 @@ export default function Player3({navigation}) {
 
         const trackId = (await TrackPlayer.getCurrentTrack()) - 1; //get the current id
 
-        console.log('track id', trackId, 'index', index.current);
+        // console.log('track id', trackId, 'index', index.current);
 
         if (trackId !== index.current) {
           setSongIndex(trackId);
@@ -139,7 +139,7 @@ export default function Player3({navigation}) {
     if (isPlayerReady.current && isItFromUser.current) {
       TrackPlayer.skip(songs[songIndex].id)
         .then(_ => {
-          console.log('changed track');
+          // console.log('changed track');
         })
         .catch(e => console.log('error in changing track ', e));
     }

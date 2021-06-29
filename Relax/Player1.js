@@ -28,10 +28,7 @@ import {PLAYBACK_TRACK_CHANGED} from 'react-native-track-player/lib/eventTypes';
 
 const {width, height} = Dimensions.get('window');
 
-// const events = [
-//   TrackPlayerEvents.PLAYBACK_STATE,
-//   TrackPlayerEvents.PLAYBACK_ERROR
-// ];
+
 
 const TRACK_PLAYER_CONTROLS_OPTS = {
   waitforBuffer: true,
@@ -79,8 +76,7 @@ export default function Player1({navigation}) {
     });
 
     TrackPlayer.setupPlayer().then(async () => {
-      // The player is ready to be used
-      // console.log('Player ready');
+    
       // add the array of songs in the playlist
       await TrackPlayer.reset();
       await TrackPlayer.add(songs);
@@ -140,26 +136,26 @@ export default function Player1({navigation}) {
     if (isPlayerReady.current && isItFromUser.current) {
       TrackPlayer.skip(songs[songIndex].id)
         .then(_ => {
-          console.log('changed track');
+          // console.log('changed track');
         })
         .catch(e => console.log('error in changing track ', e));
     }
     index.current = songIndex;
   }, [songIndex]);
 
-  const goNext = async () => {
+  const goNext =  () => {
     slider.current.scrollToOffset({
       offset: (index.current + 1) * width,
     });
 
-    await TrackPlayer.play();
+     TrackPlayer.play();
   };
-  const goPrv = async () => {
+  const goPrv =  () => {
     slider.current.scrollToOffset({
       offset: (index.current - 1) * width,
     });
 
-    await TrackPlayer.play();
+   TrackPlayer.play();
   };
 
   const renderItem = ({index, item}) => {
@@ -193,7 +189,7 @@ export default function Player1({navigation}) {
                     <Back />
                     </TouchableOpacity>
                  
-                    <Text style={styles.heading}>River Flowing</Text></View>
+                    <Text style={styles.heading}>Guided Meditations</Text></View>
           
         <Animated.FlatList
           ref={slider}

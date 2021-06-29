@@ -7,7 +7,7 @@ import {
   ImageRequireSource ,Image
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import play from '../Sounds/play1.png';
+import play from '../Sounds/Play2.png';
 import pause from '../Sounds/pause1.png';
 import TrackPlayer, {
   usePlaybackState,
@@ -20,7 +20,7 @@ export default function Controller({onNext, onPrv}) {
   const isPlaying = useRef('paused'); //paused play loading
 
   useEffect(() => {
-    console.log('Player State', playbackState);
+    // console.log('Player State', playbackState);
 
     //set the player state
     if (playbackState === 'playing' || playbackState === 3) {
@@ -35,11 +35,11 @@ export default function Controller({onNext, onPrv}) {
   const returnPlayBtn = () => {
     switch (isPlaying.current) {
       case 'playing':
-        return <Image source={pause} style={{height:60,width:60,color:"white"}} />;
+        return <Image source={pause} style={{height:60,width:60,color:"white",alignContent:"center",marginTop:-1}} />;
       case 'paused':
-        return <Image source={play} style={{height:60,width:60,color:"white"}} />;
+        return <Image source={play} style={{height:63,width:60,color:"white",alignContent:"center",marginTop:-2}} />;
       default:
-        return <ActivityIndicator size={45} color="#fff" />;
+        return <ActivityIndicator size={35} color="#fff"  marginTop={10}/>;
     }
   };
 

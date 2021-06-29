@@ -6,7 +6,7 @@ const songs = [
    
       artwork: require('../Relax/images/11.jpg'),
       url: Tra,
-      duration: 2 * 60 + 53,
+      duration: 2 * 970 + 49,
       id: '1',
     },
    

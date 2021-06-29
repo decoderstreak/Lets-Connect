@@ -23,12 +23,6 @@ import TrackPlayer, {
 import songs from '../Relax/Data3';
 import Controller from '../Relax/Controller3';
 import SliderComp from '../Relax/Slider3';
-import Back from '../assets/backarrow';
-import {Svg,Path,Rect,Stop,Defs,LinearGradient} from 'react-native-svg'
-import storage from '@react-native-firebase/storage';
-import Tra from './ss.mp3';
-import play from './play1.png';
-import pause from './pause1.png';
 import s1 from './s1.png';
 import s4 from './s4.png';
 import s2 from './s2.png';
@@ -66,7 +60,6 @@ export default function Player({navigation}) {
 
   const [songIndex, setSongIndex] = useState(0);
 
-  const isItFromUser = useRef(true);
 
   // for tranlating the album art
   const position = useRef(Animated.divide(scrollX, width)).current;
@@ -80,9 +73,7 @@ export default function Player({navigation}) {
     });
 
     TrackPlayer.setupPlayer().then(async () => {
-      // The player is ready to be used
-      // console.log('Player ready');
-      // add the array of songs in the playlist
+ 
       await TrackPlayer.reset();
       await TrackPlayer.add(songs);
       TrackPlayer.play();
@@ -94,9 +85,6 @@ export default function Player({navigation}) {
       TrackPlayer.addEventListener(PLAYBACK_TRACK_CHANGED, async e => {
         // console.log('song ended', e);
 
-        const trackId = (await TrackPlayer.getCurrentTrack()) - 1; //get the current id
-
-        // console.log('track id', trackId, 'index', index.current);
       });
 
     

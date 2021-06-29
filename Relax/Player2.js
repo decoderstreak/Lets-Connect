@@ -140,7 +140,7 @@ export default function Player2({navigation}) {
     if (isPlayerReady.current && isItFromUser.current) {
       TrackPlayer.skip(songs[songIndex].id)
         .then(_ => {
-          console.log('changed track');
+          // console.log('changed track');
         })
         .catch(e => console.log('error in changing track ', e));
     }
@@ -193,7 +193,7 @@ export default function Player2({navigation}) {
                     <Back />
                     </TouchableOpacity>
                  
-                    <Text style={styles.heading}>Piano</Text></View>
+                    <Text style={styles.heading}>Violin</Text></View>
         <Animated.FlatList
           ref={slider}
           horizontal
