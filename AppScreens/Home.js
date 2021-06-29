@@ -110,7 +110,7 @@ class Home extends Component {
             marginTop:'3%',
             // backgroundColor:'black',
             width:'90%',
-            height:'15%'
+            height:'19%'
             }}>
               <View 
               style={{
@@ -118,6 +118,7 @@ class Home extends Component {
                 width:'47%',
                 height:'100%',
                 // backgroundColor:'pink',
+                borderRadius:20
                 // borderRadius:'5%'
                 // width:
               }}>
@@ -146,6 +147,7 @@ class Home extends Component {
                 // backgroundColor:'pink',
                 // borderRadius:'5%',
                 marginLeft:'53%',
+                borderRadius:20
                 // justifyContent:'center',
                 // alignContent:'center'
                 // width:

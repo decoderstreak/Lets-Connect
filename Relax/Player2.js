@@ -179,7 +179,7 @@ export default function Player2({navigation}) {
         }}>
         <Animated.Image
           source={item.artwork}
-          style={{width: 320, height: 320, borderRadius: 5}}
+          style={{width:300,height:250,borderRadius:10,marginTop:20}}
         />
       </Animated.View>
     );
@@ -223,7 +223,7 @@ export default function Player2({navigation}) {
 
 const styles = StyleSheet.create({
   title: {
-    fontSize: 28,
+    fontSize: 20,
     textAlign: 'center',
     fontWeight: '600',
     textTransform: 'capitalize',
