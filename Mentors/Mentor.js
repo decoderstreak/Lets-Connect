@@ -55,7 +55,7 @@ export default class Mentors extends React.Component{
         .collection('Mentors')
         .get()
         .then(querySnapshot => {
-          console.log('Users ', querySnapshot.size);
+          // console.log('Users ', querySnapshot.size);
           querySnapshot.forEach(documentSnapshot => {
             this.state.MentorCards=this.state.MentorCards.concat(documentSnapshot.data())
             {
@@ -85,7 +85,7 @@ export default class Mentors extends React.Component{
                   this.state.MentorCards.map((list) =>{
                       return(
                         
-                        <Card  containerStyle={{borderRadius:15}}>
+                        <Card  containerStyle={{borderRadius:15}} key={list.Name}>
         <View style={{flexDirection:'row',justifyContent:'space-between',alignItems:"center"}}>
 
       <View style={{marginTop:1}}>
@@ -124,7 +124,7 @@ const styles=({
     height:60,
 },
 heading:{
-  fontSize:22,
+  fontSize:20,
   fontWeight:'bold',
   marginLeft:15,
   marginTop:5

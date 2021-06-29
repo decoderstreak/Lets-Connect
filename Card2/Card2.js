@@ -56,18 +56,18 @@ export default class Cards extends Component {
         //  console.log('Total users: ', querySnapshot.size);
      
          querySnapshot.forEach(documentSnapshot => {
-           console.log('User ID: ', documentSnapshot.id, documentSnapshot.data());
+        //    console.log('User ID: ', documentSnapshot.id, documentSnapshot.data());
            this.state.List=this.state.List.concat(documentSnapshot.data())
            this.setState({
                List:(this.state.List)
            })
-           console.log(this.state.List[0].FIELD);
+        //    console.log(this.state.List[0].FIELD);
          });
      })
         }
     render() {
         return (
-            <View style={{flex:1}}>
+            <View style={{flex:1}} >
                 <View style={styles.header}>
                    <TouchableOpacity onPress={()=>this.props.navigation.goBack()}>
                     <Back />
@@ -81,7 +81,7 @@ export default class Cards extends Component {
                 {
                         this.state.data.map((i)=>{
                             return(
-                <View >
+                <View key={i.course}>
             <TouchableOpacity 
             onPress={()=>this.props.navigation.navigate('CourseSlider',
                 {info:this.state.List[i.index].FIELD,

@@ -26,7 +26,7 @@ export default class FireStore extends Component {
         });
     }
     render() {
-        console.log(this.state.Lists,'props broo');
+        // console.log(this.state.Lists,'props broo');
         return (
             <View>
                 <ScrollView  horizontal={true}
@@ -34,10 +34,10 @@ export default class FireStore extends Component {
                   showsHorizontalScrollIndicator={false}>   
                 {
                     Object.values(this.state.Lists).map((list)=>{
-                        console.log('i boss',list);
+                        // console.log('i boss',list);
                         return(
-                            <View>     
-                          <TouchableOpacity key={list.id} onPress={()=>this.props.navigation.navigate('Eachmentor',list)}>
+                            <View key={list.Name}>     
+                          <TouchableOpacity  onPress={()=>this.props.navigation.navigate('Eachmentor',list)}>
                          <View style={{ height: 200, width: 152, borderWidth: 2, borderColor: '#BEBEC3', borderRadius: 9,marginLeft:10}}>
                            <Image
                              source={MentorAvatar}

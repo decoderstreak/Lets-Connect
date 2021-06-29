@@ -2,23 +2,15 @@ import React ,{Component} from 'react'
 import { View,Image,Text,TouchableOpacity,ScrollView,StyleSheet,SafeAreaView} from 'react-native'
 import image from './logo.jpeg'
 
-
 class Logo extends Component{
     render(){
     return (
      <SafeAreaView style={{ flex: 1,alignContent:"center",alignItems:"center"}}>
-       
-      
-        
-        <View style={{backgroundColor:'white',alignContent:"center",flex:1,alignItems:"center",}}>
+     <View style={{backgroundColor:'white',alignContent:"center",flex:1,alignItems:"center",}}>
             <ScrollView>
-
-
             <View style={{backgroundColor:"fff",marginTop:210}}>
             <Image source={image} style={{ aspectRatio: 1.3,resizeMode:'cover' }}/>
             </View>
-
-
             <View style={{marginTop:100,justifyContent:'center',alignItems:'center'}}>
             <TouchableOpacity 
             style={styles.button3}
@@ -26,8 +18,6 @@ class Logo extends Component{
             <Text style={{fontSize:18,color:"white",fontWeight:"bold",marginTop:9}}>Let's Connect</Text>
             </TouchableOpacity>
             </View>
-
-
             </ScrollView>
                 </View>
         </SafeAreaView>

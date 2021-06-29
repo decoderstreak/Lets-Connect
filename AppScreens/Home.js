@@ -80,8 +80,8 @@ class Home extends Component {
       let urlv={uri:"https://firebasestorage.googleapis.com/v0/b/let-s-connect-84651.appspot.com/o/VEDIOS%2Fbdaywishvedio.mp4?alt=media&token=6df0a81e-4b65-489a-aa33-7b0d0569a856"
       }
       // console.log(this.state.Lists);
-      console.log('width',width);
-      console.log('height',height);
+      // console.log('width',width);
+      // console.log('height',height);
         return (
             <View>
             <View style={{flexDirection:'row',marginLeft:'5%',marginTop:'5%',marginBottom:'3%'}}>
@@ -246,7 +246,7 @@ class Home extends Component {
                  
                 }}
               >
-                {console.log('testing rbsheet')}
+                {/* {console.log('testing rbsheet')} */}
                   <View>
               
                   

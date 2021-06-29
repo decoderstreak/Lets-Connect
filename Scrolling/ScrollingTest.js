@@ -34,21 +34,21 @@ export default class ScrollingTest extends Component {
             +this.threshold
             )
         
-        {console.log(event.nativeEvent.layout.x,"this is layout");}
-        {console.log(this.state.position1.start,"this is start");}
+        // {console.log(event.nativeEvent.layout.x,"this is layout");}
+        // {console.log(this.state.position1.start,"this is start");}
         this.state.position1.end=
         event.nativeEvent.layout.x
         +event.nativeEvent.layout.width
         -this.threshold
-        {console.log(this.state.position1.end,"this is end");}
+        // {console.log(this.state.position1.end,"this is end");}
     }
     onScroll1=event=>{
          const scrollPosition1=event.nativeEvent.contentOffset.x;
          const paused1=this.state.paused1
          const {start,end}=this.state.position1
-         {console.log('scroll positon1 is',scrollPosition1);}
-         {console.log(this.state.position1.start,"this is start");}
-         {console.log(this.state.position1.end,"this is end");}
+        //  {console.log('scroll positon1 is',scrollPosition1);}
+        //  {console.log(this.state.position1.start,"this is start");}
+        //  {console.log(this.state.position1.end,"this is end");}
          if(scrollPosition1>24 && scrollPosition1<800 )
          {
             this.setState({
@@ -69,21 +69,21 @@ export default class ScrollingTest extends Component {
             +this.threshold
             )
         
-        {console.log(event.nativeEvent.layout.x,"this is layout");}
-        {console.log(this.state.position2.start,"this is start");}
+        // {console.log(event.nativeEvent.layout.x,"this is layout");}
+        // {console.log(this.state.position2.start,"this is start");}
         this.state.position2.end=
         event.nativeEvent.layout.x
         +event.nativeEvent.layout.width
         -this.threshold
-        {console.log(this.state.position2.end,"this is end");}
+        // {console.log(this.state.position2.end,"this is end");}
     }
     onScroll2=event=>{
         const scrollPosition2=event.nativeEvent.contentOffset.x;
         const paused2=this.state.paused2
         const {start,end}=this.state.position2
-        {console.log('scroll positon1 is',scrollPosition2);}
-        {console.log(this.state.position2.start,"this is start");}
-        {console.log(this.state.position2.end,"this is end");}
+        // {console.log('scroll positon1 is',scrollPosition2);}
+        // {console.log(this.state.position2.start,"this is start");}
+        // {console.log(this.state.position2.end,"this is end");}
         if(scrollPosition2>24 && scrollPosition2<800 )
         {
            this.setState({
