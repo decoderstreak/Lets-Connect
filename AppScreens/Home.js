@@ -101,7 +101,10 @@ class Home extends Component {
            {/* <View>
            <View> */}
             <LinearGradient start={{ x: 1, y: 0 }} end={{ x: 0, y: 0 }} colors={['#90bcda', '#608BC5', '#116faf', '#116faf',]} 
-            style={{ width:'90%', height: 80, borderRadius: 20, marginLeft:'5%',marginTop:'2%'}}/>
+            style={{ width:'90%', height: 80, borderRadius: 20, marginLeft:'5%',marginTop:'2%'}}>
+                 <Text style={{color:"white",fontSize:16,alignContent:"center",marginLeft:10,marginTop:10}}>"Dream the Impossible. Know that you are born in this world to do something wonderful & unique." – Sri Sri </Text>
+
+              </LinearGradient>
           <Text style={{ fontSize: 16, marginLeft:'5%',marginTop:'3%' }}>Techify</Text>
           <View 
           style={{ 

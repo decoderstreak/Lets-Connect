@@ -39,7 +39,7 @@ import Svg, {
 } from 'react-native-svg';
 import {Card} from 'react-native-elements';
 // import {Card} from 'react-native-shadow-cards';
-import img1 from '../assets/Avatar.png'
+import img1 from '../assets/ava.png'
 import firestore from '@react-native-firebase/firestore';
 import Back from '../assets/backarrow';
 export default class Mentors extends React.Component{
@@ -89,7 +89,7 @@ export default class Mentors extends React.Component{
         <View style={{flexDirection:'row',justifyContent:'space-between',alignItems:"center"}}>
 
       <View style={{marginTop:1}}>
-      <Image source={require('../assets/Avatar.png')} style={styles.img} />
+      <Image source={require('../assets/ava.png')} style={styles.img} />
       </View>
 
       <View style={{marginTop:1,position:"absolute",marginLeft:100}}> 

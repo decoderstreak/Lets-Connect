@@ -38,7 +38,7 @@ import Svg, {
 } from 'react-native-svg';
 import {Card} from 'react-native-shadow-cards';
 import Back from '../assets/backarrow';
-import MentorAvatar from '../Cards/MentorAvatar.png'
+import MentorAvatar from '../assets/Ava1.png';
 export default function Mentor({route,navigation})
 {
   // list=()=>{
@@ -65,7 +65,7 @@ export default function Mentor({route,navigation})
                             height: 120,
                             width: 120,
                             backgroundColor: "#ddd",
-                            borderRadius: 50}}resizeMode="cover"/>  
+                            borderRadius: 60}}/>  
                          
         </View> 
 

@@ -179,7 +179,7 @@ export default function Player2({navigation}) {
         }}>
         <Animated.Image
           source={item.artwork}
-          style={{width: 320, height: 320, borderRadius: 5}}
+          style={{width: 320, height: 320, borderRadius: 15,borderBottomLeftRadius:15,borderBottomRightRadius:15 }}
         />
       </Animated.View>
     );
