@@ -50,6 +50,18 @@ const img = [
   'https://i.ytimg.com/vi/nXyQUOmJ6BU/maxresdefault.jpg',
   // 'https://youtu.be/aqlN3O4xP-s'
 ]
+
+
+async function signOut() {
+  try {
+    // await GoogleSignin.signOut();
+    auth()
+      .signOut()
+      .then(() => alert('Your are signed out!'));
+  } catch (error) {
+    console.error(error);
+  }
+};
 class Home extends Component {
   threshold=150;
   constructor(props) {
@@ -63,14 +75,14 @@ class Home extends Component {
           url:'https://firebasestorage.googleapis.com/v0/b/let-s-connect-84651.appspot.com/o/Zoom%20Meeting%202021-06-04%2021-03-37.mp4?alt=media&token=5ae8c54c-c036-45b7-9df1-fca74e2799c3',
         }
       }
-      signOut = () => {
-        auth().signOut()
-        .then(() => {
-          Alert.alert('SignedOut Successfully!!!')
+      // signOut = () => {
+      //   auth().signOut()
+      //   .then(() => {
+      //     Alert.alert('SignedOut Successfully!!!')
 
-        })
-        .catch(error => this.setState({ errorMessage: error.message }))
-      } 
+      //   })
+      //   .catch(error => this.setState({ errorMessage: error.message }))
+      // } 
     render() { 
          this.state = { 
         displayName: auth().currentUser.displayName,
@@ -294,7 +306,7 @@ class Home extends Component {
                     {/* <Button title="Signout" onPress={()=>this.signOut()}/> */}
                     <TouchableOpacity 
                     style={styles.button}
-                    onPress={()=>this.signOut()}>
+                    onPress={()=>signOut()}>
                         <Text style={styles.buttontext}>Sign Out</Text>
                     </TouchableOpacity>
                   </View>
