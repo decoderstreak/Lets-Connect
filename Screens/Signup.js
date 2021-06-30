@@ -95,7 +95,7 @@ function Signup({navigation}) {
  }
   //------------------------------------------------GOOGLE SIGNIN CODE-------------------------------------------------- 
   GoogleSignin.configure({
-    webClientId:  "366845209365-76a7prfb9aqke96206bnftnua7isc2u1.apps.googleusercontent.com",
+    webClientId:"366845209365-76a7prfb9aqke96206bnftnua7isc2u1.apps.googleusercontent.com",
   });
   async function onGoogleButtonPress() {
     // navigation.navigate('Welcome');
