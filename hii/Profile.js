@@ -49,8 +49,8 @@ export default function Profile({navigation}) {
   const [NewYear, setNewYear] = useState('')
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
-      setName(firebase.auth().currentUser.displayName)
-      setEmail(firebase.auth().currentUser.email)
+      setName(auth().currentUser.displayName)
+      setEmail(auth().currentUser.email)
       // User logged in already or has just logged in.
       // console.log(firebase.auth().currentUser);
     } else {
@@ -63,7 +63,7 @@ export default function Profile({navigation}) {
     email:NewEmail
   }
   // console.log('updated info',update);
-    await firebase.auth().currentUser.updateProfile(update);
+    await auth().currentUser.updateProfile(update);
     // await firebase.auth().currentUser.updateProfile(NewEmail);
     // await firebase.auth().currentUser.updateProfile(NewYear);
   }
@@ -112,7 +112,7 @@ style={{margin:'5%',marginBottom:'3%'}}
   style={{justifyContent:'center',alignItems:'center',marginTop:'10%'}}
   // style={styles.button}
   >
-        <TouchableOpacity style={styles.button} onPress={()=>{Update()
+        <TouchableOpacity style={styles.button} onPress={()=>{Update() && navigation.goBack()
 // console.log('newname',NewName),
 // console.log('newemail',NewEmail),
 // console.log('newYear',NewYear)

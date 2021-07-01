@@ -17,7 +17,7 @@ class Welcome extends Component {
     render() {
         this.state = { 
             displayName: auth().currentUser.displayName,
-            uid: auth().currentUser.uid
+            // uid:auth().currentUser.uid
           }   
         //   console.log('width brooo',width);
         //   console.log('height brooo',height);

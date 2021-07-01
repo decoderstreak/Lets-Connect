@@ -24,6 +24,7 @@ import VideoPlayer from 'react-native-video-controls';
 import ScrollingTest from '../Scrolling/ScrollingTest';
 import firestore from '@react-native-firebase/firestore';
 import FireStore from '../StorageDataBase/FireStore';
+import { GoogleSignin } from '@react-native-google-signin/google-signin';
 
 // import SectionListInFocus from '@reactly/react-native-autoplay-scroll-video'
 const width=Dimensions.get('window').width
@@ -50,6 +51,19 @@ const img = [
   'https://i.ytimg.com/vi/nXyQUOmJ6BU/maxresdefault.jpg',
   // 'https://youtu.be/aqlN3O4xP-s'
 ]
+
+
+async function signOut() {
+  try {
+     GoogleSignin.revokeAccess();
+     GoogleSignin.signOut();
+    auth()
+      .signOut()
+      .then(() => alert('Your are signed out!'));
+  } catch (error) {
+    console.error(error);
+  }
+};
 class Home extends Component {
   threshold=150;
   constructor(props) {
@@ -63,19 +77,18 @@ class Home extends Component {
           url:'https://firebasestorage.googleapis.com/v0/b/let-s-connect-84651.appspot.com/o/Zoom%20Meeting%202021-06-04%2021-03-37.mp4?alt=media&token=5ae8c54c-c036-45b7-9df1-fca74e2799c3',
         }
       }
-      signOut = async () => {
-        auth().signOut()
-        .then(() => {
-          Alert.alert('SignedOut Successfully!!!')
+      // signOut = () => {
+      //   auth().signOut()
+      //   .then(() => {
+      //     Alert.alert('SignedOut Successfully!!!')
 
-        })
-        .catch(error => this.setState({ errorMessage: error.message }))
-        await GoogleSignin.signOut();
-      } 
+      //   })
+      //   .catch(error => this.setState({ errorMessage: error.message }))
+      // } 
     render() { 
          this.state = { 
-        displayName: auth().currentUser.displayName,
-        uid: auth().currentUser.uid,
+        name: auth().currentUser.displayName,
+        // uid: auth().currentUser.uid,
         email:auth().currentUser.email,
       } 
       let urlv={uri:"https://firebasestorage.googleapis.com/v0/b/let-s-connect-84651.appspot.com/o/VEDIOS%2Fbdaywishvedio.mp4?alt=media&token=6df0a81e-4b65-489a-aa33-7b0d0569a856"
@@ -271,13 +284,13 @@ class Home extends Component {
                 
                 <View style={styles.container}>
                 <Image source={image} />
-                <Text style={{fontSize:18,margin:'5%',color:'#222222',fontWeight:'bold'}}> {this.state.displayName}</Text>
+                <Text style={{fontSize:18,margin:'5%',color:'#222222',fontWeight:'bold'}}> {this.state.name}</Text>
                 </View>
                 <View>
                   <View style={{margin:'5%',flexDirection:'row',marginTop:'6%'}}>
                     <Nameicon/>
                     <Text style={{fontSize:18,marginLeft:'5%'}}>Name:</Text>
-                    <Text style={{fontSize:16,color:'#9B9B9B',marginLeft:'1%'}}> {this.state.displayName}</Text>
+                    <Text style={{fontSize:16,color:'#9B9B9B',marginLeft:'1%'}}> {this.state.name}</Text>
                   </View>
                   <View style={{margin:'5%',flexDirection:'row'}}>
                   <Emailicon />
@@ -295,7 +308,7 @@ class Home extends Component {
                     {/* <Button title="Signout" onPress={()=>this.signOut()}/> */}
                     <TouchableOpacity 
                     style={styles.button}
-                    onPress={()=>this.signOut()}>
+                    onPress={()=>signOut()}>
                         <Text style={styles.buttontext}>Sign Out</Text>
                     </TouchableOpacity>
                   </View>
