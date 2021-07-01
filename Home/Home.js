@@ -38,7 +38,7 @@ export default class Home extends Component {
   render() {
     return (
       <ScrollView>
-        <View style={{ width: 414, height: 1613, backgroundColor: 'white' }}>
+        <View style={{  backgroundColor: 'white' }}>
           <View style={{}}>
           <Text style={{ fontSize: 26, marginLeft: 28, marginTop: 55 }}>Let's Connect </Text>
           <Image source={profile} style={{ marginLeft: 310, marginTop: -25 }}></Image>
@@ -48,7 +48,7 @@ export default class Home extends Component {
             </Svg></View>
             </View>
           <View>
-            <LinearGradient start={{ x: 1, y: 0 }} end={{ x: 0, y: 0 }} colors={['#90bcda', '#608BC5', '#116faf', '#116faf',]} style={{ width: 379, height: 120, borderRadius: 20, marginLeft: 7, marginTop: 54 }}></LinearGradient>
+            <LinearGradient start={{ x: 1, y: 0 }} end={{ x: 0, y: 0 }} colors={['#90bcda', '#608BC5', '#116faf', '#116faf',]} style={{ width:330, height: 80, borderRadius: 20, marginLeft: 7, marginTop: 54 }}></LinearGradient>
           </View>
           <Text style={{ fontSize: 18, marginLeft: 26, marginTop: 35 }}>Techify</Text>
           <View style={{ flexDirection: 'row' }}>

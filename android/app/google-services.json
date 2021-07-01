@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "366845209365",
+    "firebase_url": "https://let-s-connect-84651-default-rtdb.firebaseio.com",
     "project_id": "let-s-connect-84651",
     "storage_bucket": "let-s-connect-84651.appspot.com"
   },
@@ -13,6 +14,14 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "366845209365-ltcv7n0t03kt3vf99922kvtlndu6bkbp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.lets",
+            "certificate_hash": "d4234c4934e89fde5400b3b691bda36ef73e28f9"
+          }
+        },
         {
           "client_id": "366845209365-76a7prfb9aqke96206bnftnua7isc2u1.apps.googleusercontent.com",
           "client_type": 3
