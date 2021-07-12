@@ -1,10 +1,9 @@
 import React,{Component} from 'react'
 import { View, Text,Button,ScrollView,StyleSheet,Image, TouchableOpacity, ImageBackground, Dimensions ,fixed, Alert} from 'react-native'
 import auth from '@react-native-firebase/auth';
-import storage from '@react-native-firebase/storage';
-import Video from 'react-native-video';
-import vediotest from '../testvedio.mp4';
-import ProfileIcon  from '../Icons/ProfileIcon';
+// import Video from 'react-native-video';
+// import vediotest from '../testvedio.mp4';
+// import ProfileIcon  from '../Icons/ProfileIcon';
 import MentorIcon from '../Icons/MentorIcon';
 import NotificationIcon from '../Icons/NotificationIcon';
 import Callender from '../assets/callender';
@@ -15,14 +14,14 @@ import RBSheet from "react-native-raw-bottom-sheet";
 import LinearGradient from 'react-native-linear-gradient';
 import home from '../Home/Development.png'
 import program from '../Home/Programing.png'
-import imgee from '../Home/circle.png';
-import imgee2 from '../Home/Arrow.png'
-import photo from '../Home/Sir.png';
-import Play from '../Sounds/play1.png';
-import Pause from '../Sounds/pause1.png';
-import VideoPlayer from 'react-native-video-controls';
+// import imgee from '../Home/circle.png';
+// import imgee2 from '../Home/Arrow.png'
+// import photo from '../Home/Sir.png';
+// import Play from '../Sounds/play1.png';
+// import Pause from '../Sounds/pause1.png';
+// import VideoPlayer from 'react-native-video-controls';
 import ScrollingTest from '../Scrolling/ScrollingTest';
-import firestore from '@react-native-firebase/firestore';
+// import firestore from '@react-native-firebase/firestore';
 import FireStore from '../StorageDataBase/FireStore';
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
 
@@ -30,6 +29,7 @@ import { GoogleSignin } from '@react-native-google-signin/google-signin';
 const width=Dimensions.get('window').width
 const height =Dimensions.get('window').height
 // const height = width * 0.50;
+// const reference = storage().ref('/images/t-shirts/black-t-shirt-sm.png');
 const images = [
   'https://st1.latestly.com/wp-content/uploads/2019/07/02-3-1.jpg',
   'https://www.quotationof.com/images/dennis-ritchies-quotes-5.jpg',

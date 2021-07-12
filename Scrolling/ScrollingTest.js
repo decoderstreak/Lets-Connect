@@ -2,9 +2,11 @@ import React,{Component} from 'react'
 import { View, Text,SafeAreaView,ScrollView,TouchableOpacity, Dimensions} from 'react-native'
 import { event } from 'react-native-reanimated';
 import VideoPlayer from 'react-native-video-controls';
-import IOTNAI from './IOTNAI.mp4';
-import USby2025 from './USby2025.mp4';
-import SMARTHOME from './SMARTHOME.mp4'
+// import IOTNAI from './IOTNAI.mp4';
+// import USby2025 from './USby2025.mp4';
+// import SMARTHOME from './SMARTHOME.mp4';
+import storage from '@react-native-firebase/storage';
+const url =  storage().ref('VEDIOS/SMARTHOME.mp4').getDownloadURL();
 const videos=[
     'https://r3---sn-qxaeen7l.googlevideo.com/videoplayback?expire=1623960453&ei=JVfLYMC6J_v-4-EPt_C3-AU&ip=103.159.32.18&id=o-ALctXY9wen8COMC2j_XV6p2pdGVuUFEEcOxyStytBt1c&itag=22&source=youtube&requiressl=yes&mh=Z6&mm=31%2C26&mn=sn-qxaeen7l%2Csn-cvh7knle&ms=au%2Conr&mv=m&mvi=3&pl=24&vprv=1&mime=video%2Fmp4&ns=6PaeDi1sudciF4NC2CjXfFAF&cnr=14&ratebypass=yes&dur=67.453&lmt=1476561022666829&mt=1623938692&fvip=3&fexp=24001373%2C24007246&c=WEB&n=d6IfMJYh1op68c4je&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cvprv%2Cmime%2Cns%2Ccnr%2Cratebypass%2Cdur%2Clmt&sig=AOq0QJ8wRQIhALumjod_zk8P4rXh7DULj8kh5muDZiM8KR93_GCB6qLVAiBYHhoYEyKkusj5hdCeGFbtYna3-A6DUvxidhXRsZYXLA%3D%3D&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl&lsig=AG3C_xAwRgIhAPsdfwGCOMaUMcVETcf89nDz75gWTCDDcLMbqtV1KUoOAiEAm9B0J0Esl-MwmYvLdHKns2QzqQjXSrDDDZYF1aXKHeA%3D',
     'https://r3---sn-qxaeen7l.googlevideo.com/videoplayback?expire=1623960453&ei=JVfLYMC6J_v-4-EPt_C3-AU&ip=103.159.32.18&id=o-ALctXY9wen8COMC2j_XV6p2pdGVuUFEEcOxyStytBt1c&itag=22&source=youtube&requiressl=yes&mh=Z6&mm=31%2C26&mn=sn-qxaeen7l%2Csn-cvh7knle&ms=au%2Conr&mv=m&mvi=3&pl=24&vprv=1&mime=video%2Fmp4&ns=6PaeDi1sudciF4NC2CjXfFAF&cnr=14&ratebypass=yes&dur=67.453&lmt=1476561022666829&mt=1623938692&fvip=3&fexp=24001373%2C24007246&c=WEB&n=d6IfMJYh1op68c4je&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cvprv%2Cmime%2Cns%2Ccnr%2Cratebypass%2Cdur%2Clmt&sig=AOq0QJ8wRQIhALumjod_zk8P4rXh7DULj8kh5muDZiM8KR93_GCB6qLVAiBYHhoYEyKkusj5hdCeGFbtYna3-A6DUvxidhXRsZYXLA%3D%3D&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl&lsig=AG3C_xAwRgIhAPsdfwGCOMaUMcVETcf89nDz75gWTCDDcLMbqtV1KUoOAiEAm9B0J0Esl-MwmYvLdHKns2QzqQjXSrDDDZYF1aXKHeA%3D',
@@ -101,7 +103,7 @@ export default class ScrollingTest extends Component {
     }
    
     render() {
-        
+        console.log('vedio link is',url);
         return (
         <SafeAreaView style={{flex:1}}>
 {/* -------------------------------------------------section-1----------------------------------------------------- */}
@@ -117,7 +119,9 @@ export default class ScrollingTest extends Component {
                     playInBackground={false}
                     onLayout={this.onVedioLayout1}
                     paused={this.state.paused1}
-                    source={IOTNAI}
+                    // source={IOTNAI}
+                    // source={uri:https://firebasestorage.googleapis.com/v0/b/let-s-connect-84651.appspot.com/o/VEDIOS%2FIOTNAI.mp4?alt=media&token=79be20c8-2066-499e-8143-b0856eab5113}
+                    source={{uri:'https://firebasestorage.googleapis.com/v0/b/let-s-connect-84651.appspot.com/o/VEDIOS%2FIOTNAI.mp4?alt=media&token=79be20c8-2066-499e-8143-b0856eab5113'}}
                     style={{ width:320,height:100, resizeMode: 'contain', borderRadius: 10 ,marginLeft:10}}>
             </VideoPlayer>
             </View>
@@ -134,7 +138,8 @@ export default class ScrollingTest extends Component {
             <VideoPlayer
                     playInBackground={false}
                     paused={true}
-                    source={USby2025 }
+                    // source={USby2025 }
+                    source={{uri:'https://firebasestorage.googleapis.com/v0/b/let-s-connect-84651.appspot.com/o/VEDIOS%2FUSby2025.mp4?alt=media&token=ce2442d6-4029-451d-b2f8-4c577b6c1464'}}
                     style={{ width:320,height:200, resizeMode: 'cover', borderRadius: 10 ,marginLeft:10}}>
             </VideoPlayer>
             </View>
@@ -154,7 +159,8 @@ export default class ScrollingTest extends Component {
                     playInBackground={false}
                     onLayout={this.onVedioLayout2}
                     paused={true}
-                    source={SMARTHOME}
+                    // source={SMARTHOME}
+                    source={{url:"https://firebasestorage.googleapis.com/v0/b/let-s-connect-84651.appspot.com/o/VEDIOS%2FSMARTHOME.mp4?alt=media&token=302a2c88-8aac-467f-980b-6247a498522a"}}
                     style={{ width:320,height:200, resizeMode: 'cover', borderRadius: 10 ,marginLeft:10}}>
             </VideoPlayer>
             </View>

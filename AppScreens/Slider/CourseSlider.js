@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
-import { Text, View,TouchableOpacity,Linking ,ScrollView} from 'react-native'
+import { Text, View,TouchableOpacity,Linking ,ScrollView, Button} from 'react-native'
 import StepIndicator from 'react-native-step-indicator' 
 import Icon from 'react-native-ionicons';
+import YouTube from 'react-native-youtube';
+import Vid from '../../Icons/Vid'
+import Docs from '../../Icons/Docs'
 import Svg, {
     Circle,
     Ellipse,
@@ -93,8 +96,30 @@ const customStyles = {
 function CourseSlider({route,navigation}){
     const [currentPosition,setCurrentposition]=useState(0);
     const l = route.params;
+    const [, updateState] = React.useState();
+const forceUpdate = React.useCallback(() => updateState({}), []);
+    // const toggle = new Array(route.params.info.length).fill(false)
+    var [toggle, settoggle] = useState(new Array(route.params.info.length).fill(false))
+    // toggle[setAll]
+    // const param =true
+    // const param = true
+    // toggle[0]=false
     
-    
+   function Toggling(num){
+        // toggle[num]=!toggle[num];
+        var x=toggle
+        x[num]=!x[num]
+        settoggle(x)
+        // setMyArray(oldArray => [...oldArray, newElement]);
+        // React.useState()[1].bind(null, {})
+        forceUpdate()
+    //   settoggle(!toggle[num]);
+console.log(typeof(toggle),toggle,'toggle');
+    }
+//   function onPageChange(position){
+//         console.log(position);
+//         // this.setState({currentPosition: position});
+//     }
     // {console.log(route.params,'testing');}
         return (
            
@@ -134,26 +159,66 @@ function CourseSlider({route,navigation}){
          stepCount={route.params.info.length} 
          renderLabel={function (position, stepStatus, label, currentPosition){
             //  console.log(position,'yyyyyy brooooo')
+
             return (
                 <View 
-                style={{marginTop:40,}}
-                // style={{alignItems:'flex-end'}}
-                // style={{marginLeft:'12%',margin:'5%'}}
+                style={{marginTop:40,flexDirection:'row'}}
                 >
-                       {/* <ScrollView> */}
+                    {/* <Text>
+                        {
+                            toggle.map((i)=>{
+                                return(
+                                    <Text>
+                                        {i},hlooo
+                                    </Text>
+                                )
+                            })
+                        }hiiii
+                    </Text> */}
                 <TouchableOpacity
-                style={{borderRadius:5,backgroundColor:"#FFFFFF"}}
-                onPress={() => 
-                    {Linking.openURL(position.label.link)}
-                    // setCurrentposition(position.position)    
+                style={{borderRadius:5,backgroundColor:"#FFFFFF",marginLeft:10}}
+                onPress={() => {Toggling(position.position)
+                    // console.log(toggle,'log')
+                }
+                //     navigation.navigate('YouTube',{id:position.label.link})
+                //     // {Linking.openURL(position.label.link)}
+                //     // setCurrentposition(position.position)  
+                //     // console.log(position.label.link)  
                  } 
                 >
                <Text
-                style={{fontSize:16,color:'black',textAlign:'center',padding:'3%',justifyContent:'space-around'}}>
+                style={{fontSize:16,color:'black',textAlign:'center',padding:'3%',justifyContent:'space-around'}}
+                >
                     {position.label.label}
-                </Text>
+                </Text>                
               </TouchableOpacity>
-              {/* </ScrollView> */}
+            {/* //   {console.log(position.position,'position')} */}
+              {
+                toggle[position.position]===true?
+                <View style={{flexDirection:"row"}}>
+          {/* {console.log('checking',toggle[position.position])} */}
+             <View style={{marginLeft:10}}>
+             <TouchableOpacity onPress={()=>navigation.navigate('YouTube',{id:position.label.id})
+            // Toggling(position.position)
+            }>
+                      <Vid/>
+            </TouchableOpacity>
+              </View> 
+
+              <View style={{marginLeft:10}}>
+              <TouchableOpacity onPress={()=>{Linking.openURL(position.label.docs)}
+            // Toggling(position.position)
+            }>
+                      <Docs/>
+              </TouchableOpacity>
+              </View>
+              </View>
+                        :
+
+                        <View>
+                        {/* <Text>hiiiiiiiiii</Text>  */}
+                        </View> 
+              } 
               
               </View>
             )
@@ -161,11 +226,8 @@ function CourseSlider({route,navigation}){
     />
     </ScrollView>   
     </View>    
-    {/* <TouchableOpacity style={{alignSelf:"center"}} onPress={()=>Next()}>
-        <Text style={{color:"#FFFFFF",fontSize:25}}>Next</Text>
-    </TouchableOpacity> */}
             </View>
         )
     }
-
+    
 export default  CourseSlider
