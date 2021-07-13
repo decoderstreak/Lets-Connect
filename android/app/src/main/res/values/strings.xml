@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Lets</string>
    <string name="facebook_app_id">335805017941123</string>
+   <!-- <string name="facebook_app_id">2930379147210450</string> -->
 </resources>
