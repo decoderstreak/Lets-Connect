@@ -2,12 +2,6 @@ import React, { Component } from 'react'
 import {View,Text,Image,ScrollView,StyleSheet,TouchableOpacity} from 'react-native'
 import {Svg,Rect,Path} from 'react-native-svg'
 import LinearGradient from 'react-native-linear-gradient';
-import img1 from '../Card2/Cl.png'
-import img2 from '../Card2/Cpp.png'
-import img3 from '../Card2/Java.png'
-import img4 from '../Card2/Python.png'
-import img5 from '../Cards/act.png'
-import img6 from '../Cards/Angular.png'
 import Back from '../assets/backarrow';
 import firestore from '@react-native-firebase/firestore';
 export default class Cards extends Component {
@@ -19,25 +13,25 @@ export default class Cards extends Component {
                 {
                  course: 'C',
                  colors:['#116faf','#2d9ed6', '#90bcda'],
-                 img:img1,
+                 img:'https://firebasestorage.googleapis.com/v0/b/let-s-connect-84651.appspot.com/o/Images%2FCl.png?alt=media&token=450bbe14-f519-4a3e-94f0-c46b3086972f',
                  index:0
                 },
                 {
                  course: 'C++',
                  colors:['#18ec84','#048046',],
-                 img:img2,
+                 img:'https://firebasestorage.googleapis.com/v0/b/let-s-connect-84651.appspot.com/o/Images%2FCpp.png?alt=media&token=16ddaaa6-05f0-47ba-ba6a-b57bfddf8f37',
                  index:1
                 },
                 {
                  course: 'JAVA',
                 colors:['#ff0000','#750000',],
-                img:img3,
+                img:'https://firebasestorage.googleapis.com/v0/b/let-s-connect-84651.appspot.com/o/Images%2FJava.png?alt=media&token=649c4db7-0be0-48e8-a835-aa73f7d12ff6',
                 index:2
                 },
                 {
                  course: 'PYTHON',
                  colors:['#0da1fe','#c4e5f9'],
-                 img:img4,
+                 img:'https://firebasestorage.googleapis.com/v0/b/let-s-connect-84651.appspot.com/o/Images%2FPython.png?alt=media&token=6e2d60db-a309-4a48-b026-66fb5ada963e',
                  index:3
                 },
             ],
@@ -90,7 +84,7 @@ export default class Cards extends Component {
                     <View style={{flexDirection:'row'}}>
                             <Text style={{color:'white',fontSize:22,position:"absolute",marginLeft:60,marginTop:20,alignContent:"center"}}>{i.course}</Text>
                             <View style={{marginLeft:150}}>
-                            <Image source={i.img} style={{width:70,height:65,marginTop:10,marginLeft:100}}></Image>
+                            <Image source={{uri:i.img}} style={{width:70,height:65,marginTop:10,marginLeft:100}}></Image>
                             </View>
                     </View>
             </LinearGradient>

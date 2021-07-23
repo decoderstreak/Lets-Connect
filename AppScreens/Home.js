@@ -9,11 +9,11 @@ import NotificationIcon from '../Icons/NotificationIcon';
 import Callender from '../assets/callender';
 import Emailicon from '../assets/Emailicon';
 import Nameicon from '../assets/name';
-import image from '../assets/ava.png';
+// import image from '../assets/ava.png';
 import RBSheet from "react-native-raw-bottom-sheet";
 import LinearGradient from 'react-native-linear-gradient';
-import home from '../Home/Development.png'
-import program from '../Home/Programing.png'
+// import home from '../Home/Development.png'
+// import program from '../Home/Programing.png'
 // import imgee from '../Home/circle.png';
 // import imgee2 from '../Home/Arrow.png'
 // import photo from '../Home/Sir.png';
@@ -141,7 +141,7 @@ class Home extends Component {
                 // width:
               }}>
                 <TouchableOpacity onPress={()=>this.props.navigation.navigate("Cards")}>
-                <ImageBackground source={home} 
+                <ImageBackground source={{uri:'https://firebasestorage.googleapis.com/v0/b/let-s-connect-84651.appspot.com/o/Images%2FDevelopment.png?alt=media&token=5bc42541-1ed7-407a-ae6e-67955adae278'}} 
                 style={{
                   width:'100%',
                   height:'100%',
@@ -171,7 +171,7 @@ class Home extends Component {
                 // width:
               }}>
                 <TouchableOpacity onPress={()=>this.props.navigation.navigate("Cards2")}>
-                <ImageBackground source={program} 
+                <ImageBackground source={{uri:'https://firebasestorage.googleapis.com/v0/b/let-s-connect-84651.appspot.com/o/Images%2FPrograming.png?alt=media&token=6983a06e-2799-460c-811f-57bd25bd98f5'}} 
                 style={{
                   width:'100%',
                   height:'100%',
@@ -283,7 +283,7 @@ class Home extends Component {
 
                 
                 <View style={styles.container}>
-                <Image source={image} />
+                <Image  source={{uri:'https://firebasestorage.googleapis.com/v0/b/let-s-connect-84651.appspot.com/o/Images%2Fava.png?alt=media&token=d972b798-599a-4a2f-9a63-06a1cf7464b8'}} />
                 <Text style={{fontSize:18,margin:'5%',color:'#222222',fontWeight:'bold'}}> {this.state.name}</Text>
                 </View>
                 <View>

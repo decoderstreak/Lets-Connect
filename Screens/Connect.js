@@ -1,7 +1,7 @@
 import React, { Component,useRef } from 'react';
 import { StyleSheet, View, Text, Button,Image,TouchableOpacity } from 'react-native';
 import auth, { firebase } from '@react-native-firebase/auth';
-import image from '../assets/Avatar.png';
+// import image from '../assets/Avatar.png';
 import RBSheet from "react-native-raw-bottom-sheet";
 import Callender from '../assets/callender';
 import Emailicon from '../assets/Emailicon';
@@ -120,7 +120,7 @@ componentDidMount=()=>{
               <Text style={{fontSize:34,marginLeft:20}}>My profile</Text>
 
               <View style={styles.container}>
-              <Image source={image} />
+              <Image source={{uri:'https://firebasestorage.googleapis.com/v0/b/let-s-connect-84651.appspot.com/o/Images%2Fava.png?alt=media&token=d972b798-599a-4a2f-9a63-06a1cf7464b8'}} />
               <Text style={{fontSize:20,marginTop:18,color:'#222222'}}> {this.state.displayName}</Text>
               <TouchableOpacity >
                   <Text style={{marginLeft:150,marginTop:20,fontSize:15,color:'#116FAF'}}>Edit</Text>

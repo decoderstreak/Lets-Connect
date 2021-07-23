@@ -194,7 +194,7 @@ export default function Player1({navigation}) {
           ],
         }}>
         <Animated.Image
-          source={item.artwork}
+          source={{uri:item.artwork}}
           style={{width:300,height:250,borderRadius:10,marginTop:20}}
           // style={{width: 320, height: 300, borderRadius: 5}}
         />

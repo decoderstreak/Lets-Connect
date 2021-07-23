@@ -8,16 +8,18 @@ class Logo extends Component{
      <SafeAreaView style={{ flex: 1,alignContent:"center",alignItems:"center"}}>
      <View style={{backgroundColor:'white',alignContent:"center",flex:1,alignItems:"center",}}>
             <ScrollView>
-            <View style={{backgroundColor:"fff",marginTop:210}}>
+            <View style={{backgroundColor:"white",marginTop:210}}>
             <Image source={image} style={{ aspectRatio: 1.3,resizeMode:'cover' }}/>
-            </View>
-            <View style={{marginTop:100,justifyContent:'center',alignItems:'center'}}>
+            {/* <Image source={{uri:'https://firebasestorage.googleapis.com/v0/b/let-s-connect-84651.appspot.com/o/Images%2Flogo.jpeg?alt=media&token=057c9470-88d8-4432-954e-24065b3a190f'}} style={{ aspectRatio: 1.3,resizeMode:'cover' }}/> */}
+             <View style={{marginTop:100,justifyContent:'center',alignItems:'center'}}>
             <TouchableOpacity 
             style={styles.button3}
             onPress={() => this.props.navigation.navigate('Login')}>
             <Text style={{fontSize:18,color:"white",fontWeight:"bold",marginTop:9}}>Let's Connect</Text>
             </TouchableOpacity>
             </View>
+            </View>
+           
             </ScrollView>
                 </View>
         </SafeAreaView>

@@ -193,7 +193,8 @@ export default function Player3({navigation}) {
           ],
         }}>
         <Animated.Image
-          source={item.artwork}
+          source={{uri:item.artwork}}
+          // source={item.artwork}
           style={{width:300,height:250,borderRadius:10,marginTop:20}}
         />
       </Animated.View>

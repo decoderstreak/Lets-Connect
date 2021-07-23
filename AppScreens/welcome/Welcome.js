@@ -1,7 +1,6 @@
 import React, { Component} from 'react'
 import {View,Text,Image,TouchableOpacity,ScrollView,StyleSheet,Dimensions} from 'react-native'
 import welcome from './Welcomm.png'
-import bird from './Vector.png'
 import auth from '@react-native-firebase/auth';
 const width=Dimensions.get('screen').width
 const height =Dimensions.get('screen').height
@@ -38,6 +37,7 @@ class Welcome extends Component {
                 </View>
                 <View style={{alignItems:'center',marginTop:40}}>
                     <Image source={welcome} />
+                    {/* <Image source={{uri:'https://firebasestorage.googleapis.com/v0/b/let-s-connect-84651.appspot.com/o/Images%2FWelcomm.png?alt=media&token=3118a12e-1e56-4c68-82f0-3754b155f8de'}} /> */}
                 </View>
                 <View style={{marginTop:80,justifyContent:'center',alignItems:'center'}}>
             <TouchableOpacity 

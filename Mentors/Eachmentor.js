@@ -38,7 +38,6 @@ import Svg, {
 } from 'react-native-svg';
 import {Card} from 'react-native-shadow-cards';
 import Back from '../assets/backarrow';
-import MentorAvatar from '../assets/Ava1.png';
 export default function Mentor({route,navigation})
 {
   // list=()=>{
@@ -61,7 +60,7 @@ export default function Mentor({route,navigation})
     <View style={{marginTop:40,marginBottom:20,flex:1,alignItems:"center"}}>
 
       <View style={{alignItems:"center"}}>
-      <Image source={MentorAvatar}  style={{
+      <Image source={{uri:'https://firebasestorage.googleapis.com/v0/b/let-s-connect-84651.appspot.com/o/Images%2FAva1.png?alt=media&token=3aba0fa3-b0c7-4ade-929e-feaf4b30ceaf'}}  style={{
                             height: 120,
                             width: 120,
                             backgroundColor: "#ddd",
@@ -106,7 +105,7 @@ export default function Mentor({route,navigation})
             return(
            
       <Card style={{width:144,height:175,alignItems:'center',paddingTop:10,borderWidth:1,borderColor:"rgba(201, 201, 201, 1)",marginLeft:10}} key={list}>
-      <Image source={require('../assets/1.png')}  style={{
+      <Image source={{uri:'https://firebasestorage.googleapis.com/v0/b/let-s-connect-84651.appspot.com/o/Images%2F1.png?alt=media&token=576ff17c-4e6b-4bef-bbef-098fbec351f8'}}  style={{
                             height: 71,
                             width: 66,
                             

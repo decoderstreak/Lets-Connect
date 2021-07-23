@@ -2,12 +2,6 @@ import React, { Component } from 'react'
 import {View,Text,Image,ScrollView,StyleSheet} from 'react-native'
 import {Svg,Rect,Path} from 'react-native-svg'
 import LinearGradient from 'react-native-linear-gradient';
-import img1 from '../Cards/Html.png'
-import img2 from '../Cards/Css.png'
-import img3 from '../Cards/Boot.png'
-import img4 from '../Cards/Js.png'
-import img5 from '../Cards/act.png'
-import img6 from '../Cards/Angular.png'
 import Back from '../assets/backarrow';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import database from '@react-native-firebase/database';
@@ -21,25 +15,25 @@ export default class Cards extends Component {
                {
                 course: 'HTML',
                 colors:['#E65100','#FA500C', '#FB743E', '#FC9870','#FDAA89',],
-                img:img1,
+                img:'https://firebasestorage.googleapis.com/v0/b/let-s-connect-84651.appspot.com/o/Images%2FHtml.png?alt=media&token=45bf2733-365b-4387-a4f2-3c144e7b6f2d',
                 index:3,
                },
                {
                 course: 'CSS',
                 colors:['#116faf','#2d9ed6', '#90bcda',],
-                img:img2,
+                img:'https://firebasestorage.googleapis.com/v0/b/let-s-connect-84651.appspot.com/o/Images%2FCss.png?alt=media&token=684ce344-fc1f-4493-b17a-44440f4518e0',
                 index:2
                },
                {
                course: 'BOOTSTRAP',
                colors:['#4701c1','#844adb',],
-               img:img3,
+               img:'https://firebasestorage.googleapis.com/v0/b/let-s-connect-84651.appspot.com/o/Images%2FBoot.png?alt=media&token=e13a24e5-90bf-4a69-8fe9-ac3f15e31fb3',
                index:1
                },
                {
                 course: 'JS',
                 colors:['#f79b34','#fbd603'],
-                img:img4,
+                img:'https://firebasestorage.googleapis.com/v0/b/let-s-connect-84651.appspot.com/o/Images%2FJs.png?alt=media&token=99df2eba-b4fc-4707-acc8-2af2b9c69a11',
                 index:4
                },
            ],
@@ -87,7 +81,7 @@ export default class Cards extends Component {
                                 <View style={{flexDirection:'row'}}>
                                     <Text style={{color:'white',fontSize:22,position:"absolute",marginLeft:60,marginTop:20,alignContent:"center"}}>{i.course}</Text>
                                     <View style={{marginLeft:150}}>
-                                    <Image source={i.img} style={{width:70,height:65,marginTop:10,marginLeft:100}}></Image>
+                                    <Image source={{uri:i.img}} style={{width:70,height:65,marginTop:10,marginLeft:100}}></Image>
                                     </View>
                                 </View>
                             </LinearGradient>
@@ -102,14 +96,14 @@ export default class Cards extends Component {
                 {info:this.state.List[5].FIELD,
                  name: 'ReactJS'})}>
                     <View style={{width:145,height:145,borderRadius:15,marginTop:15,marginLeft:21,backgroundColor:'black'}}>
-                        <Image source={img5} style={{width:145,height:145}}></Image>
+                        <Image source={{uri:'https://firebasestorage.googleapis.com/v0/b/let-s-connect-84651.appspot.com/o/Images%2Fact.png?alt=media&token=0199a039-4704-46ff-8b97-71eba10043f6'}} style={{width:145,height:145}}></Image>
                     </View>
                     </TouchableOpacity>
                     <TouchableOpacity onPress={()=>this.props.navigation.navigate('CourseSlider',
                 {info:this.state.List[0].FIELD,
                  name: 'AngularJS'})} >
                     <View style={{width:145,height:145,borderRadius:15,marginTop:15,marginLeft:21,backgroundColor:'black'}}>
-                        <Image source={img6} style={{width:145,height:145}}></Image>
+                        <Image source={{uri:'https://firebasestorage.googleapis.com/v0/b/let-s-connect-84651.appspot.com/o/Images%2FAngular.png?alt=media&token=6eb91229-d11f-42c8-9041-fec3f40f4c1e'}} style={{width:145,height:145}}></Image>
                     </View>
                     </TouchableOpacity>
                 </View>   

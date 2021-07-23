@@ -34,7 +34,7 @@ import Svg, {
     Pattern,
     Mask,
   } from 'react-native-svg';
-import p from '../assets/Avatar.png'
+// import p from '../assets/Avatar.png'
 import { firebase } from '@react-native-firebase/auth';
 import auth from '@react-native-firebase/auth';
 import { set } from 'react-native-reanimated';
@@ -86,7 +86,7 @@ export default function Profile({navigation}) {
             // style={{margin:20}}
             >
                   <View style={{alignItems:'center',justifyContent:'center'}}>  
-                  <Image source={p}  style={{
+                  <Image source={{uri:'https://firebasestorage.googleapis.com/v0/b/let-s-connect-84651.appspot.com/o/Images%2Fava.png?alt=media&token=d972b798-599a-4a2f-9a63-06a1cf7464b8'}}  style={{
                             height: 120,
                             width: 120,
                             backgroundColor: "#ddd",

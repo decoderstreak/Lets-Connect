@@ -121,10 +121,15 @@ export default function Player({navigation}) {
     <SafeAreaView style={styles.container}>
                     <SafeAreaView>
                     
+                    
                      <View style={{marginLeft:55,flex:0.5}}> 
-            <Image source={s1} style={{marginTop:-90,marginLeft:-30   }}></Image>
+            {/* <Image source={{uri:'https://firebasestorage.googleapis.com/v0/b/let-s-connect-84651.appspot.com/o/Images%2Fs1.png?alt=media&token=9ae96286-e757-498d-8f93-c5d14458bcce'}} style={{marginTop:-90,marginLeft:-30 }}></Image>
+            <Image source={{uri:'https://firebasestorage.googleapis.com/v0/b/let-s-connect-84651.appspot.com/o/Images%2Fs4.png?alt=media&token=762e14f8-6790-4df1-b254-d65ce6e01553'}} style={{marginTop:-140,marginLeft:130,opacity:0.6}}></Image>
+            <Image source={{uri:'https://firebasestorage.googleapis.com/v0/b/let-s-connect-84651.appspot.com/o/Images%2Fs2.png?alt=media&token=f30e59cc-92bd-484e-8f4a-4f0e4057dba8'}} style={{marginTop:240, marginLeft:200}} ></Image>
+            <Image source={{uri:'https://firebasestorage.googleapis.com/v0/b/let-s-connect-84651.appspot.com/o/Images%2Fs3.png?alt=media&token=acb0e1ac-2f4f-43e6-a86f-2dd2f7b44228'}} style={{marginTop:-380, marginLeft:-20   }}></Image>  */}
+            <Image source={s1} style={{marginTop:-90,marginLeft:-30 }}></Image>
             <Image source={s4} style={{marginTop:-140,marginLeft:130,opacity:0.6}}></Image>
-            <Image source={s2} style={{marginTop:240, marginLeft:200 }} ></Image>
+            <Image source={s2} style={{marginTop:240, marginLeft:200}} ></Image>
             <Image source={s3} style={{marginTop:-380, marginLeft:-20   }}></Image> 
             </View> 
            </SafeAreaView>
