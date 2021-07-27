@@ -52,12 +52,24 @@ function Signup({navigation}) {
   if(Loader)
   {
     return(
-      // setInterval(()=>{
+      // setInterval(() => {
         <ActivityIndicator color = 'white'size = "large" />
-      // },1000)
+    
+      // }, 1000)
     )
   }
 }
+    
+
+  //       setInterval(() =>
+  //       {
+  //       <ActivityIndicator color = 'white'size = "large" />
+  //       },
+  //       1000
+  //       )
+  //   )
+  // }
+
   // ------------------------------------------------SIGNIN WITH MAIL & PASSWORD----------------------------------------
   async function signinwithmailpassword(){
   
@@ -66,13 +78,23 @@ function Signup({navigation}) {
      Alert.alert('Enter details')
    }
    else{
-  console.log(email,Password);
+
+  setLoader(true) 
   auth()
   .createUserWithEmailAndPassword(email, Password)
-  .then(() => {
-    setLoader(true) 
+  .then((res) => {
+    res.user.updateProfile({
+      displayName: Name
+    })
+    console.log(email,Password);
+
+
+   
     // console.log('User account created & signed in!');
+    setLoader(false) 
     Alert.alert('User account created & signed in!')
+  
+    
    
   })
   .catch(error => {
@@ -198,8 +220,12 @@ function Signup({navigation}) {
              
             <TouchableOpacity style={styles.button3} onPress={()=>
             signinwithmailpassword()
-             }>
-              {Activityloader()}
+             }> 
+              {
+              Activityloader()
+              }
+
+
             <Text style={{fontFamily:'Roboto',fontSize:16,alignItems:'center',justifyContent:'center',fontWeight:"bold",color:"white",marginTop:9}}>
               Sign Up</Text>
             </TouchableOpacity>

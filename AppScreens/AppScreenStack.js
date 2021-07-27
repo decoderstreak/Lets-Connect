@@ -17,6 +17,10 @@ import Player3 from '../Relax/Player3';
 import Playerrr from '../Sounds/Track';
 import YouTube from './Slider/YouTube';
 import CourseSliderCls from './Slider/CourseSliderCls';
+import DiscussTab from '../DoubtsSection/DiscussTab' 
+import AnswersTech from '../DoubtsSection/AnswersTech';
+import DiscussTech from '../DoubtsSection/DiscussTech';
+import DiscussStack from '../DoubtsSection/DiscussStack';
 const Stack = createStackNavigator();
 export default function AppScreenStack() {
     return (
@@ -34,6 +38,9 @@ export default function AppScreenStack() {
            <Stack.Screen name="Eachmentor" component={Eachmentor}/>
            <Stack.Screen name="Test" component={TestButtons}/>
            <Stack.Screen name="YouTube" component={YouTube}/>
+           {/* <Stack.Screen name="DiscussStack" component={DiscussStack}/>
+           <Stack.Screen name="DiscussTech" component={DiscussTech}/>
+           <Stack.Screen name="AnswersTech" component={AnswersTech}/> */}
            <Stack.Screen name="Player1" component={Player1} options={{headerShown:false}} />
             <Stack.Screen name="Player2" component={Player2} options={{headerShown:false}} />
             <Stack.Screen name="Player3" component={Player3}  options={{headerShown:false}}/>

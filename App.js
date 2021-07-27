@@ -11,6 +11,7 @@
    LogBox 
  } from 'react-native';
  
+import { MenuProvider } from 'react-native-popup-menu';
  import {
    Colors,
    DebugInstructions,
@@ -18,52 +19,21 @@
    LearnMoreLinks,
    ReloadInstructions,
  } from 'react-native/Libraries/NewAppScreen';
-//  import Signup from './mine/Signup';
-//  import S from './hii/S'
-//  import Storage from './StorageDataBase/Storage';
-//  import Stack from './navigation/stack'
  import AuthScreens  from './Authentications/AuthScreens';
-//  import Welcome from './AppScreens/Welcome';
-//  import Connect from './Screens/Connect';
-//  import Sadhana from './AppScreens/sadhana/Sadhana'
-//  import Track from './Sounds/Trackplayer'
-//  import Profile from './hii/Profile';
-//  import GettingFiles from './StorageDataBase/GettingFiles';
-//  import Logo from './Screens/Logo'
-//  import Card2 from '../Lets-Connect/Card2/Card2.js'
-//  import Home from '../Lets-Connect/AppScreens/Home.js';
-//  import Cards from '../Lets-Connect/Card2/Card2.js';
-//  import ScrollingTest from './Scrolling/ScrollingTest';
-//  import Mentors from './Mentors/Mentor';
-//  import Mentor from './Mentors/Eachmentor';
-//  import FireStore from './StorageDataBase/FireStore';
-//  import GettingCourses from './StorageDataBase/GettingCourses';
-//  import TestingThree from './StorageDataBase/TestingThree';
-// import TestingFour from './StorageDataBase/TestingFour';
-// import CourseSlider from './AppScreens/Slider/CourseSlider'
-// import TestButtons from './StorageDataBase/TestButtons';
-// import Welcome from './AppScreens/welcome/Welcome';
-// import Profile from './hii/Profile'; 
-
-LogBox.ignoreAllLogs();
+import UploadingImages from './DoubtsSection/UploadingImages';
+import DiscussTab from './DoubtsSection/DiscussTab'
+ LogBox.ignoreAllLogs();
 
 // console.disableYellowBox = true;
 
 
   export default function App(){
      return(
-      //  <Cards/>
-      //  <CourseSlider/>
-      //  <TestingFour/>
-      //  <GettingCourses/>
-      //  <TestingThree/>
-      // <Home/>
-       <AuthScreens/>
-      // <Profile/>
-      // <Welcome/>
-      // <TestButtons/>
-      // <ScrollingTest/>
-      // <FireStore/>
+      <DiscussTab/>
+      //  <AuthScreens/>
+      // <MenuProvider>
+      // {/* <UploadingImages/> */}
+      // </MenuProvider>
      ) 
  }
  const styles = StyleSheet.create({

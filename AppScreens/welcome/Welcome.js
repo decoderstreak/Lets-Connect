@@ -28,7 +28,7 @@ class Welcome extends Component {
                     // style={{justifyContent:'center',alignItems:'center'}}
                     >
                     <View  style={styles.viewtag}>
-                    <Text style={styles.texttag}>Hi {this.state.displayName} , Welcome to let’s connect</Text> 
+                    <Text style={styles.texttag}>Hi {this.state.displayName} ! Welcome to let’s connect</Text> 
                     </View>
                     </View>
                 <View style={{marginTop:10,justifyContent:'center',alignItems:'center'}}>
